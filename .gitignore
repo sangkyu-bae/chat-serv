@@ -1,0 +1,102 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+# Logs
+logs
+*.log
+
+# Environment variables
+.env
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# IDE specific files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+*.sublime-workspace
+*.sublime-project
+
+# Build directories
+build/
+out/
+target/
+bin/
+
+# Gradle specific
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Maven specific
+.mvn/
+mvnw
+mvnw.cmd
+
+# Node modules (if applicable)
+node_modules/
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Application specific
+application-local.yml
+application-dev.yml
+application-prod.yml
+
+# Test coverage reports
+coverage/
+.coverage
+htmlcov/
+
+# Other
+*.bak
+*.orig
+*.rej
