@@ -1,6 +1,6 @@
 package org.example.chat.controller;
 
-import org.example.chat.model.ChatMessage;
+import org.example.domain.ChatMessage;
 import org.example.chat.service.ChatMessageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

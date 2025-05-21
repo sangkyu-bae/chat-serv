@@ -1,2 +1,5 @@
 rootProject.name = 'chat-module'
 include 'chat-service'
+include 'chat-proxy'
+include 'common'
+

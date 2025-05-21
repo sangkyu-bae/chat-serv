@@ -1,0 +1,60 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: chat-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/chat_service?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+  webflux:
+    base-path: /api
+  codec:
+    max-in-memory-size: 16MB
+
+redis:
+  host: localhost
+  port: 6379
+  key:
+    chat-room : "chat:room:"
+
+logging:
+  level:
+    root: INFO
+    com.example.chatservicenetty: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.springframework.web.reactive: DEBUG
+
+  charset:
+    console: UTF-8
+    file: UTF-8
+
+  file:
+    name: userLog # ?? ??? ??? ?????.
+    path: C:/logs/user # ?? ??? ??? ?????.
+    max-history: 30
+
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) ---- [%-10.10thread] %cyan([%logger{0}:%line] %M)  %marker %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level ---- [%-10.10thread] [%logger{0}:%line] %M  %marker %msg%n"
+
+grpc:
+  client:
+    chat-service:
+      address: static://localhost:9090
+      negotiation-type: plaintext
+
+kafka:
+  bootstrapServer: localhost:9092
+  topic :
+    chat : chat

@@ -1,4 +1,4 @@
-package org.example.chat.model;
+package org.example.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
