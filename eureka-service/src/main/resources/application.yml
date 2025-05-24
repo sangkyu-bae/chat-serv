@@ -1,0 +1,42 @@
+server:
+  port: 8761
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+spring:
+  application:
+    name: eureka-service
+
+logging:
+
+  charset:
+    console: UTF-8
+    file: UTF-8
+
+  file:
+    name: eureka
+    path: C:\logs\eureka\eureka.log
+    max-history: 30
+
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) ---- [%-10.10thread] %cyan([%logger{0}:%line] %M)  %marker %msg%n"
+    file:  "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level ---- [%-10.10thread] [%logger{0}:%line] %M  %marker %msg%n"
+
+  level:
+    root: INFO
+
+
+#server:
+#  port: 8761
+#
+#spring:
+#  application:
+#    name: discovery-service
+#
+#eureka:
+#  client:
+#    register-with-eureka: false #eureka server를 registry에 등록할지 여부
+#    fetch-registry: false       #registry에 있는 정보들을 가져올지 여부

@@ -1,0 +1,13 @@
+
+redis:
+  host: localhost
+  port: 6379
+  key:
+    chat-room : "chat:room:"
+    room : "chat:room:"
+    message : "chat:message:"
+
+kafka:
+  bootstrapServer: localhost:9092
+  topic :
+    chat : chat
