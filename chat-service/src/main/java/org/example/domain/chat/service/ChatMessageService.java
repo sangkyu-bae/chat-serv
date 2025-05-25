@@ -1,4 +1,4 @@
-package org.example.chat.service;
+package org.example.domain.chat.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

@@ -1,10 +1,10 @@
-package org.example.chat.controller;
+package org.example.domain.chat.controller;
 
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.chat.model.ChatRoom;
-import org.example.chat.service.ChatRoomService;
+import org.example.domain.chat.model.ChatRoom;
+import org.example.domain.chat.service.ChatRoomService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;

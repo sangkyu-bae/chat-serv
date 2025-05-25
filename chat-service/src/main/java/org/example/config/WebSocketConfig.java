@@ -2,7 +2,7 @@ package org.example.config;
 
 
 import lombok.RequiredArgsConstructor;
-import org.example.chat.handler.WebSocketChatHandler;
+import org.example.domain.chat.handler.WebSocketChatHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.HandlerMapping;

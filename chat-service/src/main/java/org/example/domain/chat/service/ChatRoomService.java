@@ -1,4 +1,4 @@
-package org.example.chat.service;
+package org.example.domain.chat.service;
 
 import com.example.chatservicenetty.domain.chat.model.ChatRoom;
 import lombok.extern.slf4j.Slf4j;

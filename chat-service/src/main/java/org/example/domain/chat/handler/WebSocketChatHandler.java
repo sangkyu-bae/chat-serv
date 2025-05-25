@@ -1,11 +1,11 @@
-package org.example.chat.handler;
+package org.example.domain.chat.handler;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.domain.ChatMessage;
-import org.example.chat.service.ChatMessageService;
+import org.example.domain.chat.service.ChatMessageService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.socket.WebSocketHandler;
 import org.springframework.web.reactive.socket.WebSocketMessage;

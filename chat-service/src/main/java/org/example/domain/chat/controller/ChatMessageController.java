@@ -1,10 +1,12 @@
-package org.example.chat.controller;
+package org.example.domain.chat.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.example.domain.ChatMessage;
-import org.example.chat.service.ChatMessageService;
+import org.example.domain.chat.service.ChatMessageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.chat.service.ChatRoomService;
+import org.example.domain.chat.service.ChatRoomService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -14,14 +16,13 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/chat")
+@Tag(name = "채팅 API", description = "채팅 관련 API")
 public class ChatMessageController {
 
     private final ChatMessageService chatMessageService;
     private final ChatRoomService chatRoomService;
 
-    /**
-     * 채팅 메시지 전송
-     */
+    @Operation(summary = "채팅 메시지 전송 API", description = "채팅 메시지를 전송 합니다.")
     @PostMapping("/rooms/{roomId}/messages")
     public Mono<ResponseEntity<ChatMessage>> sendMessage(
             @PathVariable String roomId,
@@ -48,10 +49,7 @@ public class ChatMessageController {
                 })
                 .onErrorResume(e -> Mono.just(ResponseEntity.notFound().build()));
     }
-    
-    /**
-     * 채팅방의 최근 메시지 조회
-     */
+    @Operation(summary = "채팅방 메시지 조회", description = "채팅방의 최근 메시지를 조회합니다.")
     @GetMapping("/rooms/{roomId}/messages")
     public Mono<ResponseEntity<Flux<ChatMessage>>> getMessages(@PathVariable String roomId) {
         // 채팅방 존재 여부 확인
