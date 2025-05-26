@@ -1,26 +1,31 @@
 package org.example.modules.redis;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.lettuce.core.api.async.RedisAsyncCommands;
+import lombok.RequiredArgsConstructor;
+import org.example.domain.ChatMessage;
+import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SetOperations;
+import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+@Repository
+@RequiredArgsConstructor
 public class RedisRepository {
 
-    private RedisTemplate<String,Object> redisTemplate;
-    private SetOperations<String,Object> setOperations;
-    private RedisOperations<String, Object> operations;
+    private final RedisTemplate<String,Object> redisTemplate;
+    private final SetOperations<String,Object> setOperations;
 
-    private RedisAsyncCommands<String, String> redisAsyncCommands;
+    private final RedisAsyncCommands<String, String> redisAsyncCommands;
 
-    public RedisRepository(RedisTemplate<String, Object> redisTemplate){
-        this.redisTemplate = redisTemplate;
-        this.setOperations = redisTemplate.opsForSet();
-        this.operations = redisTemplate.opsForList().getOperations();
-    }
+    private final ReactiveRedisTemplate<String, String> reactiveRedisTemplate;
 
     public void setTypeSave(String key, String value){
         try{
@@ -50,6 +55,7 @@ public class RedisRepository {
     }
 
     public List<Object> findWithListType(String key, long start, long end){
+        RedisOperations<String, Object> operations = redisTemplate.opsForList().getOperations();
         try{
             return operations.opsForList().range(key,start,end);
         }catch (Exception e){
@@ -73,4 +79,37 @@ public class RedisRepository {
         return Boolean.TRUE.equals(redisTemplate.opsForSet().isMember(key, value));
     }
 
+
+    public Mono<Boolean> saveWhitList(String key, String value) {
+        return reactiveRedisTemplate.opsForList()
+                .rightPush(key, value)
+                .map(count -> true);
+    }
+
+    public Flux<String> findByKey(String key, long start, long end) {
+        return reactiveRedisTemplate.opsForList()
+                .range(key, start, end)
+                .flatMap(json -> {
+                    return Mono.just(json);
+                });
+    }
+
+    public Mono<Boolean> saveWithHash(String key, Map<String,String> info) {
+        return reactiveRedisTemplate.opsForHash()
+                .putAll(key, info);
+    }
+
+    public Mono<Map<String, String>> findByHash(String key) {
+        return reactiveRedisTemplate.opsForHash()
+                .entries(key)
+                .collectMap(
+                        entry -> (String) entry.getKey(),
+                        entry -> (String) entry.getValue()
+                );
+    }
+
+    public Mono<Boolean> deleteHash(String key) {
+        return reactiveRedisTemplate.delete(key)
+                .map(count -> count > 0);
+    }
 }
