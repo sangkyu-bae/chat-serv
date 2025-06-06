@@ -13,7 +13,7 @@ public class ChatAdapter {
     private final ChatRoomService chatRoomService;
 
     public Mono<Void> test(String name){
-        chatRoomService.createRoom(name);
+//        chatRoomService.createSingleRoom(name);
 
         return Mono.empty();
     }

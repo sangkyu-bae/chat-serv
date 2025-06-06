@@ -1,16 +1,16 @@
 package org.example.domain.chat.controller;
 
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.domain.chat.model.ChatRoom;
+import org.example.domain.chat.dto.RequestCreateRoom;
+import org.example.domain.chat.domain.SingleChatRoom;
 import org.example.domain.chat.service.ChatRoomService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.Map;
 
 @Slf4j
 @RestController
@@ -24,7 +24,7 @@ public class ChatRoomController {
      * 모든 채팅방 목록 조회
      */
     @GetMapping("/rooms")
-    public Flux<ChatRoom> getRooms() {
+    public Flux<SingleChatRoom> getRooms() {
         log.info("모든 채팅방 목록 조회 요청");
         return chatRoomService.findAllRooms();
     }
@@ -33,7 +33,7 @@ public class ChatRoomController {
      * 특정 채팅방 조회
      */
     @GetMapping("/rooms/{roomId}")
-    public Mono<ResponseEntity<ChatRoom>> getRoom(@PathVariable String roomId) {
+    public Mono<ResponseEntity<SingleChatRoom>> getRoom(@PathVariable String roomId) {
         log.info("채팅방 조회 요청. 방 ID: {}", roomId);
         return chatRoomService.findRoomById(roomId)
                 .map(ResponseEntity::ok)
@@ -44,15 +44,11 @@ public class ChatRoomController {
      * 채팅방 생성
      */
     @PostMapping("/rooms")
-    public Mono<ResponseEntity<ChatRoom>> createRoom(@RequestBody Map<String, String> params) {
-        String name = params.get("name");
-        log.info("채팅방 생성 요청. 방 이름: {}", name);
-        
-        if (name == null || name.trim().isEmpty()) {
-            return Mono.just(ResponseEntity.badRequest().build());
-        }
-        
-        return chatRoomService.createRoom(name)
+    public Mono<ResponseEntity<SingleChatRoom>> createRoom(@Valid @RequestBody RequestCreateRoom requestCreateRoom,
+                                                           @RequestHeader("user-Id") Long userId) {
+        SingleChatRoom chatRoom = SingleChatRoom.create(requestCreateRoom);
+
+        return chatRoomService.createSingleRoom(chatRoom)
                 .map(ResponseEntity::ok);
     }
 

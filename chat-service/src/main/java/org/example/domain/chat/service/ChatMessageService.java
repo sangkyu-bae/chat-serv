@@ -4,8 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.JsonConverter;
+import org.example.common.converter.DateTimeConverter;
 import org.example.domain.ChatMessage;
+import org.example.domain.chat.domain.SendMessageSaver;
 import org.example.module.kafka.KafkaManager;
+import org.example.module.redis.RedisKeyManager;
 import org.example.modules.redis.RedisRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
@@ -44,6 +47,7 @@ public class ChatMessageService {
 
     private final ReactiveRedisTemplate<String, String> reactiveRedisTemplate;
 
+    private final RedisKeyManager redisKeyManager;
     @Value("${redis.key.chat-room}")
     private String chatRoomKey;
 
@@ -98,43 +102,51 @@ public class ChatMessageService {
      * 메시지 전송
      * @param message 전송할 채팅 메시지
      */
-    public Mono<Void> sendMessage(ChatMessage message) {
-        return reactiveRedisTemplate.opsForValue()
-                .get(chatRoomKey + message.getRoomId())
+    public void sendMessageBySingleRoom(ChatMessage message) {
+
+        String userId = message.getSender();
+
+        redisRepository.findByHash(redisKeyManager.getRoomKey(message.getRoomId()))
                 .flatMap(roomInfo -> {
-                    if (roomInfo == null) {
-                        return Mono.error(new RoomNotFoundException(message.getRoomId()));
-                    }
-                    
-                    // 먼저 PENDING 상태로 저장
+//                    if (roomInfo == null) {
+//                        return Mono.error(new RoomNotFoundException(message.getRoomId()));
+//                    }
+
+                    String messageKey = redisKeyManager.getMessageKey(message.getRoomId());
+
+                    SendMessageSaver save = SendMessageSaver.createGenerate(
+                            SendMessageSaver.StatusType.PENDING,
+                            jsonConverter.toJson(message),
+                            DateTimeConverter.getToString14HHMI()
+                    );
+                    Map<String, String> saveMessage = jsonConverter.toMap(save);
+
+                    return redisRepository.saveWithHash(messageKey, saveMessage)
+                            .then(kafkaManager.send("chat-topic", message.getRoomId(), message));
+                })
+                .doOnSuccess(result -> {
+                    log.info("✅ Kafka 메시지 전송 성공: {}", message);
+                })
+                .doOnError(error -> {
+                    log.error("❌ Kafka 메시지 전송 실패: {}", error.getMessage(), error);
+
+                    // WebSocket으로 사용자에게 실패 알림 전송
+//                    socketSessionManager.sendToUser(message.getSender(),
+//                            new SocketMessage("FAILED", message.getRoomId(), message.getContent()));
+                })
+                .onErrorResume(error -> {
+                    // 실패 메시지 Redis에 저장
                     return reactiveRedisTemplate.opsForHash()
                             .putAll("chat:message:" + message.getRoomId(),
                                     Map.of(
-                                            "status", "PENDING",
-                                            "message", jsonConverter.toJson(message),  // 직렬화 필요
-                                            "timestamp", String.valueOf(System.currentTimeMillis())  // 문자열로 변환 권장
+                                            "status", "FAILED",
+                                            "message", jsonConverter.toJson(message),
+                                            "timestamp", String.valueOf(System.currentTimeMillis())
                                     ))
-                            .then(kafkaManager.send("chat-topic", message.getRoomId(), message))
-                            .doOnSuccess(result -> {
-                                // 성공 로깅
-                                log.info("Message sent to Kafka: {}", message);
-                            })
-                            .doOnError(error -> {
-                                // 에러 처리
-                                log.error("Failed to send message to Kafka: {}", error);
-                            })
-                            .onErrorResume(error ->
-                                    reactiveRedisTemplate.opsForHash()
-                                            .putAll("chat:message:" + message.getRoomId(),
-                                                    Map.of(
-                                                            "status", "FAILED",
-                                                            "message", jsonConverter.toJson(message),
-                                                            "timestamp", String.valueOf(System.currentTimeMillis())
-                                                    ))
-                                            .then(Mono.error(new MessageSendException("메시지 전송 실패", error)))
-                            )
-                            .then();
-                });
+                            .then(Mono.empty()); // 오류는 여기서 swallow
+                })
+                .subscribe(); // Fire-and-forget
+
     }
     
     /**
@@ -150,7 +162,9 @@ public class ChatMessageService {
      * @param roomId 채팅방 ID
      * @return 메시지 스트림
      */
-    public Flux<ChatMessage> joinRoom(String roomId) {
+    public Flux<ChatMessage> joinRoom(String roomId,String senderId) {
+
+
         return getSink(roomId).asFlux();
     }
     

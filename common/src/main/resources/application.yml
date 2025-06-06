@@ -6,6 +6,9 @@ redis:
     chat-room : "chat:room:"
     room : "chat:room:"
     message : "chat:message:"
+    session : "connected:"
+    user : "connected:user"
+
 
 kafka:
   bootstrapServer: localhost:9092

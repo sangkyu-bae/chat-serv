@@ -44,7 +44,7 @@ public class ChatMessageController {
                             roomId, chatMessage.getSender(), chatMessage.getType());
                     
                     // 메시지 전송
-                    return chatMessageService.sendMessage(chatMessage)
+                    return chatMessageService.sendMessageBySingleRoom(chatMessage)
                             .thenReturn(ResponseEntity.ok(chatMessage));
                 })
                 .onErrorResume(e -> Mono.just(ResponseEntity.notFound().build()));

@@ -41,4 +41,8 @@ public class ServerManager {
     public String getRuntimeUrl() {
         return runtimeUrl;
     }
+
+    public String getServerInfo(){
+        return getRuntimeUrl() + getPort();
+    }
 }

@@ -1,5 +1,6 @@
-package org.example.infra;
+package org.example.module.redis;
 
+import org.example.infra.RedisConfig;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,4 +18,17 @@ public class RedisKeyManager {
     public String getMessageKey(String messageId) {
         return redisConfig.getMessageKeyPrefix() + messageId;
     }
+
+    public String getSingChatRoomKey(String toUserId, String fromUserId){
+        return getRoomKey(toUserId+":"+fromUserId);
+    }
+
+    public String getSessionKey(String sessionId){
+        return redisConfig.getSessionKeyPrefix() + sessionId;
+    }
+
+    public String getUserKey(String userId){
+        return redisConfig.getUserKEyPrefix() + userId;
+    }
+
 } 
