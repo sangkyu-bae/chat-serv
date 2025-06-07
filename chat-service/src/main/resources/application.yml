@@ -66,3 +66,5 @@ kafka:
   bootstrapServer: localhost:9092
   topic :
     chat : chat
+  server :
+    id : 3

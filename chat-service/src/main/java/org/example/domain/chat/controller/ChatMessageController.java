@@ -23,31 +23,34 @@ public class ChatMessageController {
     private final ChatRoomService chatRoomService;
 
     @Operation(summary = "채팅 메시지 전송 API", description = "채팅 메시지를 전송 합니다.")
-    @PostMapping("/rooms/{roomId}/messages")
+    @PostMapping("/rooms/messages")
     public Mono<ResponseEntity<ChatMessage>> sendMessage(
-            @PathVariable String roomId,
             @RequestBody ChatMessage chatMessage) {
-        
-        // 채팅방 존재 여부 확인
-        return chatRoomService.findRoomById(roomId)
-                .switchIfEmpty(Mono.error(new IllegalArgumentException("채팅방을 찾을 수 없습니다.")))
-                .flatMap(room -> {
-                    // 메시지에 방 ID 설정
-                    chatMessage.setRoomId(roomId);
-                    
-                    // 타임스탬프 설정
-                    if (chatMessage.getTimestamp() == 0) {
-                        chatMessage.setTimestamp(System.currentTimeMillis());
-                    }
-                    
-                    log.info("메시지 전송 요청: room={}, sender={}, type={}", 
-                            roomId, chatMessage.getSender(), chatMessage.getType());
-                    
-                    // 메시지 전송
-                    return chatMessageService.sendMessageBySingleRoom(chatMessage)
-                            .thenReturn(ResponseEntity.ok(chatMessage));
-                })
-                .onErrorResume(e -> Mono.just(ResponseEntity.notFound().build()));
+
+        String roomId = chatMessage.getRoomId();
+
+        return null;
+
+//        // 채팅방 존재 여부 확인
+//        return chatRoomService.findRoomById(roomId)
+//                .switchIfEmpty(Mono.error(new IllegalArgumentException("채팅방을 찾을 수 없습니다.")))
+//                .flatMap(room -> {
+//                    // 메시지에 방 ID 설정
+//                    chatMessage.setRoomId(roomId);
+//
+//                    // 타임스탬프 설정
+//                    if (chatMessage.getTimestamp() == 0) {
+//                        chatMessage.setTimestamp(System.currentTimeMillis());
+//                    }
+//
+//                    log.info("메시지 전송 요청: room={}, sender={}, type={}",
+//                            roomId, chatMessage.getSender(), chatMessage.getType());
+//
+//                    // 메시지 전송
+//                    return chatMessageService.sendMessageBySingleRoom(chatMessage)
+//                            .thenReturn(ResponseEntity.ok(chatMessage));
+//                })
+//                .onErrorResume(e -> Mono.just(ResponseEntity.notFound().build()));
     }
     @Operation(summary = "채팅방 메시지 조회", description = "채팅방의 최근 메시지를 조회합니다.")
     @GetMapping("/rooms/{roomId}/messages")

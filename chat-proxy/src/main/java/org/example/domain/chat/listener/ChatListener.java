@@ -29,7 +29,7 @@ public class ChatListener {
     private final RedisKeyManager redisKeyManager;
 
     @KafkaListener(topics ="${kafka.topic.chat}",groupId = "${kafka.group.chat}")
-    public void resultTaskListener(String chatMessage){
+    public void chatListener(String chatMessage){
         ChatMessage message = null;
         try{
             message = jsonConverter.toObject(chatMessage, ChatMessage.class);
