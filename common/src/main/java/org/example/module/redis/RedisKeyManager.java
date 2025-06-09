@@ -28,7 +28,11 @@ public class RedisKeyManager {
     }
 
     public String getUserKey(String userId){
-        return redisConfig.getUserKEyPrefix() + userId;
+        return redisConfig.getUserKeyPrefix() + userId;
+    }
+
+    public String getServerKey(String serverId){
+        return redisConfig.getUserKeyPrefix() + serverId;
     }
 
 } 

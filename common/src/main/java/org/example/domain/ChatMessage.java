@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +23,5 @@ public class ChatMessage {
     private String message;
     private String timestamp;
     private String toUser;
-} 
+    private List<String> toUsers;
+}

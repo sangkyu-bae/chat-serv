@@ -33,6 +33,9 @@ public class RedisConfig {
     @Value("${redis.key.user}")
     private String userKeyPrefix;
 
+    @Value("${redis.key.server}")
+    private String serverPrefix;
+
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         return new LettuceConnectionFactory(host, port);
@@ -80,7 +83,11 @@ public class RedisConfig {
         return sessionKeyPrefix;
     }
 
-    public String getUserKEyPrefix(){
+    public String getUserKeyPrefix(){
         return userKeyPrefix;
+    }
+
+    public String getServerPrefix(){
+        return serverPrefix;
     }
 }

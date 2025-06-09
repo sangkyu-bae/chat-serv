@@ -112,4 +112,17 @@ public class RedisRepository {
         return reactiveRedisTemplate.delete(key)
                 .map(count -> count > 0);
     }
+
+    public Mono<Long> addToSet(String key, String value) {
+        return reactiveRedisTemplate.opsForSet().add(key, value);
+    }
+
+    public Flux<String> findBySet(String key){
+        return  reactiveRedisTemplate.opsForSet()
+                .members(key);
+    }
+
+    public Mono<Long> removeFromSet(String key, String value) {
+        return reactiveRedisTemplate.opsForSet().remove(key, value);
+    }
 }

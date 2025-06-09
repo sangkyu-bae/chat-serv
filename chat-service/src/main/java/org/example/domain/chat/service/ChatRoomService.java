@@ -2,14 +2,18 @@ package org.example.domain.chat.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.domain.ChatMessage;
 import org.example.domain.chat.domain.SingleChatRoom;
 import org.example.module.redis.RedisKeyManager;
 import org.example.modules.redis.RedisRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -19,6 +23,10 @@ public class ChatRoomService {
     private final Map<String, SingleChatRoom> chatRooms = Collections.synchronizedMap(new LinkedHashMap<>());
     private final RedisKeyManager redisKeyManager;
     private final RedisRepository redisRepository;
+    private final SimpMessagingTemplate messagingTemplate;
+
+    @Value("${kafka.server.id}")
+    private String serverId;
 
     /**
      * 모든 채팅방 목록을 반환
@@ -61,5 +69,25 @@ public class ChatRoomService {
 //            log.info("채팅방이 삭제되었습니다. 방 ID: {}, 방 이름: {}", room.getRoomId(), room.getName());
 //        }
         return Mono.empty();
+    }
+
+//    public Mono<>
+
+    public Mono<Void> test(ChatMessage chatMessage) {
+        return redisRepository.findBySet(redisKeyManager.getServerKey(serverId))
+            .filter(userId -> chatMessage.getToUsers().contains(userId))
+            .collectList()
+            .flatMap(targetUsers -> 
+                Flux.fromIterable(targetUsers)
+                    .flatMap(userId -> 
+                        redisRepository.findByHash(redisKeyManager.getUserKey(userId))
+                            .doOnNext(userInfo -> {
+                                String roomId = userInfo.get("roomId");
+                                // roomId를 기준으로 메시지 전송
+                                
+                            })
+                    )
+                    .then()
+            );
     }
 } 
