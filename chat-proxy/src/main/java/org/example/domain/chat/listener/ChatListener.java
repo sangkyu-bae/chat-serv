@@ -6,6 +6,7 @@ import org.example.JsonConverter;
 import org.example.domain.ChatMessage;
 import org.example.module.EurekaSendManager;
 import org.example.module.RedisRepository;
+import org.example.module.kafka.KafkaManager;
 import org.example.module.redis.RedisKeyManager;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
@@ -27,6 +28,8 @@ public class ChatListener {
     private final RedisRepository redisRepository;
 
     private final RedisKeyManager redisKeyManager;
+
+    private final KafkaManager kafkaManager;
 
     @KafkaListener(topics ="${kafka.topic.chat}",groupId = "${kafka.group.chat}")
     public void chatListener(String chatMessage){
@@ -58,6 +61,7 @@ public class ChatListener {
             }
 
             //send chat
+            kafkaManager.sendBySync("","","");
             //save chat 가공 및 응답
 
         } catch (Exception e){

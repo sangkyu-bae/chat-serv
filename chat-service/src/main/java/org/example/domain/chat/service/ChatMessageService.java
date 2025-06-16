@@ -122,7 +122,7 @@ public class ChatMessageService {
                     Map<String, String> saveMessage = jsonConverter.toMap(save);
 
                     return redisRepository.saveWithHash(messageKey, saveMessage)
-                            .then(kafkaManager.send("chat-topic", message.getRoomId(), message));
+                            .then(kafkaManager.sendByAsync("chat-topic", message.getRoomId(), message));
                 })
                 .doOnSuccess(result -> {
                     log.info("✅ Kafka 메시지 전송 성공: {}", message);

@@ -16,7 +16,7 @@ public class KafkaManager {
     private final KafkaTemplate<String, String> kafkaTemplate;
 
     private final ObjectMapper objectMapper;
-    public Mono<Void> send(String topic, Object sendMsg){
+    public Mono<Void> sendByAsync(String topic, Object sendMsg){
         try {
             String send = objectMapper.writeValueAsString(sendMsg);
             kafkaTemplate.send(topic,send);
@@ -27,7 +27,7 @@ public class KafkaManager {
     }
 
 
-    public Mono<Void> send(String topic,String key , Object sendMsg){
+    public Mono<Void> sendByAsync(String topic,String key , Object sendMsg){
         try {
             String send = objectMapper.writeValueAsString(sendMsg);
             kafkaTemplate.send(topic,send,key);
@@ -36,5 +36,16 @@ public class KafkaManager {
         }
         return Mono.empty();
     }
+
+
+    public void sendBySync(String topic, String key, Object sendMsg){
+        try{
+            String send = objectMapper.writeValueAsString(sendMsg);
+            kafkaTemplate.send(topic,send,key);
+        }catch (JsonProcessingException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
