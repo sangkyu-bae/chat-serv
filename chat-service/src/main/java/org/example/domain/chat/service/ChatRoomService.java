@@ -46,18 +46,23 @@ public class ChatRoomService {
      * 채팅방 생성
      */
     public Mono<SingleChatRoom> createSingleRoom(SingleChatRoom singleChatRoom) {
+        String key = redisKeyManager.getSingChatRoomKey(
+                singleChatRoom.getToUser(),
+                singleChatRoom.getFromUser()
+        );
 
-        String key = redisKeyManager.getSingChatRoomKey(singleChatRoom.getToUser(),singleChatRoom.getFromUser());
-
-        redisRepository.saveWithHash(key,singleChatRoom.getRoomByMap());//채팅방 정보 생성
-
-//        redisRepository.saveWhitList(singleChatRoom.getFromUser(),key); //유저 정보에 채팅방 정보 추가
-//        redisRepository.saveWhitList(singleChatRoom.getToUser(),key); //유저 정보에 채팅방 정보 추가
-
-        redisRepository.saveWhitList(key,singleChatRoom.getFromUser());
-        redisRepository.saveWhitList(key,singleChatRoom.getToUser());
-
-        return Mono.just(singleChatRoom);
+        return Mono.when(
+                        redisRepository.saveWithHash(key, singleChatRoom.getRoomByMap()),
+                        redisRepository.saveWhitList(key, singleChatRoom.getFromUser()),
+                        redisRepository.saveWhitList(key, singleChatRoom.getToUser())
+                )
+                .doOnSuccess(result -> {
+                    log.info("채팅방 생성 성공: {}", key);
+                })
+                .doOnError(error -> {
+                    log.error("채팅방 생성 실패: {}", error.getMessage());
+                })
+                .thenReturn(singleChatRoom);
     }
 
     /**

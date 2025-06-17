@@ -2,6 +2,8 @@ package org.example.modules.websoket.server;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.domain.chat.domain.SingleChatRoom;
+import org.example.domain.chat.service.ChatRoomService;
 import org.example.module.redis.RedisKeyManager;
 import org.example.modules.manager.ServerManager;
 import org.example.modules.redis.RedisRepository;
@@ -24,7 +26,6 @@ public class StompEventListener {
     private final RedisRepository redisRepository;
 
     private final ServerManager serverManager;
-
     @Value("${kafka.server}")
     private String serverId;
     @EventListener
@@ -76,6 +77,7 @@ public class StompEventListener {
         redisRepository.saveWithHash(userKey,saveUser);
 
         redisRepository.addToSet(redisKeyManager.getServerKey(serverId),userId);
+
 
         log.info("Connected: sessionId={}, userId={}", sessionId, userId);
 

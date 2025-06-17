@@ -1,4 +1,4 @@
-package org.example.domain.chat.controller;
+package org.example.domain.chatroom.controller;
 
 
 import jakarta.validation.Valid;
