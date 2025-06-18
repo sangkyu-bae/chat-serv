@@ -1,15 +1,12 @@
 package org.example.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class ChatMessage {
     
@@ -22,6 +19,5 @@ public class ChatMessage {
     private String sender;
     private String message;
     private String timestamp;
-    private String toUser;
-    private List<String> toUsers;
+
 }

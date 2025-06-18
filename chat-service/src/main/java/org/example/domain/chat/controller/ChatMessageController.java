@@ -6,7 +6,7 @@ import org.example.domain.ChatMessage;
 import org.example.domain.chat.service.ChatMessageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.domain.chat.service.ChatRoomService;
+import org.example.domain.chatroom.service.ChatRoomService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
