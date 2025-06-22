@@ -29,4 +29,9 @@ public class ChatRoomStompController {
 //                })
 //                .then();
     }
+
+    @MessageMapping("/get-chat")
+    public Mono<Void> handleGetChat(){
+
+    }
 }

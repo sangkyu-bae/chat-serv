@@ -12,9 +12,11 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Repository
 @RequiredArgsConstructor
@@ -45,6 +47,16 @@ public class RedisRepository {
         return null;
     }
 
+    public Set<String> findWithSetTypeByAllToString(String key) {
+        Set<Object> set = findWithSetTypeByAll(key);
+        if (set == null) {
+            return Collections.emptySet();
+        }
+
+        return set.stream()
+                .map(Object::toString)
+                .collect(Collectors.toSet());
+    }
 
     public void listTypeSave(String key, String value){
         try{
@@ -120,6 +132,12 @@ public class RedisRepository {
     public Flux<String> findBySet(String key){
         return  reactiveRedisTemplate.opsForSet()
                 .members(key);
+    }
+
+    public Mono<Set<String>> getAllSetMembersAsSet(String key) {
+        return reactiveRedisTemplate.opsForSet()
+                .members(key) // Flux<String>
+                .collect(Collectors.toSet()); // Mono<Set<String>>
     }
 
     public Mono<Long> removeFromSet(String key, String value) {

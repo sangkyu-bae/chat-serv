@@ -31,8 +31,11 @@ public class ChatRoomService {
     /**
      * 모든 채팅방 목록을 반환
      */
-    public Flux<SingleChatRoom> findAllRooms() {
-        return Flux.fromIterable(chatRooms.values());
+    public Mono<List<Map<String, String>>> findAllRooms(String userId) {
+        return redisRepository.getAllSetMembersAsSet(userId)
+                .flatMapMany(Flux::fromIterable)
+                .flatMap(item -> redisRepository.findByHash(item))
+                .collectList();
     }
 
     /**

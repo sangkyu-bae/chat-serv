@@ -26,7 +26,8 @@ public class ChatRoomController {
     @GetMapping("/rooms")
     public Flux<SingleChatRoom> getRooms() {
         log.info("모든 채팅방 목록 조회 요청");
-        return chatRoomService.findAllRooms();
+//        return chatRoomService.findAllRooms();
+        return null;
     }
 
     /**
