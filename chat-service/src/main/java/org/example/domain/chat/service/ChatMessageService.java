@@ -3,7 +3,7 @@ package org.example.domain.chat.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.JsonConverter;
+import org.example.module.converter.JsonConverter;
 import org.example.common.converter.DateTimeConverter;
 import org.example.domain.ChatMessage;
 import org.example.domain.chat.domain.SendMessageSaver;

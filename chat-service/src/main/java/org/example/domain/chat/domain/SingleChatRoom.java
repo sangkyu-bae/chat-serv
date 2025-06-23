@@ -1,9 +1,9 @@
 package org.example.domain.chat.domain;
 
 import lombok.*;
-import org.example.common.converter.DateTimeConverter;
 import org.example.domain.ChatMessage;
 import org.example.domain.chat.dto.RequestCreateRoom;
+import org.example.module.converter.DateTimeConverter;
 
 import java.util.Map;
 

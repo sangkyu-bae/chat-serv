@@ -1,8 +1,11 @@
-package org.example.common.converter;
+package org.example.module.converter;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 public class DateTimeConverter {
+    private static final DateTimeFormatter DEFAULT_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static String getBasicNow(){
         return LocalDateTime.now()
@@ -28,4 +31,11 @@ public class DateTimeConverter {
     }
 
 
+    public static LocalDateTime toLocalDate(String date) {
+        try {
+            return LocalDateTime.parse(date, DEFAULT_FORMATTER);
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("날짜 형식이 올바르지 않습니다. 입력값: " + date, e);
+        }
+    }
 }

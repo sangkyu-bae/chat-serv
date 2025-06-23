@@ -2,7 +2,7 @@ package org.example.domain.chat.listener;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.JsonConverter;
+import org.example.module.converter.JsonConverter;
 import org.example.domain.ChatMessage;
 import org.example.module.EurekaSendManager;
 import org.example.module.RedisRepository;
@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Component

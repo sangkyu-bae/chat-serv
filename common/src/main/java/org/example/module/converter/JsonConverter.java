@@ -1,40 +1,30 @@
-package org.example.common.converter;
+package org.example.module.converter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Component
-@RequiredArgsConstructor
 public class JsonConverter {
-    private final ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public String toJson(Object obj) {
         String json = "";
         try {
-           json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
+            json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return json;
     }
 
-//    public Map<String,String> toMap(Object obj){
-//        return objectMapper.convertValue(obj, new TypeReference<Map<String, String>>() {});
-//    }
-
-    public Map<String, String> toMap(Object obj) {
-        Map<String, Object> tempMap = objectMapper.convertValue(obj, new TypeReference<Map<String, Object>>() {});
-        Map<String, String> result = new HashMap<>();
-        for (Map.Entry<String, Object> entry : tempMap.entrySet()) {
-            result.put(entry.getKey(), entry.getValue() != null ? entry.getValue().toString() : "null");
-        }
-        return result;
+    public Map<String,String> toMap(Object obj){
+        return objectMapper.convertValue(obj, new TypeReference<Map<String, String>>() {});
     }
 
 
@@ -58,6 +48,20 @@ public class JsonConverter {
             return Map.of();
         }
     }
-
-
+    public <T> List<T> toObjectList(String json, Class<T> clazz) {
+        try {
+            JavaType type = objectMapper.getTypeFactory().constructCollectionType(List.class, clazz);
+            return objectMapper.readValue(json, type);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return List.of();
+        }
+    }
+    public <T> T toObject(Object obj, Class<T> clazz) {
+        if (clazz.isInstance(obj)) {
+            return (T) obj;
+        } else {
+            throw new ClassCastException("Object cannot be cast to " + clazz.getName());
+        }
+    }
 }

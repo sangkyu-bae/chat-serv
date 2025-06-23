@@ -2,7 +2,7 @@ package org.example.infra.api;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.JsonConverter;
+import org.example.module.converter.JsonConverter;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;

@@ -122,9 +122,12 @@ public class RedisRepository {
 
     public Mono<Boolean> deleteHash(String key) {
         return reactiveRedisTemplate.delete(key)
-                .map(count -> count > 0);
+                .map(deletedCount -> deletedCount > 0);
     }
 
+//    public Mono<Long> addToSet(String key, String value) {
+//        return reactiveRedisTemplate.opsForSet().add(key, value);
+//    }
     public Mono<Long> addToSet(String key, String value) {
         return reactiveRedisTemplate.opsForSet().add(key, value);
     }

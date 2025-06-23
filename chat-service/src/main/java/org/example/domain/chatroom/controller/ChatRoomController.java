@@ -6,7 +6,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.domain.chat.dto.RequestCreateRoom;
 import org.example.domain.chat.domain.SingleChatRoom;
+import org.example.domain.ChatRoom;
 import org.example.domain.chatroom.service.ChatRoomService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -24,10 +26,9 @@ public class ChatRoomController {
      * 모든 채팅방 목록 조회
      */
     @GetMapping("/rooms")
-    public Flux<SingleChatRoom> getRooms() {
+    public Flux<ChatRoom> getRooms(@RequestHeader("user-Id") String userId) {
         log.info("모든 채팅방 목록 조회 요청");
-//        return chatRoomService.findAllRooms();
-        return null;
+        return chatRoomService.findAllRooms(userId);
     }
 
     /**
@@ -45,9 +46,9 @@ public class ChatRoomController {
      * 채팅방 생성
      */
     @PostMapping("/rooms")
-    public Mono<ResponseEntity<SingleChatRoom>> createRoom(@Valid @RequestBody RequestCreateRoom requestCreateRoom,
+    public Mono<ResponseEntity<ChatRoom>> createRoom(@Valid @RequestBody RequestCreateRoom requestCreateRoom,
                                                            @RequestHeader("user-Id") Long userId) {
-        SingleChatRoom chatRoom = SingleChatRoom.create(requestCreateRoom);
+        ChatRoom chatRoom = ChatRoom.create(requestCreateRoom.getJoinUserList());
 
         return chatRoomService.createSingleRoom(chatRoom)
                 .map(ResponseEntity::ok);
@@ -57,12 +58,15 @@ public class ChatRoomController {
      * 채팅방 삭제
      */
     @DeleteMapping("/rooms/{roomId}")
-    public Mono<ResponseEntity<Void>> deleteRoom(@PathVariable String roomId) {
-        log.info("채팅방 삭제 요청. 방 ID: {}", roomId);
-        
-        return chatRoomService.findRoomById(roomId)
-                .flatMap(room -> chatRoomService.deleteRoom(roomId)
-                        .then(Mono.just(ResponseEntity.ok().<Void>build())))
-                .defaultIfEmpty(ResponseEntity.notFound().build());
+    public Mono<ResponseEntity<String>> deleteRoom(@PathVariable String roomId) {
+        return chatRoomService.deleteRoom(roomId)
+                .map(deleted -> {
+                    if (deleted) {
+                        return ResponseEntity.ok("삭제 완료");
+                    } else {
+                        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("존재하지 않는 채팅방");
+                    }
+                });
     }
+
 } 

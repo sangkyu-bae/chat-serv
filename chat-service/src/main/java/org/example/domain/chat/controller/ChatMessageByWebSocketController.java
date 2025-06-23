@@ -22,7 +22,7 @@ public class ChatMessageByWebSocketController {
 
         try{
             if(chatMessage.getType() == ChatMessage.MessageType.ENTER){
-                chatRoomService.createSingleRoom(SingleChatRoom.createGenerate(chatMessage));
+//                chatRoomService.createSingleRoom(SingleChatRoom.createGenerate(chatMessage));
             }else {
                 chatMessageService.sendMessageBySingleRoom(chatMessage);
             }

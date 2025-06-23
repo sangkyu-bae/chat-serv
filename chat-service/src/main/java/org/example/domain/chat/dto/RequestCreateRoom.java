@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
@@ -14,8 +16,6 @@ public class RequestCreateRoom {
 
     @NotNull
     @NotBlank
-    private String formUserId;
-
-    private String toUserId;
+    private List<String> joinUserList;
 
 }
