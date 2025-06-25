@@ -2,8 +2,6 @@ package org.example.domain.chatroom.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.domain.ChatMessage;
-import org.example.domain.chat.domain.SingleChatRoom;
 import org.example.domain.ChatRoom;
 import org.example.request.RequestChatRoom;
 import org.example.module.converter.JsonConverter;
@@ -21,8 +19,6 @@ import java.util.*;
 @Service
 @RequiredArgsConstructor
 public class ChatRoomService {
-
-    private final Map<String, SingleChatRoom> chatRooms = Collections.synchronizedMap(new LinkedHashMap<>());
     private final RedisKeyManager redisKeyManager;
     private final RedisRepository redisRepository;
     private final SimpMessagingTemplate messagingTemplate;
@@ -47,14 +43,25 @@ public class ChatRoomService {
     /**
      * 특정 채팅방 조회
      */
-    public Mono<SingleChatRoom> findRoomById(String roomId) {
-        return Mono.justOrEmpty(chatRooms.get(roomId));
+    public Mono<ChatRoom> findRoomById(String roomId) {
+        String roomKey = redisKeyManager.getRoomKey(roomId);
+
+        Mono<Set<String>> getUser = redisRepository.getAllSetMembersAsSet(roomKey);
+        Mono<Map<String, String>> getRoomInfo = redisRepository.findByHash(roomKey);
+
+        return getUser.zipWith(getRoomInfo)
+                .map(tuple -> {
+                    Set<String> userSet = tuple.getT1();
+                    Map<String, String> roomInfo = tuple.getT2();
+                    List<String> userList = new ArrayList<>(userSet);
+                    return ChatRoom.create(userList, roomInfo, roomId);
+                });
     }
 
     /**
      * 채팅방 생성
      */
-    public Mono<ChatRoom> createSingleRoom(ChatRoom chatRoom) {
+    public Mono<ChatRoom> createChatRoom(ChatRoom chatRoom) {
         String roomKey = redisKeyManager.getRoomKey(chatRoom.getRoomKey());
         Map<String, String> request = jsonConverter.toMap(RequestChatRoom.from(chatRoom));
 
@@ -93,23 +100,4 @@ public class ChatRoomService {
     }
 
 
-//    public Mono<>
-
-    public Mono<Void> test(ChatMessage chatMessage) {
-        return redisRepository.findBySet(redisKeyManager.getServerKey(serverId))
-            .filter(userId -> chatMessage.getToUsers().contains(userId))
-            .collectList()
-            .flatMap(targetUsers -> 
-                Flux.fromIterable(targetUsers)
-                    .flatMap(userId -> 
-                        redisRepository.findByHash(redisKeyManager.getUserKey(userId))
-                            .doOnNext(userInfo -> {
-                                String roomId = userInfo.get("roomId");
-                                // roomId를 기준으로 메시지 전송
-                                
-                            })
-                    )
-                    .then()
-            );
-    }
 } 

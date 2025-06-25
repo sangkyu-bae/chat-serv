@@ -5,7 +5,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.domain.chat.dto.RequestCreateRoom;
-import org.example.domain.chat.domain.SingleChatRoom;
 import org.example.domain.ChatRoom;
 import org.example.domain.chatroom.service.ChatRoomService;
 import org.springframework.http.HttpStatus;
@@ -35,7 +34,7 @@ public class ChatRoomController {
      * 특정 채팅방 조회
      */
     @GetMapping("/rooms/{roomId}")
-    public Mono<ResponseEntity<SingleChatRoom>> getRoom(@PathVariable String roomId) {
+    public Mono<ResponseEntity<ChatRoom>> getRoom(@PathVariable String roomId) {
         log.info("채팅방 조회 요청. 방 ID: {}", roomId);
         return chatRoomService.findRoomById(roomId)
                 .map(ResponseEntity::ok)
@@ -50,7 +49,7 @@ public class ChatRoomController {
                                                            @RequestHeader("user-Id") Long userId) {
         ChatRoom chatRoom = ChatRoom.create(requestCreateRoom.getJoinUserList());
 
-        return chatRoomService.createSingleRoom(chatRoom)
+        return chatRoomService.createChatRoom(chatRoom)
                 .map(ResponseEntity::ok);
     }
 

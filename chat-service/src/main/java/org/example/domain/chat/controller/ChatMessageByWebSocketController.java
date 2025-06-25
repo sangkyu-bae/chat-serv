@@ -21,11 +21,7 @@ public class ChatMessageByWebSocketController {
     public String sendMessage(ChatMessage chatMessage) {
 
         try{
-            if(chatMessage.getType() == ChatMessage.MessageType.ENTER){
-//                chatRoomService.createSingleRoom(SingleChatRoom.createGenerate(chatMessage));
-            }else {
-                chatMessageService.sendMessageBySingleRoom(chatMessage);
-            }
+            chatMessageService.sendMessageBySingleRoom(chatMessage);
         }catch (Exception e){
             e.printStackTrace();
         }
