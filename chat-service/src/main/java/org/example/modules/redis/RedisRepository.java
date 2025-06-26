@@ -132,6 +132,10 @@ public class RedisRepository {
         return reactiveRedisTemplate.opsForSet().add(key, value);
     }
 
+    public Mono<Boolean> addToSortedSet(String key, String value, double score) {
+        return reactiveRedisTemplate.opsForZSet().add(key, value, score);
+    }
+
     public Flux<String> findBySet(String key){
         return  reactiveRedisTemplate.opsForSet()
                 .members(key);

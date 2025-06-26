@@ -1,0 +1,975 @@
+2025-06-26 20:46:01.615 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 29068 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 20:46:01.618 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 20:46:01.712 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 20:46:01.714 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 20:46:05.596 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 20:46:05.601 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-26 20:46:05.665 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 46 ms. Found 0 JDBC repository interfaces.
+2025-06-26 20:46:05.698 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 20:46:05.701 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-26 20:46:05.725 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+2025-06-26 20:46:05.767 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 20:46:05.770 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 20:46:05.819 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2025-06-26 20:46:07.317 INFO  ---- [tartedMain] [GenericScope:282] setSerializationId   BeanFactory id=38924593-badf-3fe0-8447-da928b4f1a3c
+2025-06-26 20:46:11.470 INFO  ---- [tartedMain] [TomcatWebServer:111] initialize   Tomcat initialized with port 8083 (http)
+2025-06-26 20:46:11.546 INFO  ---- [tartedMain] [StandardService:168] log   Starting service [Tomcat]
+2025-06-26 20:46:11.548 INFO  ---- [tartedMain] [StandardEngine:168] log   Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-26 20:46:11.900 INFO  ---- [tartedMain] [[/]:168] log   Initializing Spring embedded WebApplicationContext
+2025-06-26 20:46:11.902 INFO  ---- [tartedMain] [ServletWebServerApplicationContext:301] prepareWebApplicationContext   Root WebApplicationContext: initialization completed in 10186 ms
+2025-06-26 20:46:13.135 INFO  ---- [tartedMain] [LogHelper:31] logPersistenceUnitInformation   HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-26 20:46:13.518 INFO  ---- [tartedMain] [Version:44] logVersion   HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-26 20:46:13.718 INFO  ---- [tartedMain] [RegionFactoryInitiator:50] initiateService   HHH000026: Second-level cache disabled
+2025-06-26 20:46:15.135 INFO  ---- [tartedMain] [SpringPersistenceUnitInfo:87] addTransformer   No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-26 20:46:15.296 INFO  ---- [tartedMain] [HikariDataSource:109] getConnection   HikariPool-1 - Starting...
+2025-06-26 20:46:15.942 INFO  ---- [tartedMain] [HikariPool:554] checkFailFast   HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@15188556
+2025-06-26 20:46:15.950 INFO  ---- [tartedMain] [HikariDataSource:122] getConnection   HikariPool-1 - Start completed.
+2025-06-26 20:46:16.155 WARN  ---- [tartedMain] [deprecation:153] constructDialect   HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-26 20:46:16.238 INFO  ---- [tartedMain] [pooling:157] initiateService   HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.30
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-26 20:46:17.981 INFO  ---- [tartedMain] [JtaPlatformInitiator:59] initiateService   HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-26 20:46:18.011 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:447] buildNativeEntityManagerFactory   Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 20:46:18.619 WARN  ---- [tartedMain] [AnnotationConfigServletWebServerApplicationContext:635] refresh   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'chatListener' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\domain\chat\listener\ChatListener.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'redisRepository' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\module\RedisRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.springframework.data.redis.core.RedisTemplate<java.lang.String, java.lang.Object>' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-06-26 20:46:18.621 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:660] destroy   Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 20:46:18.637 INFO  ---- [tartedMain] [HikariDataSource:349] close   HikariPool-1 - Shutdown initiated...
+2025-06-26 20:46:18.663 INFO  ---- [tartedMain] [HikariDataSource:351] close   HikariPool-1 - Shutdown completed.
+2025-06-26 20:46:18.669 INFO  ---- [tartedMain] [StandardService:168] log   Stopping service [Tomcat]
+2025-06-26 20:46:18.735 INFO  ---- [tartedMain] [ConditionEvaluationReportLogger:82] logMessage   
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-26 20:46:18.879 ERROR ---- [tartedMain] [LoggingFailureAnalysisReporter:40] report   
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in org.example.module.RedisRepository required a bean of type 'org.springframework.data.redis.core.RedisTemplate' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.data.redis.core.RedisTemplate' in your configuration.
+
+2025-06-26 21:00:58.429 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 1068 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 21:00:58.434 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 21:00:58.531 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 21:00:58.532 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 21:01:01.003 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:01:01.006 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-26 21:01:01.034 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 18 ms. Found 0 JDBC repository interfaces.
+2025-06-26 21:01:01.051 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:01:01.052 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-26 21:01:01.063 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2025-06-26 21:01:01.088 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:01:01.090 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 21:01:01.114 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-06-26 21:01:01.988 INFO  ---- [tartedMain] [GenericScope:282] setSerializationId   BeanFactory id=38924593-badf-3fe0-8447-da928b4f1a3c
+2025-06-26 21:01:03.837 INFO  ---- [tartedMain] [TomcatWebServer:111] initialize   Tomcat initialized with port 8083 (http)
+2025-06-26 21:01:03.894 INFO  ---- [tartedMain] [StandardService:168] log   Starting service [Tomcat]
+2025-06-26 21:01:03.895 INFO  ---- [tartedMain] [StandardEngine:168] log   Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-26 21:01:04.090 INFO  ---- [tartedMain] [[/]:168] log   Initializing Spring embedded WebApplicationContext
+2025-06-26 21:01:04.091 INFO  ---- [tartedMain] [ServletWebServerApplicationContext:301] prepareWebApplicationContext   Root WebApplicationContext: initialization completed in 5558 ms
+2025-06-26 21:01:04.639 INFO  ---- [tartedMain] [LogHelper:31] logPersistenceUnitInformation   HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-26 21:01:04.804 INFO  ---- [tartedMain] [Version:44] logVersion   HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-26 21:01:04.915 INFO  ---- [tartedMain] [RegionFactoryInitiator:50] initiateService   HHH000026: Second-level cache disabled
+2025-06-26 21:01:05.760 INFO  ---- [tartedMain] [SpringPersistenceUnitInfo:87] addTransformer   No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-26 21:01:05.828 INFO  ---- [tartedMain] [HikariDataSource:109] getConnection   HikariPool-1 - Starting...
+2025-06-26 21:01:06.116 INFO  ---- [tartedMain] [HikariPool:554] checkFailFast   HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@341b7125
+2025-06-26 21:01:06.123 INFO  ---- [tartedMain] [HikariDataSource:122] getConnection   HikariPool-1 - Start completed.
+2025-06-26 21:01:06.283 WARN  ---- [tartedMain] [deprecation:153] constructDialect   HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-26 21:01:06.348 INFO  ---- [tartedMain] [pooling:157] initiateService   HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.30
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-26 21:01:07.205 INFO  ---- [tartedMain] [JtaPlatformInitiator:59] initiateService   HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-26 21:01:07.222 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:447] buildNativeEntityManagerFactory   Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:01:07.535 WARN  ---- [tartedMain] [AnnotationConfigServletWebServerApplicationContext:635] refresh   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'chatListener' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\domain\chat\listener\ChatListener.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'redisRepository' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\module\RedisRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.springframework.data.redis.core.RedisTemplate<java.lang.String, java.lang.Object>' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-06-26 21:01:07.538 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:660] destroy   Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:01:07.560 INFO  ---- [tartedMain] [HikariDataSource:349] close   HikariPool-1 - Shutdown initiated...
+2025-06-26 21:01:07.580 INFO  ---- [tartedMain] [HikariDataSource:351] close   HikariPool-1 - Shutdown completed.
+2025-06-26 21:01:07.584 INFO  ---- [tartedMain] [StandardService:168] log   Stopping service [Tomcat]
+2025-06-26 21:01:07.632 INFO  ---- [tartedMain] [ConditionEvaluationReportLogger:82] logMessage   
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-26 21:01:07.713 ERROR ---- [tartedMain] [LoggingFailureAnalysisReporter:40] report   
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in org.example.module.RedisRepository required a bean of type 'org.springframework.data.redis.core.RedisTemplate' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.data.redis.core.RedisTemplate' in your configuration.
+
+2025-06-26 21:05:34.483 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 28732 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 21:05:34.488 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 21:05:34.591 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 21:05:34.593 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 21:05:36.247 WARN  ---- [tartedMain] [AnnotationConfigServletWebServerApplicationContext:635] refresh   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: @Configuration class 'RedisServerConfig' contains overloaded @Bean methods with name 'redisTemplate'. Use unique method names for separate bean definitions (with individual conditions etc) or switch '@Configuration.enforceUniqueMethods' to 'false'.
+Offending resource: class path resource [org/example/config/RedisServerConfig.class]
+2025-06-26 21:05:36.270 INFO  ---- [tartedMain] [ConditionEvaluationReportLogger:82] logMessage   
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-26 21:05:36.357 ERROR ---- [tartedMain] [SpringApplication:858] reportFailure   Application run failed
+org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: @Configuration class 'RedisServerConfig' contains overloaded @Bean methods with name 'redisTemplate'. Use unique method names for separate bean definitions (with individual conditions etc) or switch '@Configuration.enforceUniqueMethods' to 'false'.
+Offending resource: class path resource [org/example/config/RedisServerConfig.class]
+	at org.springframework.beans.factory.parsing.FailFastProblemReporter.error(FailFastProblemReporter.java:72)
+	at org.springframework.context.annotation.ConfigurationClass.validate(ConfigurationClass.java:252)
+	at org.springframework.context.annotation.ConfigurationClassParser.validate(ConfigurationClassParser.java:228)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:419)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at org.example.ChatProxyApplication.main(ChatProxyApplication.java:13)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2025-06-26 21:06:01.071 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 22716 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 21:06:01.078 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 21:06:01.237 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 21:06:01.237 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 21:06:03.160 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:06:03.163 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 21:06:03.243 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-06-26 21:06:03.254 WARN  ---- [tartedMain] [AnnotationConfigServletWebServerApplicationContext:635] refresh   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'redisConnectionFactory' defined in class path resource [org/example/infra/RedisConfig.class]: Cannot register bean definition [Root bean: class=null; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=redisConfig; factoryMethodName=redisConnectionFactory; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [org/example/infra/RedisConfig.class]] for bean 'redisConnectionFactory' since there is already [Root bean: class=null; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=redisServerConfig; factoryMethodName=redisConnectionFactory; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [org/example/config/RedisServerConfig.class]] bound.
+2025-06-26 21:06:03.278 INFO  ---- [tartedMain] [ConditionEvaluationReportLogger:82] logMessage   
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-26 21:06:03.348 ERROR ---- [tartedMain] [LoggingFailureAnalysisReporter:40] report   
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'redisConnectionFactory', defined in class path resource [org/example/infra/RedisConfig.class], could not be registered. A bean with that name has already been defined in class path resource [org/example/config/RedisServerConfig.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2025-06-26 21:06:33.104 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 31552 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 21:06:33.107 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 21:06:33.196 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 21:06:33.198 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 21:06:35.726 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:06:35.732 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-26 21:06:35.759 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 17 ms. Found 0 JDBC repository interfaces.
+2025-06-26 21:06:35.777 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:06:35.780 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-26 21:06:35.796 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2025-06-26 21:06:35.819 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:06:35.822 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 21:06:35.840 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-06-26 21:06:36.850 INFO  ---- [tartedMain] [GenericScope:282] setSerializationId   BeanFactory id=38924593-badf-3fe0-8447-da928b4f1a3c
+2025-06-26 21:06:38.945 INFO  ---- [tartedMain] [TomcatWebServer:111] initialize   Tomcat initialized with port 8083 (http)
+2025-06-26 21:06:39.012 INFO  ---- [tartedMain] [StandardService:168] log   Starting service [Tomcat]
+2025-06-26 21:06:39.014 INFO  ---- [tartedMain] [StandardEngine:168] log   Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-26 21:06:39.256 INFO  ---- [tartedMain] [[/]:168] log   Initializing Spring embedded WebApplicationContext
+2025-06-26 21:06:39.257 INFO  ---- [tartedMain] [ServletWebServerApplicationContext:301] prepareWebApplicationContext   Root WebApplicationContext: initialization completed in 6059 ms
+2025-06-26 21:06:40.013 INFO  ---- [tartedMain] [LogHelper:31] logPersistenceUnitInformation   HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-26 21:06:40.262 INFO  ---- [tartedMain] [Version:44] logVersion   HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-26 21:06:40.391 INFO  ---- [tartedMain] [RegionFactoryInitiator:50] initiateService   HHH000026: Second-level cache disabled
+2025-06-26 21:06:41.220 INFO  ---- [tartedMain] [SpringPersistenceUnitInfo:87] addTransformer   No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-26 21:06:41.281 INFO  ---- [tartedMain] [HikariDataSource:109] getConnection   HikariPool-1 - Starting...
+2025-06-26 21:06:41.664 INFO  ---- [tartedMain] [HikariPool:554] checkFailFast   HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4596316f
+2025-06-26 21:06:41.672 INFO  ---- [tartedMain] [HikariDataSource:122] getConnection   HikariPool-1 - Start completed.
+2025-06-26 21:06:41.818 WARN  ---- [tartedMain] [deprecation:153] constructDialect   HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-26 21:06:41.859 INFO  ---- [tartedMain] [pooling:157] initiateService   HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.30
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-26 21:06:42.539 INFO  ---- [tartedMain] [JtaPlatformInitiator:59] initiateService   HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-26 21:06:42.555 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:447] buildNativeEntityManagerFactory   Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:06:42.903 WARN  ---- [tartedMain] [AnnotationConfigServletWebServerApplicationContext:635] refresh   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'chatListener' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\domain\chat\listener\ChatListener.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'redisRepository' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\module\RedisRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.springframework.data.redis.core.RedisTemplate<java.lang.String, java.lang.Object>' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-06-26 21:06:42.903 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:660] destroy   Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:06:42.909 INFO  ---- [tartedMain] [HikariDataSource:349] close   HikariPool-1 - Shutdown initiated...
+2025-06-26 21:06:42.921 INFO  ---- [tartedMain] [HikariDataSource:351] close   HikariPool-1 - Shutdown completed.
+2025-06-26 21:06:42.923 INFO  ---- [tartedMain] [StandardService:168] log   Stopping service [Tomcat]
+2025-06-26 21:06:42.948 INFO  ---- [tartedMain] [ConditionEvaluationReportLogger:82] logMessage   
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-26 21:06:42.987 ERROR ---- [tartedMain] [LoggingFailureAnalysisReporter:40] report   
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in org.example.module.RedisRepository required a bean of type 'org.springframework.data.redis.core.RedisTemplate' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.data.redis.core.RedisTemplate' in your configuration.
+
+2025-06-26 21:07:11.414 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 18036 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 21:07:11.418 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 21:07:11.514 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 21:07:11.514 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 21:07:13.088 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:07:13.089 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 21:07:13.123 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-06-26 21:07:13.131 WARN  ---- [tartedMain] [AnnotationConfigServletWebServerApplicationContext:635] refresh   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'redisConnectionFactory' defined in class path resource [org/example/infra/RedisConfig.class]: Cannot register bean definition [Root bean: class=null; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=redisConfig; factoryMethodName=redisConnectionFactory; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [org/example/infra/RedisConfig.class]] for bean 'redisConnectionFactory' since there is already [Root bean: class=null; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; fallback=false; factoryBeanName=redisServerConfig; factoryMethodName=redisConnectionFactory; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [org/example/config/RedisServerConfig.class]] bound.
+2025-06-26 21:07:13.146 INFO  ---- [tartedMain] [ConditionEvaluationReportLogger:82] logMessage   
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-26 21:07:13.181 ERROR ---- [tartedMain] [LoggingFailureAnalysisReporter:40] report   
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'redisConnectionFactory', defined in class path resource [org/example/infra/RedisConfig.class], could not be registered. A bean with that name has already been defined in class path resource [org/example/config/RedisServerConfig.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2025-06-26 21:08:37.393 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 4284 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 21:08:37.396 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 21:08:37.471 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 21:08:37.472 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 21:08:39.295 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:08:39.298 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-26 21:08:39.331 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 25 ms. Found 0 JDBC repository interfaces.
+2025-06-26 21:08:39.350 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:08:39.352 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-26 21:08:39.365 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2025-06-26 21:08:39.391 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:08:39.393 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 21:08:39.416 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-06-26 21:08:40.073 INFO  ---- [tartedMain] [GenericScope:282] setSerializationId   BeanFactory id=38924593-badf-3fe0-8447-da928b4f1a3c
+2025-06-26 21:08:41.679 INFO  ---- [tartedMain] [TomcatWebServer:111] initialize   Tomcat initialized with port 8083 (http)
+2025-06-26 21:08:41.726 INFO  ---- [tartedMain] [StandardService:168] log   Starting service [Tomcat]
+2025-06-26 21:08:41.728 INFO  ---- [tartedMain] [StandardEngine:168] log   Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-26 21:08:41.898 INFO  ---- [tartedMain] [[/]:168] log   Initializing Spring embedded WebApplicationContext
+2025-06-26 21:08:41.899 INFO  ---- [tartedMain] [ServletWebServerApplicationContext:301] prepareWebApplicationContext   Root WebApplicationContext: initialization completed in 4426 ms
+2025-06-26 21:08:42.307 INFO  ---- [tartedMain] [LogHelper:31] logPersistenceUnitInformation   HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-26 21:08:42.426 INFO  ---- [tartedMain] [Version:44] logVersion   HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-26 21:08:42.485 INFO  ---- [tartedMain] [RegionFactoryInitiator:50] initiateService   HHH000026: Second-level cache disabled
+2025-06-26 21:08:43.085 INFO  ---- [tartedMain] [SpringPersistenceUnitInfo:87] addTransformer   No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-26 21:08:43.145 INFO  ---- [tartedMain] [HikariDataSource:109] getConnection   HikariPool-1 - Starting...
+2025-06-26 21:08:43.429 INFO  ---- [tartedMain] [HikariPool:554] checkFailFast   HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a1d1846
+2025-06-26 21:08:43.433 INFO  ---- [tartedMain] [HikariDataSource:122] getConnection   HikariPool-1 - Start completed.
+2025-06-26 21:08:43.528 WARN  ---- [tartedMain] [deprecation:153] constructDialect   HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-26 21:08:43.565 INFO  ---- [tartedMain] [pooling:157] initiateService   HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.30
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-26 21:08:44.286 INFO  ---- [tartedMain] [JtaPlatformInitiator:59] initiateService   HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-26 21:08:44.296 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:447] buildNativeEntityManagerFactory   Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:08:44.581 WARN  ---- [tartedMain] [AnnotationConfigServletWebServerApplicationContext:635] refresh   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'chatListener' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\domain\chat\listener\ChatListener.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'redisRepository' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\module\RedisRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed
+2025-06-26 21:08:44.582 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:660] destroy   Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:08:44.588 INFO  ---- [tartedMain] [HikariDataSource:349] close   HikariPool-1 - Shutdown initiated...
+2025-06-26 21:08:44.599 INFO  ---- [tartedMain] [HikariDataSource:351] close   HikariPool-1 - Shutdown completed.
+2025-06-26 21:08:44.602 INFO  ---- [tartedMain] [StandardService:168] log   Stopping service [Tomcat]
+2025-06-26 21:08:44.627 INFO  ---- [tartedMain] [ConditionEvaluationReportLogger:82] logMessage   
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-26 21:08:44.656 ERROR ---- [tartedMain] [SpringApplication:858] reportFailure   Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'chatListener' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\domain\chat\listener\ChatListener.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'redisRepository' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\module\RedisRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1387)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1224)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1221)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1187)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1122)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at org.example.ChatProxyApplication.main(ChatProxyApplication.java:13)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisRepository' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\module\RedisRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1387)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1224)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1681)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 24 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:515)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1451)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1367)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1197)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1681)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 37 common frames omitted
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'redis.key.session' in value "${redis.key.session}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81)
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:423)
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:128)
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:118)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:114)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:255)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:226)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:201)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:971)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1649)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	... 57 common frames omitted
+2025-06-26 21:10:01.522 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 32648 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 21:10:01.526 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 21:10:01.623 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 21:10:01.625 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 21:10:03.324 WARN  ---- [tartedMain] [AnnotationConfigServletWebServerApplicationContext:635] refresh   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: @Configuration class 'RedisServerConfig' contains overloaded @Bean methods with name 'redisTemplate'. Use unique method names for separate bean definitions (with individual conditions etc) or switch '@Configuration.enforceUniqueMethods' to 'false'.
+Offending resource: class path resource [org/example/config/RedisServerConfig.class]
+2025-06-26 21:10:03.342 INFO  ---- [tartedMain] [ConditionEvaluationReportLogger:82] logMessage   
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-26 21:10:03.393 ERROR ---- [tartedMain] [SpringApplication:858] reportFailure   Application run failed
+org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: @Configuration class 'RedisServerConfig' contains overloaded @Bean methods with name 'redisTemplate'. Use unique method names for separate bean definitions (with individual conditions etc) or switch '@Configuration.enforceUniqueMethods' to 'false'.
+Offending resource: class path resource [org/example/config/RedisServerConfig.class]
+	at org.springframework.beans.factory.parsing.FailFastProblemReporter.error(FailFastProblemReporter.java:72)
+	at org.springframework.context.annotation.ConfigurationClass.validate(ConfigurationClass.java:252)
+	at org.springframework.context.annotation.ConfigurationClassParser.validate(ConfigurationClassParser.java:228)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:419)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at org.example.ChatProxyApplication.main(ChatProxyApplication.java:13)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2025-06-26 21:10:26.679 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 30388 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 21:10:26.684 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 21:10:26.777 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 21:10:26.777 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 21:10:28.336 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:10:28.338 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 21:10:28.367 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-06-26 21:10:29.157 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:10:29.158 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-26 21:10:29.183 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 21 ms. Found 0 JDBC repository interfaces.
+2025-06-26 21:10:29.207 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:10:29.209 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-26 21:10:29.231 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+2025-06-26 21:10:29.251 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:10:29.253 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 21:10:29.269 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2025-06-26 21:10:30.142 INFO  ---- [tartedMain] [GenericScope:282] setSerializationId   BeanFactory id=a4fc3846-9fda-3bf1-aa91-72318f62e084
+2025-06-26 21:10:32.608 INFO  ---- [tartedMain] [TomcatWebServer:111] initialize   Tomcat initialized with port 8083 (http)
+2025-06-26 21:10:32.661 INFO  ---- [tartedMain] [StandardService:168] log   Starting service [Tomcat]
+2025-06-26 21:10:32.662 INFO  ---- [tartedMain] [StandardEngine:168] log   Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-26 21:10:32.822 INFO  ---- [tartedMain] [[/]:168] log   Initializing Spring embedded WebApplicationContext
+2025-06-26 21:10:32.823 INFO  ---- [tartedMain] [ServletWebServerApplicationContext:301] prepareWebApplicationContext   Root WebApplicationContext: initialization completed in 6044 ms
+2025-06-26 21:10:33.294 INFO  ---- [tartedMain] [LogHelper:31] logPersistenceUnitInformation   HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-26 21:10:33.414 INFO  ---- [tartedMain] [Version:44] logVersion   HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-26 21:10:33.458 INFO  ---- [tartedMain] [RegionFactoryInitiator:50] initiateService   HHH000026: Second-level cache disabled
+2025-06-26 21:10:34.169 INFO  ---- [tartedMain] [SpringPersistenceUnitInfo:87] addTransformer   No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-26 21:10:34.296 INFO  ---- [tartedMain] [HikariDataSource:109] getConnection   HikariPool-1 - Starting...
+2025-06-26 21:10:34.629 INFO  ---- [tartedMain] [HikariPool:554] checkFailFast   HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27b5a89c
+2025-06-26 21:10:34.634 INFO  ---- [tartedMain] [HikariDataSource:122] getConnection   HikariPool-1 - Start completed.
+2025-06-26 21:10:34.746 WARN  ---- [tartedMain] [deprecation:153] constructDialect   HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-26 21:10:34.790 INFO  ---- [tartedMain] [pooling:157] initiateService   HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.30
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-26 21:10:35.516 INFO  ---- [tartedMain] [JtaPlatformInitiator:59] initiateService   HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-26 21:10:35.536 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:447] buildNativeEntityManagerFactory   Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:10:36.702 WARN  ---- [tartedMain] [AnnotationConfigServletWebServerApplicationContext:635] refresh   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'chatListener' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\domain\chat\listener\ChatListener.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'redisRepository' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\module\RedisRepository.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'org.springframework.data.redis.core.SetOperations<java.lang.String, java.lang.Object>' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-06-26 21:10:36.839 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:660] destroy   Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:10:36.849 INFO  ---- [tartedMain] [HikariDataSource:349] close   HikariPool-1 - Shutdown initiated...
+2025-06-26 21:10:36.879 INFO  ---- [tartedMain] [HikariDataSource:351] close   HikariPool-1 - Shutdown completed.
+2025-06-26 21:10:36.885 INFO  ---- [tartedMain] [StandardService:168] log   Stopping service [Tomcat]
+2025-06-26 21:10:36.933 INFO  ---- [tartedMain] [ConditionEvaluationReportLogger:82] logMessage   
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-26 21:10:36.991 ERROR ---- [tartedMain] [LoggingFailureAnalysisReporter:40] report   
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in org.example.module.RedisRepository required a bean of type 'org.springframework.data.redis.core.SetOperations' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.data.redis.core.SetOperations' in your configuration.
+
+2025-06-26 21:11:33.863 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 7008 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 21:11:33.868 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 21:11:33.965 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 21:11:33.966 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 21:11:35.888 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:11:35.891 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 21:11:35.963 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-06-26 21:11:36.821 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:11:36.822 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-26 21:11:36.851 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 27 ms. Found 0 JDBC repository interfaces.
+2025-06-26 21:11:36.881 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:11:36.883 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-26 21:11:36.903 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+2025-06-26 21:11:36.921 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:11:36.922 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 21:11:36.933 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-06-26 21:11:37.662 INFO  ---- [tartedMain] [GenericScope:282] setSerializationId   BeanFactory id=21e3119e-b5a0-37f6-8dfa-ec4477a06ea7
+2025-06-26 21:11:39.752 INFO  ---- [tartedMain] [TomcatWebServer:111] initialize   Tomcat initialized with port 8083 (http)
+2025-06-26 21:11:39.784 INFO  ---- [tartedMain] [StandardService:168] log   Starting service [Tomcat]
+2025-06-26 21:11:39.784 INFO  ---- [tartedMain] [StandardEngine:168] log   Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-26 21:11:39.929 INFO  ---- [tartedMain] [[/]:168] log   Initializing Spring embedded WebApplicationContext
+2025-06-26 21:11:39.930 INFO  ---- [tartedMain] [ServletWebServerApplicationContext:301] prepareWebApplicationContext   Root WebApplicationContext: initialization completed in 5963 ms
+2025-06-26 21:11:40.431 INFO  ---- [tartedMain] [LogHelper:31] logPersistenceUnitInformation   HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-26 21:11:40.528 INFO  ---- [tartedMain] [Version:44] logVersion   HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-26 21:11:40.615 INFO  ---- [tartedMain] [RegionFactoryInitiator:50] initiateService   HHH000026: Second-level cache disabled
+2025-06-26 21:11:41.289 INFO  ---- [tartedMain] [SpringPersistenceUnitInfo:87] addTransformer   No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-26 21:11:41.361 INFO  ---- [tartedMain] [HikariDataSource:109] getConnection   HikariPool-1 - Starting...
+2025-06-26 21:11:41.652 INFO  ---- [tartedMain] [HikariPool:554] checkFailFast   HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4596316f
+2025-06-26 21:11:41.657 INFO  ---- [tartedMain] [HikariDataSource:122] getConnection   HikariPool-1 - Start completed.
+2025-06-26 21:11:41.792 WARN  ---- [tartedMain] [deprecation:153] constructDialect   HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-26 21:11:41.829 INFO  ---- [tartedMain] [pooling:157] initiateService   HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.30
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-26 21:11:42.453 INFO  ---- [tartedMain] [JtaPlatformInitiator:59] initiateService   HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-26 21:11:42.470 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:447] buildNativeEntityManagerFactory   Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:11:45.102 WARN  ---- [tartedMain] [JpaBaseConfiguration$JpaWebConfiguration:258] openEntityManagerInViewInterceptor   spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-26 21:11:45.319 INFO  ---- [tartedMain] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-06-26 21:11:48.727 INFO  ---- [tartedMain] [OptionalLiveReloadServer:59] startServer   LiveReload server is running on port 35729
+2025-06-26 21:11:48.898 INFO  ---- [tartedMain] [DiscoveryClientOptionalArgsConfiguration:112] restTemplateDiscoveryClientOptionalArgs   Eureka HTTP Client uses RestTemplate.
+2025-06-26 21:11:49.279 WARN  ---- [tartedMain] [LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:94] afterPropertiesSet   Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-06-26 21:11:49.675 INFO  ---- [tartedMain] [InstanceInfoFactory:72] create   Setting initial instance status as: STARTING
+2025-06-26 21:11:49.763 INFO  ---- [tartedMain] [DiscoveryClient:329] <init>   Initializing Eureka in region us-east-1
+2025-06-26 21:11:49.774 INFO  ---- [tartedMain] [ConfigClusterResolver:43] getClusterEndpoints   Resolving eureka endpoints via configuration
+2025-06-26 21:11:49.797 INFO  ---- [tartedMain] [DiscoveryClient:954] fetchRegistry   Disable delta property : false
+2025-06-26 21:11:49.798 INFO  ---- [tartedMain] [DiscoveryClient:955] fetchRegistry   Single vip registry refresh property : null
+2025-06-26 21:11:49.798 INFO  ---- [tartedMain] [DiscoveryClient:956] fetchRegistry   Force full registry fetch : false
+2025-06-26 21:11:49.798 INFO  ---- [tartedMain] [DiscoveryClient:957] fetchRegistry   Application is null : false
+2025-06-26 21:11:49.799 INFO  ---- [tartedMain] [DiscoveryClient:958] fetchRegistry   Registered Applications size is zero : true
+2025-06-26 21:11:49.799 INFO  ---- [tartedMain] [DiscoveryClient:960] fetchRegistry   Application version is -1: true
+2025-06-26 21:11:49.799 INFO  ---- [tartedMain] [DiscoveryClient:1042] getAndStoreFullRegistry   Getting all instance registry info from the eureka server
+2025-06-26 21:11:51.751 INFO  ---- [tartedMain] [DiscoveryClient:1051] getAndStoreFullRegistry   The response status is 200
+2025-06-26 21:11:51.754 INFO  ---- [tartedMain] [DiscoveryClient:1266] initScheduledTasks   Starting heartbeat executor: renew interval is: 30
+2025-06-26 21:11:51.757 INFO  ---- [tartedMain] [InstanceInfoReplicator:64] <init>   InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-06-26 21:11:51.762 INFO  ---- [tartedMain] [DiscoveryClient:455] <init>   Discovery Client initialized at timestamp 1750939911760 with initial instances count: 0
+2025-06-26 21:11:51.788 INFO  ---- [tartedMain] [EurekaServiceRegistry:70] register   Registering application CHAT-PROXY-SERVICE with eureka with status UP
+2025-06-26 21:11:51.789 INFO  ---- [tartedMain] [DiscoveryClient:1297] notify   Saw local status change event StatusChangeEvent [timestamp=1750939911789, current=UP, previous=STARTING]
+2025-06-26 21:11:51.792 INFO  ---- [licator-%d] [DiscoveryClient:825] register   DiscoveryClient_CHAT-PROXY-SERVICE/172.29.64.1:8083: registering service...
+2025-06-26 21:11:51.828 INFO  ---- [tartedMain] [TomcatWebServer:243] start   Tomcat started on port 8083 (http) with context path '/'
+2025-06-26 21:11:51.830 INFO  ---- [tartedMain] [EurekaAutoServiceRegistration:150] onApplicationEvent   Updating port to 8083
+2025-06-26 21:11:51.905 INFO  ---- [tartedMain] [ConsumerConfig:372] logAll   ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-chat.v1-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = chat.v1
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-06-26 21:11:51.998 INFO  ---- [tartedMain] [KafkaMetricsCollector:269] init   initializing Kafka metrics collector
+2025-06-26 21:11:52.085 INFO  ---- [licator-%d] [DiscoveryClient:834] register   DiscoveryClient_CHAT-PROXY-SERVICE/172.29.64.1:8083 - registration status: 204
+2025-06-26 21:11:52.302 INFO  ---- [tartedMain] [AppInfoParser:124] <init>   Kafka version: 3.8.1
+2025-06-26 21:11:52.303 INFO  ---- [tartedMain] [AppInfoParser:125] <init>   Kafka commitId: 70d6ff42debf7e17
+2025-06-26 21:11:52.303 INFO  ---- [tartedMain] [AppInfoParser:126] <init>   Kafka startTimeMs: 1750939912300
+2025-06-26 21:11:52.308 INFO  ---- [tartedMain] [LegacyKafkaConsumer:476] subscribeInternal   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Subscribed to topic(s): chat
+2025-06-26 21:11:52.336 INFO  ---- [tartedMain] [ChatProxyApplication:59] logStarted   Started ChatProxyApplication in 19.681 seconds (process running for 21.104)
+2025-06-26 21:11:52.912 INFO  ---- [er#0-0-C-1] [Metadata:364] update   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Cluster ID: scl4AOXRQUSR_nNuaoqeKw
+2025-06-26 21:11:52.913 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:936] onSuccess   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Discovered group coordinator 127.0.0.1:9091 (id: 2147483646 rack: null)
+2025-06-26 21:11:52.916 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:604] sendJoinGroupRequest   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] (Re-)joining group
+2025-06-26 21:11:53.004 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:1102] requestRejoin   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Request joining group due to: need to re-join with the given member-id: consumer-chat.v1-1-a47f5976-a006-41fe-a6c2-c3df54789d76
+2025-06-26 21:11:53.006 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:604] sendJoinGroupRequest   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] (Re-)joining group
+2025-06-26 21:11:56.079 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:665] handle   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Successfully joined group with generation Generation{generationId=8, memberId='consumer-chat.v1-1-a47f5976-a006-41fe-a6c2-c3df54789d76', protocol='range'}
+2025-06-26 21:11:56.099 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:663] onLeaderElected   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Finished assignment for group at generation 8: {consumer-chat.v1-1-a47f5976-a006-41fe-a6c2-c3df54789d76=Assignment(partitions=[chat-0])}
+2025-06-26 21:11:56.173 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:842] handle   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Successfully synced group in generation Generation{generationId=8, memberId='consumer-chat.v1-1-a47f5976-a006-41fe-a6c2-c3df54789d76', protocol='range'}
+2025-06-26 21:11:56.174 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:323] invokeOnAssignment   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Notifying assignor about the new Assignment(partitions=[chat-0])
+2025-06-26 21:11:56.181 INFO  ---- [er#0-0-C-1] [ConsumerRebalanceListenerInvoker:57] invokePartitionsAssigned   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Adding newly assigned partitions: chat-0
+2025-06-26 21:11:56.212 INFO  ---- [er#0-0-C-1] [ConsumerUtils:201] refreshCommittedOffsets   Setting offset for partition chat-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 2 rack: null)], epoch=2}}
+2025-06-26 21:11:56.325 INFO  ---- [er#0-0-C-1] [KafkaMessageListenerContainer:292] info   chat.v1: partitions assigned: [chat-0]
+2025-06-26 21:12:23.275 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 30916 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 21:12:23.280 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 21:12:23.372 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 21:12:23.373 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 21:12:25.700 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:12:25.703 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-26 21:12:25.747 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 32 ms. Found 0 JDBC repository interfaces.
+2025-06-26 21:12:25.777 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:12:25.779 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-26 21:12:25.800 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+2025-06-26 21:12:25.833 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:12:25.837 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 21:12:25.862 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-06-26 21:12:26.610 INFO  ---- [tartedMain] [GenericScope:282] setSerializationId   BeanFactory id=8724e9db-337a-3a59-a68e-568abb0680b8
+2025-06-26 21:12:28.858 INFO  ---- [tartedMain] [TomcatWebServer:111] initialize   Tomcat initialized with port 8083 (http)
+2025-06-26 21:12:28.896 INFO  ---- [tartedMain] [StandardService:168] log   Starting service [Tomcat]
+2025-06-26 21:12:28.898 INFO  ---- [tartedMain] [StandardEngine:168] log   Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-26 21:12:29.121 INFO  ---- [tartedMain] [[/]:168] log   Initializing Spring embedded WebApplicationContext
+2025-06-26 21:12:29.122 INFO  ---- [tartedMain] [ServletWebServerApplicationContext:301] prepareWebApplicationContext   Root WebApplicationContext: initialization completed in 5747 ms
+2025-06-26 21:12:29.668 INFO  ---- [tartedMain] [LogHelper:31] logPersistenceUnitInformation   HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-26 21:12:29.804 INFO  ---- [tartedMain] [Version:44] logVersion   HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-26 21:12:29.888 INFO  ---- [tartedMain] [RegionFactoryInitiator:50] initiateService   HHH000026: Second-level cache disabled
+2025-06-26 21:12:30.664 INFO  ---- [tartedMain] [SpringPersistenceUnitInfo:87] addTransformer   No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-26 21:12:30.718 INFO  ---- [tartedMain] [HikariDataSource:109] getConnection   HikariPool-1 - Starting...
+2025-06-26 21:12:31.032 INFO  ---- [tartedMain] [HikariPool:554] checkFailFast   HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@38fdaca7
+2025-06-26 21:12:31.034 INFO  ---- [tartedMain] [HikariDataSource:122] getConnection   HikariPool-1 - Start completed.
+2025-06-26 21:12:31.127 WARN  ---- [tartedMain] [deprecation:153] constructDialect   HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-26 21:12:31.156 INFO  ---- [tartedMain] [pooling:157] initiateService   HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.30
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-26 21:12:31.856 INFO  ---- [tartedMain] [JtaPlatformInitiator:59] initiateService   HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-26 21:12:31.863 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:447] buildNativeEntityManagerFactory   Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:12:32.138 WARN  ---- [tartedMain] [AnnotationConfigServletWebServerApplicationContext:635] refresh   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'chatListener' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\domain\chat\listener\ChatListener.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'redisRepository' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\module\RedisRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed
+2025-06-26 21:12:32.139 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:660] destroy   Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:12:32.147 INFO  ---- [tartedMain] [HikariDataSource:349] close   HikariPool-1 - Shutdown initiated...
+2025-06-26 21:12:32.162 INFO  ---- [tartedMain] [HikariDataSource:351] close   HikariPool-1 - Shutdown completed.
+2025-06-26 21:12:32.165 INFO  ---- [tartedMain] [StandardService:168] log   Stopping service [Tomcat]
+2025-06-26 21:12:32.197 INFO  ---- [tartedMain] [ConditionEvaluationReportLogger:82] logMessage   
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-26 21:12:32.239 ERROR ---- [tartedMain] [SpringApplication:858] reportFailure   Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'chatListener' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\domain\chat\listener\ChatListener.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'redisRepository' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\module\RedisRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1387)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1224)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1221)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1187)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1122)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at org.example.ChatProxyApplication.main(ChatProxyApplication.java:13)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisRepository' defined in file [C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main\org\example\module\RedisRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1387)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1224)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1681)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 24 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:515)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1451)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1367)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1197)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1681)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 37 common frames omitted
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'redis.key.session' in value "${redis.key.session}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81)
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:423)
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:128)
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:118)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:114)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:255)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:226)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:201)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:971)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1649)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	... 57 common frames omitted
+2025-06-26 21:15:05.208 INFO  ---- [tartedMain] [ChatProxyApplication:53] logStarting   Starting ChatProxyApplication using Java 23.0.2 with PID 1780 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-proxy)
+2025-06-26 21:15:05.212 INFO  ---- [tartedMain] [ChatProxyApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-26 21:15:05.315 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-26 21:15:05.317 INFO  ---- [tartedMain] [DevToolsPropertyDefaultsPostProcessor:252] logTo   For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-26 21:15:07.694 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:15:07.696 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-26 21:15:07.729 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 25 ms. Found 0 JDBC repository interfaces.
+2025-06-26 21:15:07.753 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:15:07.755 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-26 21:15:07.771 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2025-06-26 21:15:07.791 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:295] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-26 21:15:07.792 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:143] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-26 21:15:07.807 INFO  ---- [tartedMain] [RepositoryConfigurationDelegate:211] registerRepositoriesIn   Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-06-26 21:15:08.762 INFO  ---- [tartedMain] [GenericScope:282] setSerializationId   BeanFactory id=8724e9db-337a-3a59-a68e-568abb0680b8
+2025-06-26 21:15:10.973 INFO  ---- [tartedMain] [TomcatWebServer:111] initialize   Tomcat initialized with port 8083 (http)
+2025-06-26 21:15:11.023 INFO  ---- [tartedMain] [StandardService:168] log   Starting service [Tomcat]
+2025-06-26 21:15:11.024 INFO  ---- [tartedMain] [StandardEngine:168] log   Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-26 21:15:11.223 INFO  ---- [tartedMain] [[/]:168] log   Initializing Spring embedded WebApplicationContext
+2025-06-26 21:15:11.224 INFO  ---- [tartedMain] [ServletWebServerApplicationContext:301] prepareWebApplicationContext   Root WebApplicationContext: initialization completed in 5906 ms
+2025-06-26 21:15:11.798 INFO  ---- [tartedMain] [LogHelper:31] logPersistenceUnitInformation   HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-26 21:15:11.911 INFO  ---- [tartedMain] [Version:44] logVersion   HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-26 21:15:11.974 INFO  ---- [tartedMain] [RegionFactoryInitiator:50] initiateService   HHH000026: Second-level cache disabled
+2025-06-26 21:15:12.436 INFO  ---- [tartedMain] [SpringPersistenceUnitInfo:87] addTransformer   No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-26 21:15:12.528 INFO  ---- [tartedMain] [HikariDataSource:109] getConnection   HikariPool-1 - Starting...
+2025-06-26 21:15:12.959 INFO  ---- [tartedMain] [HikariPool:554] checkFailFast   HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4596316f
+2025-06-26 21:15:12.964 INFO  ---- [tartedMain] [HikariDataSource:122] getConnection   HikariPool-1 - Start completed.
+2025-06-26 21:15:13.068 WARN  ---- [tartedMain] [deprecation:153] constructDialect   HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-26 21:15:13.107 INFO  ---- [tartedMain] [pooling:157] initiateService   HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.30
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-26 21:15:13.793 INFO  ---- [tartedMain] [JtaPlatformInitiator:59] initiateService   HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-26 21:15:13.809 INFO  ---- [tartedMain] [LocalContainerEntityManagerFactoryBean:447] buildNativeEntityManagerFactory   Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-26 21:15:17.597 WARN  ---- [tartedMain] [JpaBaseConfiguration$JpaWebConfiguration:258] openEntityManagerInViewInterceptor   spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-26 21:15:17.930 INFO  ---- [tartedMain] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-06-26 21:15:21.895 INFO  ---- [tartedMain] [OptionalLiveReloadServer:59] startServer   LiveReload server is running on port 35729
+2025-06-26 21:15:22.104 INFO  ---- [tartedMain] [DiscoveryClientOptionalArgsConfiguration:112] restTemplateDiscoveryClientOptionalArgs   Eureka HTTP Client uses RestTemplate.
+2025-06-26 21:15:22.421 WARN  ---- [tartedMain] [LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:94] afterPropertiesSet   Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-06-26 21:15:22.778 INFO  ---- [tartedMain] [InstanceInfoFactory:72] create   Setting initial instance status as: STARTING
+2025-06-26 21:15:22.834 INFO  ---- [tartedMain] [DiscoveryClient:329] <init>   Initializing Eureka in region us-east-1
+2025-06-26 21:15:22.847 INFO  ---- [tartedMain] [ConfigClusterResolver:43] getClusterEndpoints   Resolving eureka endpoints via configuration
+2025-06-26 21:15:22.870 INFO  ---- [tartedMain] [DiscoveryClient:954] fetchRegistry   Disable delta property : false
+2025-06-26 21:15:22.870 INFO  ---- [tartedMain] [DiscoveryClient:955] fetchRegistry   Single vip registry refresh property : null
+2025-06-26 21:15:22.871 INFO  ---- [tartedMain] [DiscoveryClient:956] fetchRegistry   Force full registry fetch : false
+2025-06-26 21:15:22.871 INFO  ---- [tartedMain] [DiscoveryClient:957] fetchRegistry   Application is null : false
+2025-06-26 21:15:22.872 INFO  ---- [tartedMain] [DiscoveryClient:958] fetchRegistry   Registered Applications size is zero : true
+2025-06-26 21:15:22.872 INFO  ---- [tartedMain] [DiscoveryClient:960] fetchRegistry   Application version is -1: true
+2025-06-26 21:15:22.872 INFO  ---- [tartedMain] [DiscoveryClient:1042] getAndStoreFullRegistry   Getting all instance registry info from the eureka server
+2025-06-26 21:15:23.777 INFO  ---- [tartedMain] [DiscoveryClient:1051] getAndStoreFullRegistry   The response status is 200
+2025-06-26 21:15:23.782 INFO  ---- [tartedMain] [DiscoveryClient:1266] initScheduledTasks   Starting heartbeat executor: renew interval is: 30
+2025-06-26 21:15:23.785 INFO  ---- [tartedMain] [InstanceInfoReplicator:64] <init>   InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-06-26 21:15:23.788 INFO  ---- [tartedMain] [DiscoveryClient:455] <init>   Discovery Client initialized at timestamp 1750940123787 with initial instances count: 1
+2025-06-26 21:15:23.815 INFO  ---- [tartedMain] [EurekaServiceRegistry:70] register   Registering application CHAT-PROXY-SERVICE with eureka with status UP
+2025-06-26 21:15:23.815 INFO  ---- [tartedMain] [DiscoveryClient:1297] notify   Saw local status change event StatusChangeEvent [timestamp=1750940123815, current=UP, previous=STARTING]
+2025-06-26 21:15:23.818 INFO  ---- [licator-%d] [DiscoveryClient:825] register   DiscoveryClient_CHAT-PROXY-SERVICE/172.29.64.1:8083: registering service...
+2025-06-26 21:15:23.836 INFO  ---- [tartedMain] [TomcatWebServer:243] start   Tomcat started on port 8083 (http) with context path '/'
+2025-06-26 21:15:23.837 INFO  ---- [tartedMain] [EurekaAutoServiceRegistration:150] onApplicationEvent   Updating port to 8083
+2025-06-26 21:15:23.900 INFO  ---- [licator-%d] [DiscoveryClient:834] register   DiscoveryClient_CHAT-PROXY-SERVICE/172.29.64.1:8083 - registration status: 204
+2025-06-26 21:15:23.930 INFO  ---- [tartedMain] [ConsumerConfig:372] logAll   ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-chat.v1-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = chat.v1
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-06-26 21:15:24.056 INFO  ---- [tartedMain] [KafkaMetricsCollector:269] init   initializing Kafka metrics collector
+2025-06-26 21:15:24.374 INFO  ---- [tartedMain] [AppInfoParser:124] <init>   Kafka version: 3.8.1
+2025-06-26 21:15:24.374 INFO  ---- [tartedMain] [AppInfoParser:125] <init>   Kafka commitId: 70d6ff42debf7e17
+2025-06-26 21:15:24.375 INFO  ---- [tartedMain] [AppInfoParser:126] <init>   Kafka startTimeMs: 1750940124371
+2025-06-26 21:15:24.381 INFO  ---- [tartedMain] [LegacyKafkaConsumer:476] subscribeInternal   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Subscribed to topic(s): chat
+2025-06-26 21:15:24.433 INFO  ---- [tartedMain] [ChatProxyApplication:59] logStarted   Started ChatProxyApplication in 20.309 seconds (process running for 21.861)
+2025-06-26 21:15:25.027 INFO  ---- [er#0-0-C-1] [Metadata:364] update   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Cluster ID: scl4AOXRQUSR_nNuaoqeKw
+2025-06-26 21:15:25.028 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:936] onSuccess   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Discovered group coordinator 127.0.0.1:9091 (id: 2147483646 rack: null)
+2025-06-26 21:15:25.032 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:604] sendJoinGroupRequest   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] (Re-)joining group
+2025-06-26 21:15:25.055 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:1102] requestRejoin   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Request joining group due to: need to re-join with the given member-id: consumer-chat.v1-1-508129a0-7382-4dde-a30f-203b4e7fec62
+2025-06-26 21:15:25.056 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:604] sendJoinGroupRequest   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] (Re-)joining group
+2025-06-26 21:15:28.065 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:665] handle   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Successfully joined group with generation Generation{generationId=10, memberId='consumer-chat.v1-1-508129a0-7382-4dde-a30f-203b4e7fec62', protocol='range'}
+2025-06-26 21:15:28.082 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:663] onLeaderElected   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Finished assignment for group at generation 10: {consumer-chat.v1-1-508129a0-7382-4dde-a30f-203b4e7fec62=Assignment(partitions=[chat-0])}
+2025-06-26 21:15:28.101 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:842] handle   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Successfully synced group in generation Generation{generationId=10, memberId='consumer-chat.v1-1-508129a0-7382-4dde-a30f-203b4e7fec62', protocol='range'}
+2025-06-26 21:15:28.103 INFO  ---- [er#0-0-C-1] [ConsumerCoordinator:323] invokeOnAssignment   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Notifying assignor about the new Assignment(partitions=[chat-0])
+2025-06-26 21:15:28.113 INFO  ---- [er#0-0-C-1] [ConsumerRebalanceListenerInvoker:57] invokePartitionsAssigned   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Adding newly assigned partitions: chat-0
+2025-06-26 21:15:28.145 INFO  ---- [er#0-0-C-1] [ConsumerUtils:201] refreshCommittedOffsets   Setting offset for partition chat-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 2 rack: null)], epoch=2}}
+2025-06-26 21:15:28.147 INFO  ---- [er#0-0-C-1] [KafkaMessageListenerContainer:292] info   chat.v1: partitions assigned: [chat-0]
+2025-06-26 21:20:22.886 INFO  ---- [xecutor-%d] [ConfigClusterResolver:43] getClusterEndpoints   Resolving eureka endpoints via configuration
+2025-06-26 21:24:25.244 INFO  ---- [er#0-0-C-1] [NetworkClient:1017] handleDisconnections   [Consumer clientId=consumer-chat.v1-1, groupId=chat.v1] Node -1 disconnected.
+2025-06-26 21:25:22.898 INFO  ---- [xecutor-%d] [ConfigClusterResolver:43] getClusterEndpoints   Resolving eureka endpoints via configuration

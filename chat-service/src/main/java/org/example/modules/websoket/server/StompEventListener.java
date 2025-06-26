@@ -29,6 +29,7 @@ public class StompEventListener {
     private String serverId;
     @EventListener
     public void handleDisconnectEvent(SessionDisconnectEvent event) {
+        log.info("out");
 
         String sessionId = event.getSessionId();
         String sessionKey = redisKeyManager.getSessionKey(sessionId);
@@ -52,6 +53,7 @@ public class StompEventListener {
     public void handleConnect(SessionConnectedEvent event) {
         // 1번 세션 정보 - 유저의 연결된 서버정보, 연결 여부, 서버 번호, 파티션 번호
 
+        log.info("connect");
         StompHeaderAccessor accessor = StompHeaderAccessor.wrap(event.getMessage());
         String sessionId = accessor.getSessionId();
         String userId = accessor.getFirstNativeHeader("user-id");

@@ -28,10 +28,11 @@ public class ChatRoomStompController {
 //                    log.error("채팅방 생성 실패: {}", error.getMessage());
 //                })
 //                .then();
+        return null;
     }
 
     @MessageMapping("/get-chat")
     public Mono<Void> handleGetChat(){
-
+        return null;
     }
 }

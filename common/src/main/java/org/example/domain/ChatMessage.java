@@ -20,4 +20,8 @@ public class ChatMessage {
     private String message;
     private String timestamp;
 
+    public String getPrefixMessage(){
+        return this.sender + ":" + this.message;
+    }
+
 }

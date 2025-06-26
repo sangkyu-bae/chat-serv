@@ -63,6 +63,7 @@ public class ChatRoomService {
      */
     public Mono<ChatRoom> createChatRoom(ChatRoom chatRoom) {
         String roomKey = redisKeyManager.getRoomKey(chatRoom.getRoomKey());
+        String joinUserKey = redisKeyManager.getJoinUserKey(chatRoom.getRoomKey());
         Map<String, String> request = jsonConverter.toMap(RequestChatRoom.from(chatRoom));
 
         // 1. 메타정보 저장
@@ -78,7 +79,7 @@ public class ChatRoomService {
         // 3. 채팅방 참여자 저장
         Flux<Long> saveRoomToUsers = Flux.fromIterable(chatRoom.getJoinList())
                 .flatMap(userId -> {
-                    return redisRepository.addToSet(roomKey, userId);
+                    return redisRepository.addToSet(joinUserKey, userId);
                 });
 
         return Mono.when(

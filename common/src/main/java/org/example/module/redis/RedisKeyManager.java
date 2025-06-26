@@ -14,7 +14,9 @@ public class RedisKeyManager {
     public String getRoomKey(String roomId) {
         return redisConfig.getRoomKeyPrefix() + roomId;
     }
-
+    public String getJoinUserKey(String roomId){
+        return redisConfig.getRoomToUserKeyPrefix() + roomId;
+    }
     public String getMessageKey(String messageId) {
         return redisConfig.getMessageKeyPrefix() + messageId;
     }
@@ -35,4 +37,4 @@ public class RedisKeyManager {
         return redisConfig.getUserKeyPrefix() + serverId;
     }
 
-} 
+}

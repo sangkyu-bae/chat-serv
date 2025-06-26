@@ -10,6 +10,9 @@ import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.SetOperations;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
@@ -36,6 +39,9 @@ public class RedisConfig {
     @Value("${redis.key.server}")
     private String serverPrefix;
 
+    @Value("${redis.key.join-user}")
+    private String joinPrefix;
+
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         return new LettuceConnectionFactory(host, port);
@@ -52,7 +58,7 @@ public class RedisConfig {
         StringRedisSerializer serializer = new StringRedisSerializer();
         RedisSerializationContext.RedisSerializationContextBuilder<String, String> builder =
                 RedisSerializationContext.newSerializationContext();
-        
+
         RedisSerializationContext<String, String> context = builder
                 .key(serializer)
                 .value(serializer)
@@ -64,6 +70,24 @@ public class RedisConfig {
     }
 
     @Bean
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
+        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(connectionFactory);
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(Object.class));
+        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+        redisTemplate.setHashValueSerializer(new Jackson2JsonRedisSerializer<>(Object.class));
+        redisTemplate.afterPropertiesSet();
+        return redisTemplate;
+    }
+
+    @Bean
+    public SetOperations<String, Object> setOperations(RedisTemplate<String, Object> redisTemplate) {
+        return redisTemplate.opsForSet();
+    }
+
+
+    @Bean
     public RedisAsyncCommands<String, String> redisAsyncCommands() {
         RedisClient redisClient = RedisClient.create("redis://" + host + ":" + port);
         StatefulRedisConnection<String, String> connection = redisClient.connect();
@@ -73,6 +97,10 @@ public class RedisConfig {
     // Redis Key Prefix 접근을 위한 getter 메서드
     public String getRoomKeyPrefix() {
         return roomKeyPrefix;
+    }
+
+    public String getRoomToUserKeyPrefix(){
+        return joinPrefix;
     }
 
     public String getMessageKeyPrefix() {

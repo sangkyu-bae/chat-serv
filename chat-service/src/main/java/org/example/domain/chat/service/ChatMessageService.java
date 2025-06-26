@@ -3,10 +3,9 @@ package org.example.domain.chat.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.module.converter.DateTimeConverter;
 import org.example.module.converter.JsonConverter;
-import org.example.common.converter.DateTimeConverter;
 import org.example.domain.ChatMessage;
-import org.example.domain.chat.domain.SendMessageSaver;
 import org.example.module.kafka.KafkaManager;
 import org.example.module.redis.RedisKeyManager;
 import org.example.modules.redis.RedisRepository;
@@ -102,9 +101,8 @@ public class ChatMessageService {
      * 메시지 전송
      * @param message 전송할 채팅 메시지
      */
-    public void sendMessageBySingleRoom(ChatMessage message) {
+    public void sendMessage(ChatMessage message) {
 
-        String userId = message.getSender();
 
         redisRepository.findByHash(redisKeyManager.getRoomKey(message.getRoomId()))
                 .flatMap(roomInfo -> {
@@ -114,15 +112,23 @@ public class ChatMessageService {
 
                     String messageKey = redisKeyManager.getMessageKey(message.getRoomId());
 
-                    SendMessageSaver save = SendMessageSaver.createGenerate(
-                            SendMessageSaver.StatusType.PENDING,
-                            jsonConverter.toJson(message),
-                            DateTimeConverter.getToString14HHMI()
-                    );
-                    Map<String, String> saveMessage = jsonConverter.toMap(save);
+//                    SendMessageSaver save = SendMessageSaver.createGenerate(
+//                            SendMessageSaver.StatusType.PENDING,
+//                            jsonConverter.toJson(message),
+//                            DateTimeConverter.getToString14HHMI()
+//                    );
+//                    Map<String, String> saveMessage = jsonConverter.toMap(save);
+//
+//                    return redisRepository.saveWithHash(messageKey, saveMessage)
+//                            .then(kafkaManager.sendByAsync("chat-topic", message.getRoomId(), message));
 
-                    return redisRepository.saveWithHash(messageKey, saveMessage)
-                            .then(kafkaManager.sendByAsync("chat-topic", message.getRoomId(), message));
+                     return redisRepository.addToSortedSet(
+                             messageKey
+                             ,message.getPrefixMessage(),
+                             DateTimeConverter.toNowTimeByDouble()
+                     ).then(kafkaManager.sendByAsync(chatTopic,message.getRoomId(),message))
+                     ;
+
                 })
                 .doOnSuccess(result -> {
                     log.info("✅ Kafka 메시지 전송 성공: {}", message);

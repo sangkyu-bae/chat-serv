@@ -38,4 +38,8 @@ public class DateTimeConverter {
             throw new IllegalArgumentException("날짜 형식이 올바르지 않습니다. 입력값: " + date, e);
         }
     }
+
+    public static double toNowTimeByDouble(){
+        return System.currentTimeMillis();
+    }
 }

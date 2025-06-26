@@ -9,6 +9,7 @@ redis:
     session : "connected:"
     user : "connected:user"
     server : "server:"
+    join-user : "chat:join:"
 
 
 kafka:

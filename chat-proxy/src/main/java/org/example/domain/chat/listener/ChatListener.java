@@ -7,7 +7,7 @@ import org.example.domain.ChatMessage;
 import org.example.module.EurekaSendManager;
 import org.example.module.RedisRepository;
 import org.example.module.kafka.KafkaManager;
-import org.example.module.redis.RedisKeyManager;
+//import org.example.module.redis.RedisKeyManager;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +26,7 @@ public class ChatListener {
     private final EurekaSendManager eurekaSendManager;
     private final RedisRepository redisRepository;
 
-    private final RedisKeyManager redisKeyManager;
+//    private final RedisKeyManager redisKeyManager;
 
     private final KafkaManager kafkaManager;
 
@@ -36,32 +36,32 @@ public class ChatListener {
         try{
             message = jsonConverter.toObject(chatMessage, ChatMessage.class);
 
-            String roomKey = redisKeyManager.getRoomKey(message.getRoomId());
-            List<Object> list = redisRepository.findWithListTypeByAll(roomKey);
-
-            List<String> sendUserList = list.stream()
-                    .map(Object::toString)
-                    .collect(Collectors.toList());
-
-            List<String> users = sendUserList.stream()
-                    .map(user -> redisKeyManager.getUserKey(user))
-                    .collect(Collectors.toList());
-
-            List<String> serverInfo = eurekaSendManager.getServiceInstances("chat-service");
-            List<String> server = new ArrayList<>();
-            for(String user : users){
-                Object userSession = redisRepository.findByHash(user,"server");
-
-                if(!serverInfo.contains(userSession.toString())){
-                    continue;
-                }
-
-                server.add(userSession.toString());
-            }
-
-            //send chat
-            kafkaManager.sendBySync("","","");
-            //save chat 가공 및 응답
+//            String roomKey = redisKeyManager.getRoomKey(message.getRoomId());
+//            List<Object> list = redisRepository.findWithListTypeByAll(roomKey);
+//
+//            List<String> sendUserList = list.stream()
+//                    .map(Object::toString)
+//                    .collect(Collectors.toList());
+//
+//            List<String> users = sendUserList.stream()
+//                    .map(user -> redisKeyManager.getUserKey(user))
+//                    .collect(Collectors.toList());
+//
+//            List<String> serverInfo = eurekaSendManager.getServiceInstances("chat-service");
+//            List<String> server = new ArrayList<>();
+//            for(String user : users){
+//                Object userSession = redisRepository.findByHash(user,"server");
+//
+//                if(!serverInfo.contains(userSession.toString())){
+//                    continue;
+//                }
+//
+//                server.add(userSession.toString());
+//            }
+//
+//            //send chat
+//            kafkaManager.sendBySync("","","");
+//            //save chat 가공 및 응답
 
         } catch (Exception e){
 

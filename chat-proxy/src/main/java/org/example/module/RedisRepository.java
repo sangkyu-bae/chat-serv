@@ -21,9 +21,9 @@ public class RedisRepository {
     private final RedisTemplate<String,Object> redisTemplate;
     private final SetOperations<String,Object> setOperations;
 
-    private final RedisAsyncCommands<String, String> redisAsyncCommands;
+//    private final RedisAsyncCommands<String, String> redisAsyncCommands;
 
-    private final ReactiveRedisTemplate<String, String> reactiveRedisTemplate;
+//    private final ReactiveRedisTemplate<String, String> reactiveRedisTemplate;
 
     public void setTypeSave(String key, String value){
         try{
@@ -81,37 +81,4 @@ public class RedisRepository {
         return Boolean.TRUE.equals(redisTemplate.opsForSet().isMember(key, value));
     }
 
-
-    public Mono<Boolean> saveWhitList(String key, String value) {
-        return reactiveRedisTemplate.opsForList()
-                .rightPush(key, value)
-                .map(count -> true);
-    }
-
-    public Flux<String> findByKey(String key, long start, long end) {
-        return reactiveRedisTemplate.opsForList()
-                .range(key, start, end)
-                .flatMap(json -> {
-                    return Mono.just(json);
-                });
-    }
-
-    public Mono<Boolean> saveWithHash(String key, Map<String,String> info) {
-        return reactiveRedisTemplate.opsForHash()
-                .putAll(key, info);
-    }
-
-    public Mono<Map<String, String>> findByHash(String key) {
-        return reactiveRedisTemplate.opsForHash()
-                .entries(key)
-                .collectMap(
-                        entry -> (String) entry.getKey(),
-                        entry -> (String) entry.getValue()
-                );
-    }
-
-    public Mono<Boolean> deleteHash(String key) {
-        return reactiveRedisTemplate.delete(key)
-                .map(count -> count > 0);
-    }
 }

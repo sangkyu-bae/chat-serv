@@ -35,6 +35,12 @@ redis:
   port: 6379
   key:
     chat-room : "chat:room:"
+    room : "chat:room:"
+    message : "chat:message:"
+    session : "connected:"
+    user : "connected:user"
+    server : "server:"
+    join-user : "chat:join:"
 
 logging:
   level:
