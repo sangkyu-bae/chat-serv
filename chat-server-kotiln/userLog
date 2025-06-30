@@ -1,0 +1,54 @@
+2025-06-30 19:50:37.771 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 9592 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-06-30 19:50:37.774 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-30 19:50:38.817 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-30 19:50:38.821 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-30 19:50:38.873 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
+2025-06-30 19:50:39.750 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   2 mappings in 'requestMappingHandlerMapping'
+2025-06-30 19:50:39.773 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-06-30 19:50:39.952 DEBUG ---- [main      ] [ControllerMethodResolver:289] initControllerAdviceCaches   ControllerAdvice beans: none
+2025-06-30 19:50:40.880 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
+2025-06-30 19:50:40.905 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 3.962 seconds (process running for 4.704)
+2025-06-30 19:50:54.744 DEBUG ---- [http-nio-2] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [98d049c2-1] Mapped to com.chat.chatserverkotiln.domain.TestController#hello(Continuation)
+2025-06-30 19:50:54.906 DEBUG ---- [http-nio-2] [ResponseBodyResultHandler:170] selectMediaType   [98d049c2-1] Using 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [text/plain;charset=UTF-8, text/event-stream, text/plain;charset=UTF-8, */*]
+2025-06-30 19:50:54.907 DEBUG ---- [http-nio-2] [ResponseBodyResultHandler:228] writeBody   [98d049c2-1] 0..1 [java.lang.String]
+2025-06-30 21:09:02.852 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 24056 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-06-30 21:09:02.855 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-30 21:09:03.688 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-30 21:09:03.692 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-30 21:09:03.730 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2025-06-30 21:09:04.766 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
+2025-06-30 21:09:04.927 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-06-30 21:09:04.988 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
+2025-06-30 21:09:05.009 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-06-30 21:09:05.061 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
+2025-06-30 21:09:05.344 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
+2025-06-30 21:09:05.359 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 3.115 seconds (process running for 3.546)
+2025-06-30 21:09:09.245 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [82e021a2-1] Mapped to ResourceWebHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/]]
+2025-06-30 21:09:09.248 DEBUG ---- [http-nio-2] [ResourceWebHandler:432] lambda$handle$1   [82e021a2-1] Resource not found
+2025-06-30 21:09:38.354 DEBUG ---- [http-nio-3] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [ef92aa6a-2] Mapped to org.springdoc.webflux.ui.SwaggerWelcomeWebFlux#redirectToUi(ServerHttpRequest, ServerHttpResponse)
+2025-06-30 21:09:38.415 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [ef92aa6a-3] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
+2025-06-30 21:09:38.515 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [ef92aa6a-4] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
+2025-06-30 21:09:38.517 DEBUG ---- [http-nio-4] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [0ec2b974-5] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
+2025-06-30 21:09:38.524 DEBUG ---- [http-nio-6] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [1b2c560f-6] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
+2025-06-30 21:09:38.527 DEBUG ---- [http-nio-7] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [e104ac28-7] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
+2025-06-30 21:09:38.527 DEBUG ---- [http-nio-5] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [719d8b8d-8] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
+2025-06-30 21:09:38.713 DEBUG ---- [http-nio-5] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [719d8b8d-9] Mapped to org.springdoc.webflux.ui.SwaggerConfigResource#getSwaggerUiConfig(ServerHttpRequest)
+2025-06-30 21:09:38.715 DEBUG ---- [http-nio-7] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [e104ac28-10] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
+2025-06-30 21:09:38.719 DEBUG ---- [http-nio-5] [ResponseBodyResultHandler:170] selectMediaType   [719d8b8d-9] Using 'application/json' given [*/*] and supported [application/json]
+2025-06-30 21:09:38.720 DEBUG ---- [http-nio-5] [ResponseBodyResultHandler:228] writeBody   [719d8b8d-9] 0..1 [java.util.Map<java.lang.String, java.lang.Object>]
+2025-06-30 21:09:38.743 DEBUG ---- [http-nio-7] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [e104ac28-11] Mapped to org.springdoc.webflux.api.OpenApiWebfluxResource#openapiJson(ServerHttpRequest, String, Locale)
+2025-06-30 21:09:39.212 INFO  ---- [http-nio-7] [AbstractOpenApiResource:390] getOpenApi   Init duration for springdoc-openapi is: 447 ms
+2025-06-30 21:09:39.642 DEBUG ---- [http-nio-7] [ResponseBodyResultHandler:170] selectMediaType   [e104ac28-11] Using 'application/json' given [application/json, */*] and supported [application/json]
+2025-06-30 21:09:39.643 DEBUG ---- [http-nio-7] [ResponseBodyResultHandler:228] writeBody   [e104ac28-11] 0..1 [byte[]]
+2025-06-30 21:09:50.958 DEBUG ---- [http-nio-8] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [1235dd52-12] Mapped to com.chat.chatserverkotiln.domain.TestController#addToSet(String, String, Continuation)
+2025-06-30 21:09:50.999 DEBUG ---- [http-nio-8] [ResponseBodyResultHandler:170] selectMediaType   [1235dd52-12] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2025-06-30 21:09:50.999 DEBUG ---- [http-nio-8] [ResponseBodyResultHandler:228] writeBody   [1235dd52-12] 0..1 [java.lang.Long]
+2025-06-30 21:10:06.525 DEBUG ---- [http-nio-1] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [f083c63c-13] Mapped to com.chat.chatserverkotiln.domain.TestController#addToSet(String, String, Continuation)
+2025-06-30 21:10:06.527 DEBUG ---- [http-nio-1] [ResponseBodyResultHandler:170] selectMediaType   [f083c63c-13] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2025-06-30 21:10:06.528 DEBUG ---- [http-nio-1] [ResponseBodyResultHandler:228] writeBody   [f083c63c-13] 0..1 [java.lang.Long]
+2025-06-30 21:10:07.117 DEBUG ---- [http-nio-1] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [f083c63c-14] Mapped to com.chat.chatserverkotiln.domain.TestController#addToSet(String, String, Continuation)
+2025-06-30 21:10:07.119 DEBUG ---- [http-nio-1] [ResponseBodyResultHandler:170] selectMediaType   [f083c63c-14] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2025-06-30 21:10:07.119 DEBUG ---- [http-nio-1] [ResponseBodyResultHandler:228] writeBody   [f083c63c-14] 0..1 [java.lang.Long]
+2025-06-30 21:10:22.004 DEBUG ---- [http-nio-3] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [4046544d-15] Mapped to com.chat.chatserverkotiln.domain.TestController#getSet(String, Continuation)
+2025-06-30 21:10:22.009 DEBUG ---- [http-nio-3] [ResponseBodyResultHandler:170] selectMediaType   [4046544d-15] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
+2025-06-30 21:10:22.010 DEBUG ---- [http-nio-3] [ResponseBodyResultHandler:228] writeBody   [4046544d-15] 0..1 [java.util.List<java.lang.String>]

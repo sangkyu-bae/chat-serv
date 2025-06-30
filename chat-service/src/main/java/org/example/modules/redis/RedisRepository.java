@@ -1,9 +1,8 @@
 package org.example.modules.redis;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.lettuce.core.api.async.RedisAsyncCommands;
 import lombok.RequiredArgsConstructor;
-import org.example.domain.ChatMessage;
+
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;

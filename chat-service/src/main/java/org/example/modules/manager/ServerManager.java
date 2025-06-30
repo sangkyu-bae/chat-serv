@@ -20,9 +20,11 @@ public class ServerManager {
     @Value("${server.port}")
     private String port;
 
-
-    @Getter
     private String runtimeUrl;
+
+    public String getRuntimeUrl() {
+        return runtimeUrl;
+    }
 
     @PostConstruct
     public void init() {
@@ -38,9 +40,6 @@ public class ServerManager {
         return port;
     }
 
-    public String getRuntimeUrl() {
-        return runtimeUrl;
-    }
 
     public String getServerInfo(){
         return getRuntimeUrl() + getPort();

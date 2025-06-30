@@ -2,14 +2,13 @@ package org.example.modules.websoket.server;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.module.redis.RedisKeyManager;
+import org.example.modules.manager.RedisKeyManager;
 import org.example.modules.manager.ServerManager;
 import org.example.modules.redis.RedisRepository;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.event.EventListener;
+import org.springframework.context.ApplicationListener;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Component;
-import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 import reactor.core.publisher.Mono;
 
@@ -18,7 +17,7 @@ import java.util.Map;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class StompEventListener {
+public class StompEventListener implements ApplicationListener<SessionDisconnectEvent> {
 
     private final RedisKeyManager redisKeyManager;
 
@@ -27,11 +26,15 @@ public class StompEventListener {
     private final ServerManager serverManager;
     @Value("${kafka.server}")
     private String serverId;
-    @EventListener
-    public void handleDisconnectEvent(SessionDisconnectEvent event) {
+    
+    @Override
+    public void onApplicationEvent(SessionDisconnectEvent event) {
+        handleDisconnectEvent(event.getSessionId());
+    }
+    
+    public void handleDisconnectEvent(String sessionId) {
         log.info("out");
 
-        String sessionId = event.getSessionId();
         String sessionKey = redisKeyManager.getSessionKey(sessionId);
 
         redisRepository.findByHash(sessionKey)
@@ -45,18 +48,15 @@ public class StompEventListener {
                             redisRepository.removeFromSet(redisKeyManager.getServerKey(serverId), userId)
                     );
                 })
+                .doOnSuccess(result -> log.info("Disconnected: sessionId={}", sessionId))
+                .doOnError(error -> log.error("Error during disconnect event handling", error))
                 .subscribe();
-        log.info("Disconnected: sessionId={}, userId={}", sessionId);
     }
 
-    @EventListener
-    public void handleConnect(SessionConnectedEvent event) {
+    public void handleConnect(String sessionId, String userId) {
         // 1번 세션 정보 - 유저의 연결된 서버정보, 연결 여부, 서버 번호, 파티션 번호
 
         log.info("connect");
-        StompHeaderAccessor accessor = StompHeaderAccessor.wrap(event.getMessage());
-        String sessionId = accessor.getSessionId();
-        String userId = accessor.getFirstNativeHeader("user-id");
         String sessionKey = redisKeyManager.getSessionKey(sessionId);
         String userKey = redisKeyManager.getUserKey(userId);
 
@@ -75,16 +75,12 @@ public class StompEventListener {
                 "kafka", serverId
         );
 
-        try {
-            Mono.when(
-                    redisRepository.saveWithHash(sessionKey, saveSession),
-                    redisRepository.saveWithHash(userKey, saveUser),
-                    redisRepository.addToSet(redisKeyManager.getServerKey(serverId), userId)
-            ).block(); // 동기 방식 보장
-            log.info("WebSocket connected: sessionId={}, userId={}", sessionId, userId);
-        } catch (Exception e) {
-            log.error(" Error during connect event handling", e);
-        }
-
+        Mono.when(
+                redisRepository.saveWithHash(sessionKey, saveSession),
+                redisRepository.saveWithHash(userKey, saveUser),
+                redisRepository.addToSet(redisKeyManager.getServerKey(serverId), userId)
+        ).doOnSuccess(result -> log.info("WebSocket connected: sessionId={}, userId={}", sessionId, userId))
+          .doOnError(error -> log.error("Error during connect event handling", error))
+          .subscribe();
     }
 }

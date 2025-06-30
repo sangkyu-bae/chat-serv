@@ -1,40 +1,67 @@
 package org.example.infra.aop;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.example.module.converter.JsonConverter;
+import org.example.modules.converter.JsonConverter;
+import org.springframework.core.io.buffer.DataBuffer;
+import org.springframework.core.io.buffer.DataBufferUtils;
+import org.springframework.http.server.reactive.ServerHttpRequestDecorator;
+import org.springframework.http.server.reactive.ServerHttpResponse;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ServerWebExchange;
+import org.springframework.web.server.WebFilter;
+import org.springframework.web.server.WebFilterChain;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-@Aspect
-@Component
+import java.nio.charset.StandardCharsets;
+
 @Slf4j
-public class RequestLoggingAspect {
+@Component
+@RequiredArgsConstructor
+public class RequestLoggingAspect implements WebFilter {
 
     private final JsonConverter jsonFormatter;
 
-    public RequestLoggingAspect(JsonConverter jsonFormatter) {
-        this.jsonFormatter = jsonFormatter;
-    }
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
+        ServerHttpRequest originalRequest = exchange.getRequest();
+        ServerHttpResponse response = exchange.getResponse();
 
-    @Around("execution(* org.example..*Controller.*(..))")
-    public Object logRequestBody(ProceedingJoinPoint joinPoint) throws Throwable {
-        Object[] args = joinPoint.getArgs();
-
-        for (Object arg : args) {
-            if (arg != null && isRequestBody(arg)) {
-                String json = jsonFormatter.toJson(arg);
-                log.info("[REQUEST BODY] {}", json);
-            }
+        // Body가 있는 메서드만 필터링 (POST, PUT, PATCH 등)
+        if (!hasBody(originalRequest.getMethod().name())) {
+            return chain.filter(exchange);
         }
 
-        return joinPoint.proceed();
+        return DataBufferUtils.join(originalRequest.getBody())
+                .flatMap(dataBuffer -> {
+                    byte[] bytes = new byte[dataBuffer.readableByteCount()];
+                    dataBuffer.read(bytes);
+                    DataBufferUtils.release(dataBuffer);
+
+                    String bodyString = new String(bytes, StandardCharsets.UTF_8);
+
+                    // 로깅
+                    log.info("[REQUEST BODY] {}", bodyString);
+
+                    // 새로운 request로 교체 (한 번 소비된 body를 복구)
+                    ServerHttpRequest mutatedRequest = new ServerHttpRequestDecorator(originalRequest) {
+                        @Override
+                        public Flux<DataBuffer> getBody() {
+                            return Flux.just(exchange.getResponse().bufferFactory().wrap(bytes));
+                        }
+                    };
+
+                    ServerWebExchange mutatedExchange = exchange.mutate().request(mutatedRequest).build();
+
+                    return chain.filter(mutatedExchange);
+                });
     }
 
-    private boolean isRequestBody(Object arg) {
-        return !(arg instanceof HttpServletRequest || arg instanceof HttpServletResponse );
+    private boolean hasBody(String method) {
+        return method.equalsIgnoreCase("POST")
+                || method.equalsIgnoreCase("PUT")
+                || method.equalsIgnoreCase("PATCH");
     }
 }

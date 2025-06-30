@@ -2,10 +2,11 @@ package org.example.domain.chatroom.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.domain.ChatRoom;
-import org.example.request.RequestChatRoom;
-import org.example.module.converter.JsonConverter;
-import org.example.module.redis.RedisKeyManager;
+
+import org.example.domain.chat.domain.ChatRoom;
+import org.example.domain.chatroom.request.RequestChatRoom;
+import org.example.modules.converter.JsonConverter;
+import org.example.modules.manager.RedisKeyManager;
 import org.example.modules.redis.RedisRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

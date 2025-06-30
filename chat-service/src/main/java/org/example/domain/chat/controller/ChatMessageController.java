@@ -2,7 +2,8 @@ package org.example.domain.chat.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.example.domain.ChatMessage;
+
+import org.example.domain.chat.domain.ChatMessage;
 import org.example.domain.chat.service.ChatMessageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

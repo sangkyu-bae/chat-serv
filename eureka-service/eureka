@@ -1,87 +1,210 @@
-2025-06-26 20:44:25.363 INFO  ---- [main      ] [EurekaApplication:53] logStarting   Starting EurekaApplication using Java 23.0.2 with PID 28752 (C:\Users\tkdrb\IdeaProjects\chat-module\eureka-service\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\eureka-service)
-2025-06-26 20:44:25.367 INFO  ---- [main      ] [EurekaApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
-2025-06-26 20:44:27.390 INFO  ---- [main      ] [GenericScope:282] setSerializationId   BeanFactory id=0b25b1e0-40b8-3711-be93-0670478dd98d
-2025-06-26 20:44:27.959 INFO  ---- [main      ] [TomcatWebServer:111] initialize   Tomcat initialized with port 8761 (http)
-2025-06-26 20:44:27.990 INFO  ---- [main      ] [StandardService:168] log   Starting service [Tomcat]
-2025-06-26 20:44:27.991 INFO  ---- [main      ] [StandardEngine:168] log   Starting Servlet engine: [Apache Tomcat/10.1.40]
-2025-06-26 20:44:28.139 INFO  ---- [main      ] [[/]:168] log   Initializing Spring embedded WebApplicationContext
-2025-06-26 20:44:28.140 INFO  ---- [main      ] [ServletWebServerApplicationContext:301] prepareWebApplicationContext   Root WebApplicationContext: initialization completed in 2691 ms
-2025-06-26 20:44:29.824 INFO  ---- [main      ] [DiscoveryJerseyProvider:70] <init>   Using JSON encoding codec LegacyJacksonJson
-2025-06-26 20:44:29.826 INFO  ---- [main      ] [DiscoveryJerseyProvider:71] <init>   Using JSON decoding codec LegacyJacksonJson
-2025-06-26 20:44:30.345 INFO  ---- [main      ] [DiscoveryJerseyProvider:80] <init>   Using XML encoding codec XStreamXml
-2025-06-26 20:44:30.346 INFO  ---- [main      ] [DiscoveryJerseyProvider:81] <init>   Using XML decoding codec XStreamXml
-2025-06-26 20:44:30.656 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-2025-06-26 20:44:32.098 WARN  ---- [main      ] [LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:94] afterPropertiesSet   Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2025-06-26 20:44:32.164 INFO  ---- [main      ] [InstanceInfoFactory:72] create   Setting initial instance status as: STARTING
-2025-06-26 20:44:32.247 INFO  ---- [main      ] [DiscoveryClient:329] <init>   Initializing Eureka in region us-east-1
-2025-06-26 20:44:32.248 INFO  ---- [main      ] [DiscoveryClient:332] <init>   Client configured to neither register nor query for data.
-2025-06-26 20:44:32.257 INFO  ---- [main      ] [DiscoveryClient:347] <init>   Discovery Client initialized at timestamp 1750938272253 with initial instances count: 0
-2025-06-26 20:44:32.396 INFO  ---- [main      ] [DefaultEurekaServerContext:64] initialize   Initializing ...
-2025-06-26 20:44:32.402 INFO  ---- [main      ] [PeerEurekaNodes:186] updatePeerEurekaNodes   Adding new peer nodes [http://localhost:8761/eureka/]
-2025-06-26 20:44:32.764 INFO  ---- [main      ] [DiscoveryJerseyProvider:70] <init>   Using JSON encoding codec LegacyJacksonJson
-2025-06-26 20:44:32.765 INFO  ---- [main      ] [DiscoveryJerseyProvider:71] <init>   Using JSON decoding codec LegacyJacksonJson
-2025-06-26 20:44:32.766 INFO  ---- [main      ] [DiscoveryJerseyProvider:80] <init>   Using XML encoding codec XStreamXml
-2025-06-26 20:44:32.766 INFO  ---- [main      ] [DiscoveryJerseyProvider:81] <init>   Using XML decoding codec XStreamXml
-2025-06-26 20:44:32.873 INFO  ---- [main      ] [PeerEurekaNodes:108] start   Replica node URL:  http://localhost:8761/eureka/
-2025-06-26 20:44:32.903 INFO  ---- [main      ] [AbstractInstanceRegistry:164] initRemoteRegionRegistry   Finished initializing remote region registries. All known remote regions: []
-2025-06-26 20:44:32.904 INFO  ---- [main      ] [DefaultEurekaServerContext:71] initialize   Initialized
-2025-06-26 20:44:32.929 INFO  ---- [main      ] [EndpointLinksResolver:60] <init>   Exposing 1 endpoint beneath base path '/actuator'
-2025-06-26 20:44:32.988 INFO  ---- [main      ] [EurekaServiceRegistry:70] register   Registering application EUREKA-SERVICE with eureka with status UP
-2025-06-26 20:44:33.007 INFO  ---- [Thread-9  ] [EurekaServerBootstrap:142] isAws   isAws returned false
-2025-06-26 20:44:33.007 INFO  ---- [Thread-9  ] [EurekaServerBootstrap:108] initEurekaServerContext   Initialized server context
-2025-06-26 20:44:33.007 INFO  ---- [Thread-9  ] [PeerAwareInstanceRegistryImpl:245] openForTraffic   Got 1 instances from neighboring DS node
-2025-06-26 20:44:33.008 INFO  ---- [Thread-9  ] [PeerAwareInstanceRegistryImpl:246] openForTraffic   Renew threshold is: 1
-2025-06-26 20:44:33.008 INFO  ---- [Thread-9  ] [PeerAwareInstanceRegistryImpl:257] openForTraffic   Changing status to UP
-2025-06-26 20:44:33.012 INFO  ---- [Thread-9  ] [EurekaServerInitializerConfiguration:68] lambda$start$0   Started Eureka Server
-2025-06-26 20:44:33.032 INFO  ---- [main      ] [TomcatWebServer:243] start   Tomcat started on port 8761 (http) with context path '/'
-2025-06-26 20:44:33.034 INFO  ---- [main      ] [EurekaAutoServiceRegistration:150] onApplicationEvent   Updating port to 8761
-2025-06-26 20:44:33.056 INFO  ---- [main      ] [EurekaApplication:59] logStarted   Started EurekaApplication in 8.667 seconds (process running for 9.795)
-2025-06-26 20:45:33.010 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 20:46:33.010 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 20:47:33.025 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 14ms
-2025-06-26 20:48:33.028 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 3ms
-2025-06-26 20:49:33.029 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 20:50:33.038 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 8ms
-2025-06-26 20:51:33.047 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 8ms
-2025-06-26 20:52:33.051 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 4ms
-2025-06-26 20:58:13.106 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 280055ms
-2025-06-26 20:59:13.106 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:00:13.106 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:01:13.109 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 2ms
-2025-06-26 21:02:13.109 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:03:13.120 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 10ms
-2025-06-26 21:04:12.981 INFO  ---- [oldUpdater] [PeerAwareInstanceRegistryImpl:550] updateRenewalThreshold   Current renewal threshold is : 1
-2025-06-26 21:04:13.123 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 3ms
-2025-06-26 21:05:13.124 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:06:13.125 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:07:13.125 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:08:13.125 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:09:13.125 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:10:13.125 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:11:13.126 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:11:51.251 INFO  ---- [761-exec-1] [[/]:168] log   Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-26 21:11:51.254 INFO  ---- [761-exec-1] [DispatcherServlet:532] initServletBean   Initializing Servlet 'dispatcherServlet'
-2025-06-26 21:11:51.323 INFO  ---- [761-exec-1] [DispatcherServlet:554] initServletBean   Completed initialization in 67 ms
-2025-06-26 21:11:52.072 INFO  ---- [761-exec-2] [AbstractInstanceRegistry:277] register   Registered instance CHAT-PROXY-SERVICE/172.29.64.1:8083 with status UP (replication=false)
-2025-06-26 21:11:52.862 INFO  ---- [761-exec-4] [AbstractInstanceRegistry:277] register   Registered instance CHAT-PROXY-SERVICE/172.29.64.1:8083 with status UP (replication=true)
-2025-06-26 21:12:13.127 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
-2025-06-26 21:13:13.127 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:14:13.127 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:15:13.127 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:15:23.897 INFO  ---- [761-exec-8] [AbstractInstanceRegistry:277] register   Registered instance CHAT-PROXY-SERVICE/172.29.64.1:8083 with status UP (replication=false)
-2025-06-26 21:15:24.409 INFO  ---- [761-exec-9] [AbstractInstanceRegistry:277] register   Registered instance CHAT-PROXY-SERVICE/172.29.64.1:8083 with status UP (replication=true)
-2025-06-26 21:16:13.128 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:17:13.128 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:18:13.128 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:19:12.959 INFO  ---- [oldUpdater] [PeerAwareInstanceRegistryImpl:550] updateRenewalThreshold   Current renewal threshold is : 3
-2025-06-26 21:19:13.128 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:20:13.128 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:21:13.128 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:22:13.128 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:23:13.129 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:24:13.130 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:25:13.131 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
-2025-06-26 21:26:13.132 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:27:13.132 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
-2025-06-26 21:28:13.133 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
-2025-06-26 21:29:13.134 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 14:42:41.912 INFO  ---- [main      ] [EurekaApplication:53] logStarting   Starting EurekaApplication using Java 23.0.2 with PID 13828 (C:\Users\tkdrb\IdeaProjects\chat-module\eureka-service\build\classes\java\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\eureka-service)
+2025-06-28 14:42:41.926 INFO  ---- [main      ] [EurekaApplication:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-06-28 14:42:43.613 INFO  ---- [main      ] [GenericScope:282] setSerializationId   BeanFactory id=0b25b1e0-40b8-3711-be93-0670478dd98d
+2025-06-28 14:42:44.203 INFO  ---- [main      ] [TomcatWebServer:111] initialize   Tomcat initialized with port 8761 (http)
+2025-06-28 14:42:44.228 INFO  ---- [main      ] [StandardService:168] log   Starting service [Tomcat]
+2025-06-28 14:42:44.229 INFO  ---- [main      ] [StandardEngine:168] log   Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-28 14:42:44.366 INFO  ---- [main      ] [[/]:168] log   Initializing Spring embedded WebApplicationContext
+2025-06-28 14:42:44.366 INFO  ---- [main      ] [ServletWebServerApplicationContext:301] prepareWebApplicationContext   Root WebApplicationContext: initialization completed in 2360 ms
+2025-06-28 14:42:46.085 INFO  ---- [main      ] [DiscoveryJerseyProvider:70] <init>   Using JSON encoding codec LegacyJacksonJson
+2025-06-28 14:42:46.089 INFO  ---- [main      ] [DiscoveryJerseyProvider:71] <init>   Using JSON decoding codec LegacyJacksonJson
+2025-06-28 14:42:46.495 INFO  ---- [main      ] [DiscoveryJerseyProvider:80] <init>   Using XML encoding codec XStreamXml
+2025-06-28 14:42:46.496 INFO  ---- [main      ] [DiscoveryJerseyProvider:81] <init>   Using XML decoding codec XStreamXml
+2025-06-28 14:42:46.731 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-06-28 14:42:48.245 INFO  ---- [main      ] [InetUtils:170] convertAddress   Cannot determine local hostname
+2025-06-28 14:42:49.712 INFO  ---- [main      ] [InetUtils:170] convertAddress   Cannot determine local hostname
+2025-06-28 14:42:49.792 WARN  ---- [main      ] [LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:94] afterPropertiesSet   Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-06-28 14:42:49.836 INFO  ---- [main      ] [InstanceInfoFactory:72] create   Setting initial instance status as: STARTING
+2025-06-28 14:42:49.876 INFO  ---- [main      ] [DiscoveryClient:329] <init>   Initializing Eureka in region us-east-1
+2025-06-28 14:42:49.877 INFO  ---- [main      ] [DiscoveryClient:332] <init>   Client configured to neither register nor query for data.
+2025-06-28 14:42:49.880 INFO  ---- [main      ] [DiscoveryClient:347] <init>   Discovery Client initialized at timestamp 1751089369878 with initial instances count: 0
+2025-06-28 14:42:49.949 INFO  ---- [main      ] [DefaultEurekaServerContext:64] initialize   Initializing ...
+2025-06-28 14:42:49.952 WARN  ---- [main      ] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 14:42:49.974 INFO  ---- [main      ] [AbstractInstanceRegistry:164] initRemoteRegionRegistry   Finished initializing remote region registries. All known remote regions: []
+2025-06-28 14:42:49.975 INFO  ---- [main      ] [DefaultEurekaServerContext:71] initialize   Initialized
+2025-06-28 14:42:49.997 INFO  ---- [main      ] [EndpointLinksResolver:60] <init>   Exposing 1 endpoint beneath base path '/actuator'
+2025-06-28 14:42:50.071 INFO  ---- [main      ] [EurekaServiceRegistry:70] register   Registering application EUREKA-SERVICE with eureka with status UP
+2025-06-28 14:42:50.090 INFO  ---- [Thread-10 ] [EurekaServerBootstrap:142] isAws   isAws returned false
+2025-06-28 14:42:50.091 INFO  ---- [Thread-10 ] [EurekaServerBootstrap:108] initEurekaServerContext   Initialized server context
+2025-06-28 14:42:50.091 INFO  ---- [Thread-10 ] [PeerAwareInstanceRegistryImpl:245] openForTraffic   Got 1 instances from neighboring DS node
+2025-06-28 14:42:50.091 INFO  ---- [Thread-10 ] [PeerAwareInstanceRegistryImpl:246] openForTraffic   Renew threshold is: 1
+2025-06-28 14:42:50.091 INFO  ---- [Thread-10 ] [PeerAwareInstanceRegistryImpl:257] openForTraffic   Changing status to UP
+2025-06-28 14:42:50.095 INFO  ---- [Thread-10 ] [EurekaServerInitializerConfiguration:68] lambda$start$0   Started Eureka Server
+2025-06-28 14:42:50.113 INFO  ---- [main      ] [TomcatWebServer:243] start   Tomcat started on port 8761 (http) with context path '/'
+2025-06-28 14:42:50.114 INFO  ---- [main      ] [EurekaAutoServiceRegistration:150] onApplicationEvent   Updating port to 8761
+2025-06-28 14:42:51.120 INFO  ---- [main      ] [InetUtils:170] convertAddress   Cannot determine local hostname
+2025-06-28 14:42:51.135 INFO  ---- [main      ] [EurekaApplication:59] logStarted   Started EurekaApplication in 11.107 seconds (process running for 12.137)
+2025-06-28 14:43:16.360 INFO  ---- [761-exec-1] [[/]:168] log   Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-28 14:43:16.360 INFO  ---- [761-exec-1] [DispatcherServlet:532] initServletBean   Initializing Servlet 'dispatcherServlet'
+2025-06-28 14:43:16.362 INFO  ---- [761-exec-1] [DispatcherServlet:554] initServletBean   Completed initialization in 2 ms
+2025-06-28 14:43:16.885 INFO  ---- [761-exec-2] [AbstractInstanceRegistry:277] register   Registered instance CHAT-PROXY-SERVICE/172.29.64.1:8083 with status UP (replication=false)
+2025-06-28 14:43:50.093 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 14:44:50.094 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 14:45:50.095 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 14:46:50.095 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 14:47:50.095 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 14:48:50.096 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
+2025-06-28 14:49:50.097 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 14:50:50.097 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 14:51:50.097 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 14:52:49.956 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 14:52:50.098 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 14:53:50.111 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 13ms
+2025-06-28 14:54:50.144 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 33ms
+2025-06-28 14:55:50.148 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 4ms
+2025-06-28 14:56:50.151 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 2ms
+2025-06-28 14:57:49.989 INFO  ---- [oldUpdater] [PeerAwareInstanceRegistryImpl:550] updateRenewalThreshold   Current renewal threshold is : 3
+2025-06-28 14:57:50.390 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 237ms
+2025-06-28 14:58:50.388 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 14:59:50.388 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:00:50.388 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:01:50.389 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:02:49.958 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 15:02:50.389 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:03:50.389 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:06:11.088 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 80698ms
+2025-06-28 15:07:11.196 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 107ms
+2025-06-28 15:08:11.196 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:09:11.197 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:10:11.198 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
+2025-06-28 15:11:11.199 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:12:11.200 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
+2025-06-28 15:13:11.200 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:14:10.667 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 15:14:10.674 INFO  ---- [oldUpdater] [PeerAwareInstanceRegistryImpl:550] updateRenewalThreshold   Current renewal threshold is : 3
+2025-06-28 15:14:11.201 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
+2025-06-28 15:15:11.202 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:16:11.202 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:17:11.203 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:18:11.204 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:19:11.204 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:20:11.205 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:21:11.205 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:22:11.205 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:23:11.206 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:24:10.681 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 15:24:11.206 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:25:11.207 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:26:11.207 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:27:11.208 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:28:11.209 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:29:10.675 INFO  ---- [oldUpdater] [PeerAwareInstanceRegistryImpl:550] updateRenewalThreshold   Current renewal threshold is : 3
+2025-06-28 15:29:11.209 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:30:11.209 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:31:11.210 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:32:11.211 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
+2025-06-28 15:33:11.211 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:34:10.683 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 15:34:11.211 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:35:11.211 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:36:11.211 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:37:11.211 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:38:11.212 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:39:11.212 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:40:11.213 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:41:11.213 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:42:11.214 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:43:11.214 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:44:10.688 INFO  ---- [oldUpdater] [PeerAwareInstanceRegistryImpl:550] updateRenewalThreshold   Current renewal threshold is : 3
+2025-06-28 15:44:10.696 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 15:44:11.214 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:45:11.215 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:46:11.215 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:47:11.216 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:48:11.216 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:49:11.216 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:50:11.217 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:51:11.218 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:52:11.219 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:53:11.219 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:54:12.521 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 15:54:13.043 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
+2025-06-28 15:55:13.043 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:56:13.044 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:57:13.044 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:58:13.044 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 15:59:12.509 INFO  ---- [oldUpdater] [PeerAwareInstanceRegistryImpl:550] updateRenewalThreshold   Current renewal threshold is : 3
+2025-06-28 15:59:13.045 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:00:13.045 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:01:13.046 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:02:13.047 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:03:13.047 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:04:12.523 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 16:04:13.047 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:05:13.048 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:06:13.048 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:07:13.049 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:08:13.050 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
+2025-06-28 16:09:13.051 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:10:13.052 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:11:13.052 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:12:13.053 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:13:13.053 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:14:12.509 INFO  ---- [oldUpdater] [PeerAwareInstanceRegistryImpl:550] updateRenewalThreshold   Current renewal threshold is : 3
+2025-06-28 16:14:12.536 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 16:14:13.053 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:15:13.054 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:16:13.054 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:17:13.055 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:18:13.055 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:19:13.055 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:20:13.056 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:21:13.056 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:22:13.056 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:23:13.057 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:24:12.550 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 16:24:13.058 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:25:13.058 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:26:13.058 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:27:13.059 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:28:13.059 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:29:12.521 INFO  ---- [oldUpdater] [PeerAwareInstanceRegistryImpl:550] updateRenewalThreshold   Current renewal threshold is : 3
+2025-06-28 16:29:13.059 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:30:13.059 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:31:13.060 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:32:13.060 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:33:13.061 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:34:12.554 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 16:34:13.062 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:35:13.062 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:36:13.063 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:37:13.063 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:38:13.063 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:39:13.064 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:40:13.065 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:41:13.065 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:42:13.065 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:43:13.066 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:44:12.510 INFO  ---- [oldUpdater] [PeerAwareInstanceRegistryImpl:550] updateRenewalThreshold   Current renewal threshold is : 3
+2025-06-28 16:44:12.558 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 16:44:13.066 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:45:13.076 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 9ms
+2025-06-28 16:46:13.077 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
+2025-06-28 16:47:13.078 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:48:13.091 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 13ms
+2025-06-28 16:49:13.092 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:50:13.096 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 4ms
+2025-06-28 16:51:13.100 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 3ms
+2025-06-28 16:52:13.101 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1ms
+2025-06-28 16:53:13.105 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 4ms
+2025-06-28 16:54:12.570 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 16:54:13.105 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:55:13.105 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:56:13.105 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:57:13.106 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:58:13.106 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 16:59:12.520 INFO  ---- [oldUpdater] [PeerAwareInstanceRegistryImpl:550] updateRenewalThreshold   Current renewal threshold is : 3
+2025-06-28 16:59:13.106 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:00:13.106 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:01:13.107 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:02:13.107 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:03:13.108 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:04:12.572 WARN  ---- [desUpdater] [PeerEurekaNodes:154] updatePeerEurekaNodes   The replica size seems to be empty. Check the route 53 DNS Registry
+2025-06-28 17:04:13.109 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:05:13.109 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:06:13.110 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:07:13.110 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:08:13.111 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:09:13.111 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:10:13.112 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 0ms
+2025-06-28 17:42:23.590 INFO  ---- [ctionTimer] [AbstractInstanceRegistry:1254] run   Running the evict task with compensationTime 1870478ms
