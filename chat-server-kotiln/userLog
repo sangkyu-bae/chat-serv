@@ -1,54 +1,325 @@
-2025-06-30 19:50:37.771 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 9592 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
-2025-06-30 19:50:37.774 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
-2025-06-30 19:50:38.817 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
-2025-06-30 19:50:38.821 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-06-30 19:50:38.873 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
-2025-06-30 19:50:39.750 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   2 mappings in 'requestMappingHandlerMapping'
-2025-06-30 19:50:39.773 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2025-06-30 19:50:39.952 DEBUG ---- [main      ] [ControllerMethodResolver:289] initControllerAdviceCaches   ControllerAdvice beans: none
-2025-06-30 19:50:40.880 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
-2025-06-30 19:50:40.905 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 3.962 seconds (process running for 4.704)
-2025-06-30 19:50:54.744 DEBUG ---- [http-nio-2] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [98d049c2-1] Mapped to com.chat.chatserverkotiln.domain.TestController#hello(Continuation)
-2025-06-30 19:50:54.906 DEBUG ---- [http-nio-2] [ResponseBodyResultHandler:170] selectMediaType   [98d049c2-1] Using 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [text/plain;charset=UTF-8, text/event-stream, text/plain;charset=UTF-8, */*]
-2025-06-30 19:50:54.907 DEBUG ---- [http-nio-2] [ResponseBodyResultHandler:228] writeBody   [98d049c2-1] 0..1 [java.lang.String]
-2025-06-30 21:09:02.852 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 24056 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
-2025-06-30 21:09:02.855 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
-2025-06-30 21:09:03.688 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
-2025-06-30 21:09:03.692 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-06-30 21:09:03.730 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
-2025-06-30 21:09:04.766 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
-2025-06-30 21:09:04.927 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-2025-06-30 21:09:04.988 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
-2025-06-30 21:09:05.009 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2025-06-30 21:09:05.061 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
-2025-06-30 21:09:05.344 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
-2025-06-30 21:09:05.359 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 3.115 seconds (process running for 3.546)
-2025-06-30 21:09:09.245 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [82e021a2-1] Mapped to ResourceWebHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/]]
-2025-06-30 21:09:09.248 DEBUG ---- [http-nio-2] [ResourceWebHandler:432] lambda$handle$1   [82e021a2-1] Resource not found
-2025-06-30 21:09:38.354 DEBUG ---- [http-nio-3] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [ef92aa6a-2] Mapped to org.springdoc.webflux.ui.SwaggerWelcomeWebFlux#redirectToUi(ServerHttpRequest, ServerHttpResponse)
-2025-06-30 21:09:38.415 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [ef92aa6a-3] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
-2025-06-30 21:09:38.515 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [ef92aa6a-4] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
-2025-06-30 21:09:38.517 DEBUG ---- [http-nio-4] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [0ec2b974-5] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
-2025-06-30 21:09:38.524 DEBUG ---- [http-nio-6] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [1b2c560f-6] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
-2025-06-30 21:09:38.527 DEBUG ---- [http-nio-7] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [e104ac28-7] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
-2025-06-30 21:09:38.527 DEBUG ---- [http-nio-5] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [719d8b8d-8] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
-2025-06-30 21:09:38.713 DEBUG ---- [http-nio-5] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [719d8b8d-9] Mapped to org.springdoc.webflux.ui.SwaggerConfigResource#getSwaggerUiConfig(ServerHttpRequest)
-2025-06-30 21:09:38.715 DEBUG ---- [http-nio-7] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [e104ac28-10] Mapped to ResourceWebHandler [classpath [META-INF/resources/webjars/]]
-2025-06-30 21:09:38.719 DEBUG ---- [http-nio-5] [ResponseBodyResultHandler:170] selectMediaType   [719d8b8d-9] Using 'application/json' given [*/*] and supported [application/json]
-2025-06-30 21:09:38.720 DEBUG ---- [http-nio-5] [ResponseBodyResultHandler:228] writeBody   [719d8b8d-9] 0..1 [java.util.Map<java.lang.String, java.lang.Object>]
-2025-06-30 21:09:38.743 DEBUG ---- [http-nio-7] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [e104ac28-11] Mapped to org.springdoc.webflux.api.OpenApiWebfluxResource#openapiJson(ServerHttpRequest, String, Locale)
-2025-06-30 21:09:39.212 INFO  ---- [http-nio-7] [AbstractOpenApiResource:390] getOpenApi   Init duration for springdoc-openapi is: 447 ms
-2025-06-30 21:09:39.642 DEBUG ---- [http-nio-7] [ResponseBodyResultHandler:170] selectMediaType   [e104ac28-11] Using 'application/json' given [application/json, */*] and supported [application/json]
-2025-06-30 21:09:39.643 DEBUG ---- [http-nio-7] [ResponseBodyResultHandler:228] writeBody   [e104ac28-11] 0..1 [byte[]]
-2025-06-30 21:09:50.958 DEBUG ---- [http-nio-8] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [1235dd52-12] Mapped to com.chat.chatserverkotiln.domain.TestController#addToSet(String, String, Continuation)
-2025-06-30 21:09:50.999 DEBUG ---- [http-nio-8] [ResponseBodyResultHandler:170] selectMediaType   [1235dd52-12] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
-2025-06-30 21:09:50.999 DEBUG ---- [http-nio-8] [ResponseBodyResultHandler:228] writeBody   [1235dd52-12] 0..1 [java.lang.Long]
-2025-06-30 21:10:06.525 DEBUG ---- [http-nio-1] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [f083c63c-13] Mapped to com.chat.chatserverkotiln.domain.TestController#addToSet(String, String, Continuation)
-2025-06-30 21:10:06.527 DEBUG ---- [http-nio-1] [ResponseBodyResultHandler:170] selectMediaType   [f083c63c-13] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
-2025-06-30 21:10:06.528 DEBUG ---- [http-nio-1] [ResponseBodyResultHandler:228] writeBody   [f083c63c-13] 0..1 [java.lang.Long]
-2025-06-30 21:10:07.117 DEBUG ---- [http-nio-1] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [f083c63c-14] Mapped to com.chat.chatserverkotiln.domain.TestController#addToSet(String, String, Continuation)
-2025-06-30 21:10:07.119 DEBUG ---- [http-nio-1] [ResponseBodyResultHandler:170] selectMediaType   [f083c63c-14] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
-2025-06-30 21:10:07.119 DEBUG ---- [http-nio-1] [ResponseBodyResultHandler:228] writeBody   [f083c63c-14] 0..1 [java.lang.Long]
-2025-06-30 21:10:22.004 DEBUG ---- [http-nio-3] [RequestMappingHandlerMapping:189] lambda$getHandler$1   [4046544d-15] Mapped to com.chat.chatserverkotiln.domain.TestController#getSet(String, Continuation)
-2025-06-30 21:10:22.009 DEBUG ---- [http-nio-3] [ResponseBodyResultHandler:170] selectMediaType   [4046544d-15] Using 'application/json' given [*/*] and supported [application/json, application/*+json, application/x-ndjson, text/event-stream]
-2025-06-30 21:10:22.010 DEBUG ---- [http-nio-3] [ResponseBodyResultHandler:228] writeBody   [4046544d-15] 0..1 [java.util.List<java.lang.String>]
+2025-07-01 20:03:43.225 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 25288 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-07-01 20:03:43.242 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-07-01 20:03:45.435 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-01 20:03:45.454 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-01 20:03:45.538 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 41 ms. Found 0 Redis repository interfaces.
+2025-07-01 20:03:48.377 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
+2025-07-01 20:03:48.670 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-01 20:03:48.811 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
+2025-07-01 20:03:48.877 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-07-01 20:03:49.033 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
+2025-07-01 20:03:49.882 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
+2025-07-01 20:03:49.957 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 7.812 seconds (process running for 8.646)
+2025-07-01 20:10:24.080 DEBUG ---- [http-nio-4] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [635abc4f-2] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@1149b079
+2025-07-01 20:10:24.080 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [17ed4245-1] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@1149b079
+2025-07-01 20:10:24.209 DEBUG ---- [http-nio-3] [ReactorNettyWebSocketSession:83] <init>   [17ed4245-1] Session id "726c0de5" for http://localhost:8080/ws/echo
+2025-07-01 20:10:24.209 DEBUG ---- [http-nio-4] [ReactorNettyWebSocketSession:83] <init>   [635abc4f-2] Session id "7bbee4e6" for http://localhost:8080/ws/echo
+2025-07-01 20:11:52.704 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 9260 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-07-01 20:11:52.710 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-07-01 20:11:54.297 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-01 20:11:54.306 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-01 20:11:54.397 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 48 ms. Found 0 Redis repository interfaces.
+2025-07-01 20:11:56.633 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
+2025-07-01 20:11:56.969 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-01 20:11:57.138 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
+2025-07-01 20:11:57.180 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-07-01 20:11:57.336 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
+2025-07-01 20:11:58.466 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
+2025-07-01 20:11:58.545 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 7.125 seconds (process running for 8.04)
+2025-07-01 20:12:02.383 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [4caaad9d-1] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@65d80068
+2025-07-01 20:12:02.383 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [f149cd0a-2] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@65d80068
+2025-07-01 20:12:02.467 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [f149cd0a-2] Session id "4adde5f0" for http://localhost:8080/ws/echo
+2025-07-01 20:12:02.467 DEBUG ---- [http-nio-3] [ReactorNettyWebSocketSession:83] <init>   [4caaad9d-1] Session id "449521aa" for http://localhost:8080/ws/echo
+2025-07-01 20:16:49.850 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 20992 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-07-01 20:16:49.855 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-07-01 20:16:51.458 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-01 20:16:51.470 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-01 20:16:51.580 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 53 ms. Found 0 Redis repository interfaces.
+2025-07-01 20:16:53.359 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
+2025-07-01 20:16:53.677 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-01 20:16:53.771 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
+2025-07-01 20:16:53.801 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-07-01 20:16:53.874 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
+2025-07-01 20:16:54.365 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
+2025-07-01 20:16:54.391 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 5.333 seconds (process running for 6.238)
+2025-07-01 20:17:30.207 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [44390245-2] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:17:30.207 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [50d4ec08-1] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:17:30.264 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [44390245-2] Session id "168abeee" for http://localhost:8080/ws/echo
+2025-07-01 20:17:30.264 DEBUG ---- [http-nio-3] [ReactorNettyWebSocketSession:83] <init>   [50d4ec08-1] Session id "e62b5da" for http://localhost:8080/ws/echo
+2025-07-01 20:17:30.265 INFO  ---- [http-nio-2] [EchoWebSocketHandler:20] handle   🔌 Connected: 168abeee
+2025-07-01 20:17:30.265 INFO  ---- [http-nio-3] [EchoWebSocketHandler:20] handle   🔌 Connected: e62b5da
+2025-07-01 20:17:30.290 INFO  ---- [http-nio-2] [EchoWebSocketHandler:25] invoke   🔥 Error in session 168abeee: 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+2025-07-01 20:17:30.303 INFO  ---- [http-nio-2] [EchoWebSocketHandler:29] handle$lambda$4   ⚠️ Session final state: onError
+2025-07-01 20:18:27.973 INFO  ---- [http-nio-3] [EchoWebSocketHandler:24] handle$lambda$1   ❌ Disconnected (complete): e62b5da
+2025-07-01 20:18:27.974 INFO  ---- [http-nio-3] [EchoWebSocketHandler:29] handle$lambda$4   ⚠️ Session final state: onComplete
+2025-07-01 20:18:28.710 DEBUG ---- [http-nio-4] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [d33c5ace-3] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:18:28.713 DEBUG ---- [http-nio-4] [ReactorNettyWebSocketSession:83] <init>   [d33c5ace-3] Session id "92e144c" for http://localhost:8080/ws/echo
+2025-07-01 20:18:28.714 INFO  ---- [http-nio-4] [EchoWebSocketHandler:20] handle   🔌 Connected: 92e144c
+2025-07-01 20:18:28.716 INFO  ---- [http-nio-4] [EchoWebSocketHandler:25] invoke   🔥 Error in session 92e144c: 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+2025-07-01 20:18:28.720 INFO  ---- [http-nio-4] [EchoWebSocketHandler:29] handle$lambda$4   ⚠️ Session final state: onError
+2025-07-01 20:18:28.730 DEBUG ---- [http-nio-5] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [d6eb987d-4] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:18:28.733 DEBUG ---- [http-nio-5] [ReactorNettyWebSocketSession:83] <init>   [d6eb987d-4] Session id "73bceefc" for http://localhost:8080/ws/echo
+2025-07-01 20:18:28.733 INFO  ---- [http-nio-5] [EchoWebSocketHandler:20] handle   🔌 Connected: 73bceefc
+2025-07-01 20:18:37.784 INFO  ---- [http-nio-5] [EchoWebSocketHandler:24] handle$lambda$1   ❌ Disconnected (complete): 73bceefc
+2025-07-01 20:18:37.786 INFO  ---- [http-nio-5] [EchoWebSocketHandler:29] handle$lambda$4   ⚠️ Session final state: onComplete
+2025-07-01 20:18:38.686 DEBUG ---- [http-nio-7] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [0475b613-5] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:18:38.686 DEBUG ---- [http-nio-6] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [6cb07e0b-6] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:18:38.695 DEBUG ---- [http-nio-6] [ReactorNettyWebSocketSession:83] <init>   [6cb07e0b-6] Session id "5ee215ae" for http://localhost:8080/ws/echo
+2025-07-01 20:18:38.689 DEBUG ---- [http-nio-7] [ReactorNettyWebSocketSession:83] <init>   [0475b613-5] Session id "1da22773" for http://localhost:8080/ws/echo
+2025-07-01 20:18:38.696 INFO  ---- [http-nio-6] [EchoWebSocketHandler:20] handle   🔌 Connected: 5ee215ae
+2025-07-01 20:18:38.700 INFO  ---- [http-nio-6] [EchoWebSocketHandler:25] invoke   🔥 Error in session 5ee215ae: 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+2025-07-01 20:18:38.697 INFO  ---- [http-nio-7] [EchoWebSocketHandler:20] handle   🔌 Connected: 1da22773
+2025-07-01 20:18:38.703 INFO  ---- [http-nio-6] [EchoWebSocketHandler:29] handle$lambda$4   ⚠️ Session final state: onError
+2025-07-01 20:21:49.315 INFO  ---- [http-nio-7] [EchoWebSocketHandler:24] handle$lambda$1   ❌ Disconnected (complete): 1da22773
+2025-07-01 20:21:49.316 INFO  ---- [http-nio-7] [EchoWebSocketHandler:29] handle$lambda$4   ⚠️ Session final state: onComplete
+2025-07-01 20:21:50.539 DEBUG ---- [http-nio-8] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [57c507a9-7] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:21:50.541 DEBUG ---- [http-nio-8] [ReactorNettyWebSocketSession:83] <init>   [57c507a9-7] Session id "8dc7865" for http://localhost:8080/ws/echo
+2025-07-01 20:21:50.542 INFO  ---- [http-nio-8] [EchoWebSocketHandler:20] handle   🔌 Connected: 8dc7865
+2025-07-01 20:21:50.558 DEBUG ---- [http-nio-1] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [df06963a-8] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:21:50.561 DEBUG ---- [http-nio-1] [ReactorNettyWebSocketSession:83] <init>   [df06963a-8] Session id "195c8ea5" for http://localhost:8080/ws/echo
+2025-07-01 20:21:50.562 INFO  ---- [http-nio-1] [EchoWebSocketHandler:20] handle   🔌 Connected: 195c8ea5
+2025-07-01 20:21:50.566 INFO  ---- [http-nio-8] [EchoWebSocketHandler:24] handle$lambda$1   ❌ Disconnected (complete): 8dc7865
+2025-07-01 20:21:50.567 INFO  ---- [http-nio-8] [EchoWebSocketHandler:29] handle$lambda$4   ⚠️ Session final state: onComplete
+2025-07-01 20:21:59.040 INFO  ---- [http-nio-1] [EchoWebSocketHandler:24] handle$lambda$1   ❌ Disconnected (complete): 195c8ea5
+2025-07-01 20:21:59.042 INFO  ---- [http-nio-1] [EchoWebSocketHandler:29] handle$lambda$4   ⚠️ Session final state: onComplete
+2025-07-01 20:21:59.922 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [09d4b794-9] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:21:59.926 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [09d4b794-9] Session id "635a0cb4" for http://localhost:8080/ws/echo
+2025-07-01 20:21:59.927 INFO  ---- [http-nio-2] [EchoWebSocketHandler:20] handle   🔌 Connected: 635a0cb4
+2025-07-01 20:21:59.940 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [ac2efcbb-10] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:21:59.942 DEBUG ---- [http-nio-3] [ReactorNettyWebSocketSession:83] <init>   [ac2efcbb-10] Session id "21c4df89" for http://localhost:8080/ws/echo
+2025-07-01 20:21:59.943 INFO  ---- [http-nio-3] [EchoWebSocketHandler:20] handle   🔌 Connected: 21c4df89
+2025-07-01 20:21:59.947 INFO  ---- [http-nio-2] [EchoWebSocketHandler:24] handle$lambda$1   ❌ Disconnected (complete): 635a0cb4
+2025-07-01 20:21:59.948 INFO  ---- [http-nio-2] [EchoWebSocketHandler:29] handle$lambda$4   ⚠️ Session final state: onComplete
+2025-07-01 20:22:26.388 INFO  ---- [http-nio-3] [EchoWebSocketHandler:24] handle$lambda$1   ❌ Disconnected (complete): 21c4df89
+2025-07-01 20:22:26.389 INFO  ---- [http-nio-3] [EchoWebSocketHandler:29] handle$lambda$4   ⚠️ Session final state: onComplete
+2025-07-01 20:22:27.654 DEBUG ---- [http-nio-4] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [8086a582-11] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:22:27.657 DEBUG ---- [http-nio-4] [ReactorNettyWebSocketSession:83] <init>   [8086a582-11] Session id "4df7327" for http://localhost:8080/ws/echo
+2025-07-01 20:22:27.658 INFO  ---- [http-nio-4] [EchoWebSocketHandler:20] handle   🔌 Connected: 4df7327
+2025-07-01 20:22:27.674 DEBUG ---- [http-nio-5] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [9a0cdd51-12] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@653c843e
+2025-07-01 20:22:27.677 DEBUG ---- [http-nio-5] [ReactorNettyWebSocketSession:83] <init>   [9a0cdd51-12] Session id "7420920" for http://localhost:8080/ws/echo
+2025-07-01 20:22:27.678 INFO  ---- [http-nio-5] [EchoWebSocketHandler:20] handle   🔌 Connected: 7420920
+2025-07-01 20:24:54.643 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 19504 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-07-01 20:24:54.646 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-07-01 20:24:56.866 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-01 20:24:56.882 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-01 20:24:57.036 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 78 ms. Found 0 Redis repository interfaces.
+2025-07-01 20:25:01.112 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
+2025-07-01 20:25:01.630 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-01 20:25:01.726 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
+2025-07-01 20:25:01.750 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-07-01 20:25:01.836 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
+2025-07-01 20:25:02.327 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
+2025-07-01 20:25:02.373 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 9.047 seconds (process running for 9.899)
+2025-07-01 20:25:16.033 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [403f8ef1-1] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@5f47cac5
+2025-07-01 20:25:16.033 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [0192aa0a-2] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@5f47cac5
+2025-07-01 20:25:16.134 DEBUG ---- [http-nio-3] [ReactorNettyWebSocketSession:83] <init>   [403f8ef1-1] Session id "16f8c70e" for http://localhost:8080/ws/echo
+2025-07-01 20:25:16.134 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [0192aa0a-2] Session id "9af977d" for http://localhost:8080/ws/echo
+2025-07-01 20:25:16.135 INFO  ---- [http-nio-3] [EchoWebSocketHandler:20] handle   🔌 Connected: 16f8c70e
+2025-07-01 20:25:16.135 INFO  ---- [http-nio-2] [EchoWebSocketHandler:20] handle   🔌 Connected: 9af977d
+2025-07-01 20:25:19.427 INFO  ---- [http-nio-3] [EchoWebSocketHandler:23] invoke   📨 Received: ㄹ
+2025-07-01 20:25:30.411 INFO  ---- [http-nio-3] [EchoWebSocketHandler:23] invoke   📨 Received: 허허허허
+2025-07-01 20:25:42.813 DEBUG ---- [http-nio-4] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [d824ef10-3] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@5f47cac5
+2025-07-01 20:25:42.819 DEBUG ---- [http-nio-4] [ReactorNettyWebSocketSession:83] <init>   [d824ef10-3] Session id "50ed45eb" for http://localhost:8080/ws/echo
+2025-07-01 20:25:42.820 INFO  ---- [http-nio-4] [EchoWebSocketHandler:20] handle   🔌 Connected: 50ed45eb
+2025-07-01 20:25:42.841 DEBUG ---- [http-nio-5] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [924580c7-4] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@5f47cac5
+2025-07-01 20:25:42.845 DEBUG ---- [http-nio-5] [ReactorNettyWebSocketSession:83] <init>   [924580c7-4] Session id "181d6cf7" for http://localhost:8080/ws/echo
+2025-07-01 20:25:42.846 INFO  ---- [http-nio-5] [EchoWebSocketHandler:20] handle   🔌 Connected: 181d6cf7
+2025-07-01 20:25:45.369 INFO  ---- [http-nio-5] [EchoWebSocketHandler:23] invoke   📨 Received: gg
+2025-07-01 20:25:46.735 INFO  ---- [http-nio-5] [EchoWebSocketHandler:23] invoke   📨 Received: ㅎㅎ
+2025-07-01 20:25:48.136 INFO  ---- [http-nio-5] [EchoWebSocketHandler:23] invoke   📨 Received: ㅎㅎ
+2025-07-01 20:59:35.266 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:55] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 on DESKTOP-MNMB87E with PID 20808 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-07-01 20:59:35.272 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:632] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-07-01 20:59:36.552 INFO  ---- [main      ] [RepositoryConfigurationDelegate:262] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-01 20:59:36.557 INFO  ---- [main      ] [RepositoryConfigurationDelegate:132] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-01 20:59:36.596 INFO  ---- [main      ] [RepositoryConfigurationDelegate:201] registerRepositoriesIn   Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2025-07-01 20:59:38.286 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
+2025-07-01 20:59:38.454 WARN  ---- [main      ] [AnnotationConfigReactiveWebServerApplicationContext:599] refresh   Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'errorWebExceptionHandler' defined in class path resource [org/springframework/boot/autoconfigure/web/reactive/error/ErrorWebFluxAutoConfiguration.class]: Unsatisfied dependency expressed through method 'errorWebExceptionHandler' parameter 3; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.web.reactive.WebFluxAutoConfiguration$EnableWebFluxConfiguration': Unsatisfied dependency expressed through method 'setConfigurers' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swaggerWebFluxConfigurer' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'swaggerWebFluxConfigurer' parameter 2; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexPageTransformer' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'indexPageTransformer' parameter 3; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'swaggerWelcome' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webflux.ui.SwaggerWelcomeWebFlux]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+2025-07-01 20:59:38.620 INFO  ---- [main      ] [ConditionEvaluationReportLoggingListener:136] logMessage   
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2025-07-01 20:59:38.666 ERROR ---- [main      ] [SpringApplication:818] reportFailure   Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'errorWebExceptionHandler' defined in class path resource [org/springframework/boot/autoconfigure/web/reactive/error/ErrorWebFluxAutoConfiguration.class]: Unsatisfied dependency expressed through method 'errorWebExceptionHandler' parameter 3; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.web.reactive.WebFluxAutoConfiguration$EnableWebFluxConfiguration': Unsatisfied dependency expressed through method 'setConfigurers' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swaggerWebFluxConfigurer' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'swaggerWebFluxConfigurer' parameter 2; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexPageTransformer' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'indexPageTransformer' parameter 3; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'swaggerWelcome' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webflux.ui.SwaggerWelcomeWebFlux]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:536)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591)
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:66)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.chat.chatserverkotiln.ChatServerKotilnApplicationKt.main(ChatServerKotilnApplication.kt:13)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.web.reactive.WebFluxAutoConfiguration$EnableWebFluxConfiguration': Unsatisfied dependency expressed through method 'setConfigurers' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swaggerWebFluxConfigurer' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'swaggerWebFluxConfigurer' parameter 2; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexPageTransformer' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'indexPageTransformer' parameter 3; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'swaggerWelcome' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webflux.ui.SwaggerWelcomeWebFlux]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:824)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:777)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swaggerWebFluxConfigurer' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'swaggerWebFluxConfigurer' parameter 2; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexPageTransformer' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'indexPageTransformer' parameter 3; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'swaggerWelcome' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webflux.ui.SwaggerWelcomeWebFlux]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:536)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1609)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1573)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1462)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1349)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:816)
+	... 43 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexPageTransformer' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'indexPageTransformer' parameter 3; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'swaggerWelcome' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webflux.ui.SwaggerWelcomeWebFlux]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:536)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 59 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'swaggerWelcome' defined in class path resource [org/springdoc/webflux/ui/SwaggerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webflux.ui.SwaggerWelcomeWebFlux]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:633)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 73 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webflux.ui.SwaggerWelcomeWebFlux]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
+	... 87 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springdoc.webflux.ui.SwaggerConfig.swaggerWelcome(SwaggerConfig.java:86)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 88 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.http.HttpStatusCode
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 92 common frames omitted
+2025-07-01 21:01:20.038 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 9536 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-07-01 21:01:20.042 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-07-01 21:01:21.369 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-01 21:01:21.373 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-01 21:01:21.424 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2025-07-01 21:01:22.876 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
+2025-07-01 21:01:23.177 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-01 21:01:23.276 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
+2025-07-01 21:01:23.299 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-07-01 21:01:23.411 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
+2025-07-01 21:01:23.889 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
+2025-07-01 21:01:23.914 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 4.955 seconds (process running for 5.662)
+2025-07-01 21:01:30.134 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [645d0d79-2] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@3487da72
+2025-07-01 21:01:30.134 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [4e44b1af-1] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@3487da72
+2025-07-01 21:01:30.224 DEBUG ---- [http-nio-3] [ReactorNettyWebSocketSession:83] <init>   [4e44b1af-1] Session id "3bd724fc" for http://localhost:8080/ws/echo
+2025-07-01 21:01:30.223 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [645d0d79-2] Session id "4f9fcba4" for http://localhost:8080/ws/echo
+2025-07-01 21:01:30.225 INFO  ---- [http-nio-3] [EchoWebSocketHandler:17] handle   🔌 Connected: 3bd724fc
+2025-07-01 21:01:30.225 INFO  ---- [http-nio-2] [EchoWebSocketHandler:17] handle   🔌 Connected: 4f9fcba4
+2025-07-01 21:01:30.302 ERROR ---- [http-nio-2] [EchoWebSocketHandler:36] invoke   🔥 Error in session 4f9fcba4
+java.io.IOException: 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:46)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:340)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:294)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:269)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:425)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-01 21:01:30.327 INFO  ---- [http-nio-2] [EchoWebSocketHandler:45] handle$lambda$3   ⚠️ Session removed: 4f9fcba4
+2025-07-01 21:01:32.158 DEBUG ---- [http-nio-4] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [f2ee6b7d-3] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@3487da72
+2025-07-01 21:01:32.162 DEBUG ---- [http-nio-4] [ReactorNettyWebSocketSession:83] <init>   [f2ee6b7d-3] Session id "30b2ead4" for http://localhost:8080/ws/echo
+2025-07-01 21:01:32.164 INFO  ---- [http-nio-4] [EchoWebSocketHandler:17] handle   🔌 Connected: 30b2ead4
+2025-07-01 21:01:32.167 ERROR ---- [http-nio-4] [EchoWebSocketHandler:36] invoke   🔥 Error in session 30b2ead4
+java.io.IOException: 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:46)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:340)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:294)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:269)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:425)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-07-01 21:01:32.169 INFO  ---- [http-nio-4] [EchoWebSocketHandler:45] handle$lambda$3   ⚠️ Session removed: 30b2ead4
+2025-07-01 21:01:32.189 DEBUG ---- [http-nio-5] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [d4e22abc-4] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@3487da72
+2025-07-01 21:01:32.193 DEBUG ---- [http-nio-5] [ReactorNettyWebSocketSession:83] <init>   [d4e22abc-4] Session id "69c9dab5" for http://localhost:8080/ws/echo
+2025-07-01 21:01:32.193 INFO  ---- [http-nio-5] [EchoWebSocketHandler:17] handle   🔌 Connected: 69c9dab5
+2025-07-01 21:01:46.265 INFO  ---- [http-nio-3] [EchoWebSocketHandler:23] invoke   📨 Received from 3bd724fc: ㅎ
+2025-07-01 21:01:49.779 INFO  ---- [http-nio-5] [EchoWebSocketHandler:23] invoke   📨 Received from 69c9dab5: ㅇㄹ
+2025-07-01 21:01:51.723 INFO  ---- [http-nio-5] [EchoWebSocketHandler:23] invoke   📨 Received from 69c9dab5: ㄹㄹㄹ
