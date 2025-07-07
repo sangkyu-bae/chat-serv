@@ -18,13 +18,40 @@ class RedisRepository(
 //        return setOps.add(key, value)
         return setOps.add(key, value).awaitSingle()
     }
-
+    fun setTypeSaveByWebFlux(key: String, value: String): Mono<Long> {
+        return reactiveRedisTemplate.opsForSet().add(key, value)
+    }
     suspend fun findWithSetTypeByAll(key: String): List<String> {
         return setOps.members(key)
             .collectList()
             .awaitSingle()
     }
 
+    suspend fun saveWithHash(key: String, info: Map<String, String>): Boolean {
+        return reactiveRedisTemplate.opsForHash<String, String>()
+            .putAll(key, info)
+            .awaitSingle()
+    }
+
+    fun saveWithHashByWebFlux(key: String, info: Map<String, String>): Mono<Boolean> {
+        return reactiveRedisTemplate.opsForHash<String, String>()
+            .putAll(key, info)
+            .then(Mono.just(true))
+    }
+    suspend fun deleteHash(key: String): Long {
+        return reactiveRedisTemplate.delete(key).awaitSingle()
+    }
+    
+    suspend fun removeFromSet(key: String, value: String): Long {
+        return setOps.remove(key, value).awaitSingle()
+    }
+    
+    suspend fun countKeys(pattern: String): Long {
+        return reactiveRedisTemplate.keys(pattern)
+            .count()
+            .awaitSingle()
+    }
+    
     fun listTypeSave(key: String, value: String): Mono<Long> {
         return reactiveRedisTemplate.opsForList().rightPush(key, value)
     }
