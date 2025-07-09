@@ -24,6 +24,7 @@
 package com.chat.chatserverkotiln.module.websocket
 
 import com.chat.chatserverkotiln.module.redis.RedisRepository
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.socket.WebSocketSession
 import reactor.core.publisher.Mono
@@ -34,26 +35,28 @@ class WebSocketSessionManager(
     private val redisRepository: RedisRepository
 ) {
     private val localSessions = ConcurrentHashMap<String, WebSocketSession>()
-    
+    private val log = LoggerFactory.getLogger(WebSocketSessionManager::class.java)
     companion object {
         private const val SESSION_KEY_PREFIX = "connected:session:"
         private const val USER_SESSION_KEY_PREFIX = "connected:user:"
         private const val SERVER_KEY_PREFIX = "server:user:"
     }
 
+    fun getSessions(): Collection<WebSocketSession> = localSessions.values
     fun addSession(session: WebSocketSession, userId: String? = null): Mono<Void> {
         localSessions[session.id] = session
-        
+
         val ip = session.handshakeInfo.remoteAddress?.address?.hostAddress ?: "unknown"
         val port = session.handshakeInfo.remoteAddress?.port ?: 0
         val sessionKey = "$SESSION_KEY_PREFIX${session.id}"
         val server = "$ip:$port"
         val serverKey = "$SERVER_KEY_PREFIX$server"
-        
-        // userId가 null이 아닐 때만 사용자 관련 저장
+
+        log.info("WebSocket 연결: sessionId={}, ip={}, port={}, userId={}", session.id, ip, port, userId)
+
         return if (userId != null) {
             val userKey = "$USER_SESSION_KEY_PREFIX$userId"
-            
+
             val saveUser = mapOf(
                 "sessionId" to session.id,
                 "isConnect" to "true",
@@ -65,27 +68,37 @@ class WebSocketSessionManager(
                 "isConnect" to "true",
                 "server" to server
             )
-            
+
+            log.debug("Redis 저장 - sessionKey={}, data={}", sessionKey, saveSession)
+            log.debug("Redis 저장 - userKey={}, data={}", userKey, saveUser)
+            log.debug("Redis 저장 - serverKey={}, value={}", serverKey, userId)
+
             Mono.`when`(
-                // suspend 함수를 Mono로 변환
-                Mono.fromCallable { redisRepository.saveWithHashByWebFlux(sessionKey, saveSession) },
-                Mono.fromCallable { redisRepository.saveWithHashByWebFlux(userKey, saveUser) },
-                Mono.fromCallable { redisRepository.setTypeSaveByWebFlux(serverKey, userId) }
-            ).then()
+                redisRepository.saveWithHashByWebFlux(sessionKey, saveSession),
+                redisRepository.saveWithHashByWebFlux(userKey, saveUser),
+                redisRepository.setTypeSaveByWebFlux(serverKey, userId)
+            ).doOnSuccess {
+                log.info("Redis 저장 성공: sessionId={}, userId={}", session.id, userId)
+            }.doOnError { e ->
+                log.error("Redis 저장 실패: sessionId={}, userId={}, error={}", session.id, userId, e.message)
+            }.then()
         } else {
-            // userId가 null인 경우 세션만 저장
             val saveSession = mapOf(
                 "userId" to "anonymous",
                 "isConnect" to "true",
                 "server" to server
             )
-            
-            Mono.fromCallable { 
-                redisRepository.saveWithHashByWebFlux(sessionKey, saveSession)
-            }.then()
+
+            log.debug("Redis 저장 - sessionKey={}, data={}", sessionKey, saveSession)
+
+            redisRepository.saveWithHashByWebFlux(sessionKey, saveSession)
+                .doOnSuccess {
+                    log.info("Redis 저장 성공 (anonymous): sessionId={}", session.id)
+                }.doOnError { e ->
+                    log.error("Redis 저장 실패 (anonymous): sessionId={}, error={}", session.id, e.message)
+                }.then()
         }
     }
-
     fun removeSession(session: WebSocketSession, userId: String? = null): Mono<Void> {
         localSessions.remove(session.id)
         
@@ -100,13 +113,16 @@ class WebSocketSessionManager(
             
             Mono.`when`(
                 // Redis에서 데이터 삭제 (RedisRepository에 delete 메서드 추가 필요)
-                Mono.fromCallable { redisRepository.deleteHash(sessionKey) },
-                Mono.fromCallable { redisRepository.deleteHash(userKey) },
-                Mono.fromCallable { redisRepository.removeFromSet(serverKey, userId) }
+                redisRepository.deleteHashByWebFlux(sessionKey),
+                redisRepository.deleteHashByWebFlux(userKey),
+                redisRepository.removeSetByWebflux(serverKey, userId)
+//                Mono.fromCallable { redisRepository.deleteHashByWebFlux(sessionKey) },
+//                Mono.fromCallable { redisRepository.deleteHashByWebFlux(userKey) },
+//                Mono.fromCallable { redisRepository.removeSetByWebflux(serverKey, userId) }
             ).then()
         } else {
             Mono.fromCallable { 
-                redisRepository.deleteHash(sessionKey) 
+                redisRepository.deleteHashByWebFlux(sessionKey)
             }.then()
         }
     }
@@ -126,8 +142,6 @@ class WebSocketSessionManager(
     
     fun getActiveSessionCount(): Mono<Long> {
         // Redis에서 세션 키 개수 조회 (RedisRepository에 메서드 추가 필요)
-        return Mono.fromCallable { 
-            redisRepository.countKeys("$SESSION_KEY_PREFIX*") 
-        }.flatMap { it }
+        return  redisRepository.countKeysByWebflux("$SESSION_KEY_PREFIX*")
     }
 }

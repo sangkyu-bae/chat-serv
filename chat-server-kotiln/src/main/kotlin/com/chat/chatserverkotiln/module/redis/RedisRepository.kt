@@ -38,6 +38,10 @@ class RedisRepository(
             .putAll(key, info)
             .then(Mono.just(true))
     }
+
+    fun deleteHashByWebFlux(key:String): Mono<Long>{
+        return reactiveRedisTemplate.delete(key);
+    }
     suspend fun deleteHash(key: String): Long {
         return reactiveRedisTemplate.delete(key).awaitSingle()
     }
@@ -45,11 +49,19 @@ class RedisRepository(
     suspend fun removeFromSet(key: String, value: String): Long {
         return setOps.remove(key, value).awaitSingle()
     }
+
+    fun removeSetByWebflux(key: String, value : String) : Mono<Long>{
+        return setOps.remove(key,value);
+    }
     
     suspend fun countKeys(pattern: String): Long {
         return reactiveRedisTemplate.keys(pattern)
             .count()
             .awaitSingle()
+    }
+
+    fun countKeysByWebflux(pattern: String) : Mono<Long>{
+        return reactiveRedisTemplate.keys(pattern).count();
     }
     
     fun listTypeSave(key: String, value: String): Mono<Long> {

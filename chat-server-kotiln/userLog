@@ -1,28 +1,22 @@
-2025-07-07 19:41:46.614 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 14820 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
-2025-07-07 19:41:46.632 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
-2025-07-07 19:41:48.635 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
-2025-07-07 19:41:48.642 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-07-07 19:41:48.742 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 36 ms. Found 0 Redis repository interfaces.
-2025-07-07 19:41:50.664 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
-2025-07-07 19:41:50.949 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-2025-07-07 19:41:51.050 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
-2025-07-07 19:41:51.073 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2025-07-07 19:41:51.163 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
-2025-07-07 19:41:51.639 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
-2025-07-07 19:41:51.662 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 6.242 seconds (process running for 6.942)
-2025-07-07 19:52:49.952 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [7b956432-1] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@2a8d4efd
-2025-07-07 19:52:49.998 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [7b956432-1] Session id "417f0898" for http://localhost:8080/ws/echo
-2025-07-07 19:52:49.999 INFO  ---- [http-nio-2] [EchoWebSocketHandler:17] handle   🔌 Connected: 417f0898
-2025-07-07 19:52:56.390 INFO  ---- [http-nio-2] [EchoWebSocketHandler:22] invoke    Received from 417f0898: j
-2025-07-07 19:53:36.543 INFO  ---- [http-nio-2] [EchoWebSocketHandler:28] handle$lambda$1    Disconnected (complete): 417f0898
-2025-07-07 19:53:36.544 INFO  ---- [http-nio-2] [EchoWebSocketHandler:38] handle$lambda$3   ️ Session removed: 417f0898
-2025-07-07 20:00:08.211 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [33010ebc-2] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@2a8d4efd
-2025-07-07 20:00:08.215 DEBUG ---- [http-nio-3] [ReactorNettyWebSocketSession:83] <init>   [33010ebc-2] Session id "6f11d14c" for http://localhost:8080/ws/echo
-2025-07-07 20:00:08.216 INFO  ---- [http-nio-3] [EchoWebSocketHandler:17] handle   🔌 Connected: 6f11d14c
-2025-07-07 20:00:08.234 DEBUG ---- [http-nio-4] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [94fbf004-3] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@2a8d4efd
-2025-07-07 20:00:08.236 DEBUG ---- [http-nio-4] [ReactorNettyWebSocketSession:83] <init>   [94fbf004-3] Session id "32c9a292" for http://localhost:8080/ws/echo
-2025-07-07 20:00:08.236 INFO  ---- [http-nio-4] [EchoWebSocketHandler:17] handle   🔌 Connected: 32c9a292
-2025-07-07 20:00:08.233 ERROR ---- [http-nio-3] [EchoWebSocketHandler:31] invoke    Error in session 6f11d14c
+2025-07-09 20:49:37.493 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 13524 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-07-09 20:49:37.502 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-07-09 20:49:38.757 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-09 20:49:38.762 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-09 20:49:38.811 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2025-07-09 20:49:40.233 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
+2025-07-09 20:49:40.479 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-09 20:49:40.573 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
+2025-07-09 20:49:40.592 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-07-09 20:49:40.666 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
+2025-07-09 20:49:41.042 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
+2025-07-09 20:49:41.064 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 4.426 seconds (process running for 5.328)
+2025-07-09 20:57:29.972 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [99d97743-2] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@12206ce1
+2025-07-09 20:57:29.972 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [db31d465-1] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@12206ce1
+2025-07-09 20:57:30.119 DEBUG ---- [http-nio-3] [ReactorNettyWebSocketSession:83] <init>   [db31d465-1] Session id "77e43cf4" for http://localhost:8080/ws/echo
+2025-07-09 20:57:30.119 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [99d97743-2] Session id "f6ace46" for http://localhost:8080/ws/echo
+2025-07-09 20:57:30.135 INFO  ---- [http-nio-3] [EchoWebSocketHandler:17] handle   🔌 Connected: 77e43cf4
+2025-07-09 20:57:30.135 INFO  ---- [http-nio-2] [EchoWebSocketHandler:17] handle   🔌 Connected: f6ace46
+2025-07-09 20:57:30.216 ERROR ---- [http-nio-2] [EchoWebSocketHandler:36] invoke    Error in session f6ace46
 java.io.IOException: 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
 	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
 	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:46)
@@ -42,11 +36,54 @@ java.io.IOException: 현재 연결은 사용자의 호스트 시스템의 소프
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2025-07-07 20:00:08.260 INFO  ---- [http-nio-3] [EchoWebSocketHandler:38] handle$lambda$3   ️ Session removed: 6f11d14c
-2025-07-07 20:00:10.234 DEBUG ---- [http-nio-5] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [fa6e5358-4] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@2a8d4efd
-2025-07-07 20:00:10.244 DEBUG ---- [http-nio-5] [ReactorNettyWebSocketSession:83] <init>   [fa6e5358-4] Session id "5e365098" for http://localhost:8080/ws/echo
-2025-07-07 20:00:10.245 INFO  ---- [http-nio-5] [EchoWebSocketHandler:17] handle   🔌 Connected: 5e365098
-2025-07-07 20:00:10.257 ERROR ---- [http-nio-5] [EchoWebSocketHandler:31] invoke    Error in session 5e365098
+2025-07-09 20:57:30.249 INFO  ---- [http-nio-2] [EchoWebSocketHandler:43] handle$lambda$3   ️ Session removed: f6ace46
+2025-07-09 20:57:45.046 INFO  ---- [http-nio-3] [EchoWebSocketHandler:22] invoke    Received from 77e43cf4: j
+2025-07-09 20:57:45.104 INFO  ---- [http-nio-3] [EchoWebSocketHandler:26] invoke   🔈 Sending to 77e43cf4
+2025-07-09 20:57:45.114 INFO  ---- [http-nio-3] [EchoWebSocketHandler:27] invoke   ✅ Sent to 77e43cf4
+2025-07-09 20:58:02.869 INFO  ---- [http-nio-3] [EchoWebSocketHandler:33] handle$lambda$1    Disconnected (complete): 77e43cf4
+2025-07-09 20:58:02.870 INFO  ---- [http-nio-3] [EchoWebSocketHandler:43] handle$lambda$3   ️ Session removed: 77e43cf4
+2025-07-09 20:58:03.001 DEBUG ---- [http-nio-4] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [09bc6792-3] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@12206ce1
+2025-07-09 20:58:03.007 DEBUG ---- [http-nio-4] [ReactorNettyWebSocketSession:83] <init>   [09bc6792-3] Session id "4826f506" for http://localhost:8080/ws/echo
+2025-07-09 20:58:03.008 INFO  ---- [http-nio-4] [EchoWebSocketHandler:17] handle   🔌 Connected: 4826f506
+2025-07-09 21:02:07.147 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 14756 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-07-09 21:02:07.152 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-07-09 21:02:09.312 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-09 21:02:09.321 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-09 21:02:09.477 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 74 ms. Found 0 Redis repository interfaces.
+2025-07-09 21:02:13.406 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
+2025-07-09 21:02:14.113 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-09 21:02:14.399 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
+2025-07-09 21:02:14.457 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-07-09 21:02:14.704 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
+2025-07-09 21:02:15.848 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
+2025-07-09 21:02:15.909 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 9.657 seconds (process running for 10.215)
+2025-07-09 21:02:23.855 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [eeeca25a-1] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@31332851
+2025-07-09 21:02:24.010 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [eeeca25a-1] Session id "52591777" for http://localhost:8080/ws/echo
+2025-07-09 21:02:24.025 INFO  ---- [http-nio-2] [EchoWebSocketHandler:17] handle   🔌 Connected: 52591777
+2025-07-09 21:02:25.117 INFO  ---- [http-nio-2] [EchoWebSocketHandler:22] invoke    Received from 52591777: ㄹ
+2025-07-09 21:02:25.147 INFO  ---- [http-nio-2] [EchoWebSocketHandler:26] invoke   🔈 Sending to 52591777
+2025-07-09 21:02:25.151 INFO  ---- [http-nio-2] [EchoWebSocketHandler:27] invoke   ✅ Sent to 52591777
+2025-07-09 21:05:25.187 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 27296 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-07-09 21:05:25.194 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-07-09 21:05:26.898 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-09 21:05:26.903 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-09 21:05:26.969 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2025-07-09 21:05:28.767 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
+2025-07-09 21:05:29.083 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-09 21:05:29.207 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
+2025-07-09 21:05:29.240 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-07-09 21:05:29.335 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
+2025-07-09 21:05:29.932 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
+2025-07-09 21:05:29.951 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 5.832 seconds (process running for 6.721)
+2025-07-09 21:05:36.721 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [3e11f0f0-2] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@4e7975d0
+2025-07-09 21:05:36.721 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [b831bde2-1] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@4e7975d0
+2025-07-09 21:05:36.825 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [b831bde2-1] Session id "f19f2c1" for http://localhost:8080/ws/echo
+2025-07-09 21:05:36.825 DEBUG ---- [http-nio-3] [ReactorNettyWebSocketSession:83] <init>   [3e11f0f0-2] Session id "3d70f69b" for http://localhost:8080/ws/echo
+2025-07-09 21:05:36.827 INFO  ---- [http-nio-3] [WebSocketSessionManager:55] addSession   WebSocket 연결: sessionId=3d70f69b, ip=0:0:0:0:0:0:0:1, port=65086, userId=null
+2025-07-09 21:05:36.827 INFO  ---- [http-nio-2] [WebSocketSessionManager:55] addSession   WebSocket 연결: sessionId=f19f2c1, ip=0:0:0:0:0:0:0:1, port=65085, userId=null
+2025-07-09 21:05:36.850 INFO  ---- [http-nio-3] [EchoWebSocketHandler:17] handle   🔌 Connected: 3d70f69b
+2025-07-09 21:05:36.850 INFO  ---- [http-nio-2] [EchoWebSocketHandler:17] handle   🔌 Connected: f19f2c1
+2025-07-09 21:05:36.925 ERROR ---- [http-nio-2] [EchoWebSocketHandler:36] invoke    Error in session f19f2c1
 java.io.IOException: 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
 	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
 	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:46)
@@ -66,125 +103,27 @@ java.io.IOException: 현재 연결은 사용자의 호스트 시스템의 소프
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2025-07-07 20:00:10.265 INFO  ---- [http-nio-5] [EchoWebSocketHandler:38] handle$lambda$3   ️ Session removed: 5e365098
-2025-07-07 20:00:10.266 DEBUG ---- [http-nio-6] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [cae93a77-5] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@2a8d4efd
-2025-07-07 20:00:10.271 DEBUG ---- [http-nio-6] [ReactorNettyWebSocketSession:83] <init>   [cae93a77-5] Session id "7fc219fe" for http://localhost:8080/ws/echo
-2025-07-07 20:00:10.272 INFO  ---- [http-nio-6] [EchoWebSocketHandler:17] handle   🔌 Connected: 7fc219fe
-2025-07-07 20:00:19.234 INFO  ---- [http-nio-6] [EchoWebSocketHandler:28] handle$lambda$1    Disconnected (complete): 7fc219fe
-2025-07-07 20:00:19.235 INFO  ---- [http-nio-6] [EchoWebSocketHandler:38] handle$lambda$3   ️ Session removed: 7fc219fe
-2025-07-07 20:00:19.343 DEBUG ---- [http-nio-7] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [8d2a917e-6] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@2a8d4efd
-2025-07-07 20:00:19.348 DEBUG ---- [http-nio-7] [ReactorNettyWebSocketSession:83] <init>   [8d2a917e-6] Session id "4a29d7f3" for http://localhost:8080/ws/echo
-2025-07-07 20:00:19.350 INFO  ---- [http-nio-7] [EchoWebSocketHandler:17] handle   🔌 Connected: 4a29d7f3
-2025-07-07 20:00:19.352 ERROR ---- [http-nio-7] [EchoWebSocketHandler:31] invoke    Error in session 4a29d7f3
-java.io.IOException: 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
-	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
-	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:46)
-	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:340)
-	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:294)
-	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:269)
-	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:425)
-	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)
-	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
-	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2025-07-07 20:00:19.354 INFO  ---- [http-nio-7] [EchoWebSocketHandler:38] handle$lambda$3   ️ Session removed: 4a29d7f3
-2025-07-07 20:00:19.354 DEBUG ---- [http-nio-8] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [ed3613c0-7] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@2a8d4efd
-2025-07-07 20:00:19.358 DEBUG ---- [http-nio-8] [ReactorNettyWebSocketSession:83] <init>   [ed3613c0-7] Session id "289334b9" for http://localhost:8080/ws/echo
-2025-07-07 20:00:19.359 INFO  ---- [http-nio-8] [EchoWebSocketHandler:17] handle   🔌 Connected: 289334b9
-2025-07-07 20:00:27.913 INFO  ---- [http-nio-8] [EchoWebSocketHandler:22] invoke    Received from 289334b9: f
-2025-07-07 20:00:35.109 INFO  ---- [http-nio-4] [EchoWebSocketHandler:22] invoke    Received from 32c9a292: h
-2025-07-07 20:00:50.743 DEBUG ---- [http-nio-1] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [faf0ebc9-8] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@2a8d4efd
-2025-07-07 20:00:50.746 DEBUG ---- [http-nio-1] [ReactorNettyWebSocketSession:83] <init>   [faf0ebc9-8] Session id "4fd0d55f" for http://localhost:8080/ws/echo
-2025-07-07 20:00:50.747 INFO  ---- [http-nio-1] [EchoWebSocketHandler:17] handle   🔌 Connected: 4fd0d55f
-2025-07-07 20:00:50.749 ERROR ---- [http-nio-1] [EchoWebSocketHandler:31] invoke    Error in session 4fd0d55f
-java.io.IOException: 현재 연결은 사용자의 호스트 시스템의 소프트웨어의 의해 중단되었습니다
-	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
-	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:46)
-	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:340)
-	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:294)
-	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:269)
-	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:425)
-	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:255)
-	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
-	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:356)
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2025-07-07 20:00:50.751 INFO  ---- [http-nio-1] [EchoWebSocketHandler:38] handle$lambda$3   ️ Session removed: 4fd0d55f
-2025-07-07 20:00:50.765 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [e9343413-9] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@2a8d4efd
-2025-07-07 20:00:50.771 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [e9343413-9] Session id "37c162e3" for http://localhost:8080/ws/echo
-2025-07-07 20:00:50.772 INFO  ---- [http-nio-2] [EchoWebSocketHandler:17] handle   🔌 Connected: 37c162e3
-2025-07-07 20:00:57.517 INFO  ---- [http-nio-4] [EchoWebSocketHandler:28] handle$lambda$1    Disconnected (complete): 32c9a292
-2025-07-07 20:00:57.518 INFO  ---- [http-nio-4] [EchoWebSocketHandler:38] handle$lambda$3   ️ Session removed: 32c9a292
-2025-07-07 20:00:57.671 DEBUG ---- [http-nio-3] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [fa9baa3e-10] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@2a8d4efd
-2025-07-07 20:00:57.674 DEBUG ---- [http-nio-3] [ReactorNettyWebSocketSession:83] <init>   [fa9baa3e-10] Session id "7223ba0b" for http://localhost:8080/ws/echo
-2025-07-07 20:00:57.675 INFO  ---- [http-nio-3] [EchoWebSocketHandler:17] handle   🔌 Connected: 7223ba0b
-2025-07-07 20:00:57.678 INFO  ---- [http-nio-3] [EchoWebSocketHandler:28] handle$lambda$1    Disconnected (complete): 7223ba0b
-2025-07-07 20:00:57.678 INFO  ---- [http-nio-3] [EchoWebSocketHandler:38] handle$lambda$3   ️ Session removed: 7223ba0b
-2025-07-07 20:00:57.690 DEBUG ---- [http-nio-4] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [413c2d8d-11] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@2a8d4efd
-2025-07-07 20:00:57.693 DEBUG ---- [http-nio-4] [ReactorNettyWebSocketSession:83] <init>   [413c2d8d-11] Session id "23684d17" for http://localhost:8080/ws/echo
-2025-07-07 20:00:57.694 INFO  ---- [http-nio-4] [EchoWebSocketHandler:17] handle   🔌 Connected: 23684d17
-2025-07-07 20:01:20.922 INFO  ---- [http-nio-4] [EchoWebSocketHandler:22] invoke    Received from 23684d17: ddddddd
-2025-07-07 20:02:57.211 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 18232 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
-2025-07-07 20:02:57.215 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
-2025-07-07 20:02:58.774 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
-2025-07-07 20:02:58.779 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-07-07 20:02:58.833 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
-2025-07-07 20:03:00.674 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
-2025-07-07 20:03:01.009 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
-2025-07-07 20:03:01.104 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
-2025-07-07 20:03:01.127 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2025-07-07 20:03:01.203 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
-2025-07-07 20:03:01.755 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
-2025-07-07 20:03:01.786 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 5.438 seconds (process running for 6.179)
-2025-07-07 20:03:06.866 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [fb9f6ecf-1] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@13958ffc
-2025-07-07 20:03:06.990 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [fb9f6ecf-1] Session id "1dad715b" for http://localhost:8080/ws/echo
-2025-07-07 20:03:06.992 INFO  ---- [http-nio-2] [EchoWebSocketHandler:17] handle   🔌 Connected: 1dad715b
-2025-07-07 20:03:08.679 INFO  ---- [http-nio-2] [EchoWebSocketHandler:22] invoke    Received from 1dad715b: ㅎ
-2025-07-07 20:03:08.739 INFO  ---- [http-nio-2] [EchoWebSocketHandler:26] invoke   🔈 Sending to 1dad715b
-2025-07-07 20:03:08.748 INFO  ---- [http-nio-2] [EchoWebSocketHandler:27] invoke   ✅ Sent to 1dad715b
-2025-07-07 20:28:15.173 ERROR ---- [http-nio-2] [EchoWebSocketHandler:36] invoke    Error in session 1dad715b
-reactor.netty.channel.AbortedException: Connection has been closed
-	at reactor.netty.http.server.HttpServerOperations.onInboundClose(HttpServerOperations.java:925)
-	at reactor.netty.channel.ChannelOperationsHandler.channelInactive(ChannelOperationsHandler.java:73)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:303)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:281)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:274)
-	at io.netty.channel.ChannelInboundHandlerAdapter.channelInactive(ChannelInboundHandlerAdapter.java:81)
-	at io.netty.handler.codec.MessageAggregator.channelInactive(MessageAggregator.java:441)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:303)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:281)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:274)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:412)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:377)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:303)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:281)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:274)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1352)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:301)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:281)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:850)
-	at io.netty.channel.AbstractChannel$AbstractUnsafe$7.run(AbstractChannel.java:811)
-	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2025-07-07 20:28:15.189 INFO  ---- [http-nio-2] [EchoWebSocketHandler:43] handle$lambda$3   ️ Session removed: 1dad715b
+2025-07-09 21:05:36.943 INFO  ---- [http-nio-2] [EchoWebSocketHandler:43] handle$lambda$3   ️ Session removed: f19f2c1
+2025-07-09 21:06:05.695 INFO  ---- [http-nio-3] [EchoWebSocketHandler:33] handle$lambda$1    Disconnected (complete): 3d70f69b
+2025-07-09 21:06:05.696 INFO  ---- [http-nio-3] [EchoWebSocketHandler:43] handle$lambda$3   ️ Session removed: 3d70f69b
+2025-07-09 21:06:05.843 DEBUG ---- [http-nio-4] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [fb3616b9-3] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@4e7975d0
+2025-07-09 21:06:05.853 DEBUG ---- [http-nio-4] [ReactorNettyWebSocketSession:83] <init>   [fb3616b9-3] Session id "19062fff" for http://localhost:8080/ws/echo
+2025-07-09 21:06:05.853 INFO  ---- [http-nio-4] [WebSocketSessionManager:55] addSession   WebSocket 연결: sessionId=19062fff, ip=0:0:0:0:0:0:0:1, port=65136, userId=null
+2025-07-09 21:06:05.854 INFO  ---- [http-nio-4] [EchoWebSocketHandler:17] handle   🔌 Connected: 19062fff
+2025-07-09 21:07:43.200 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:53] logStarting   Starting ChatServerKotilnApplicationKt using Java 21.0.7 with PID 26908 (C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln\build\classes\kotlin\main started by tkdrb in C:\Users\tkdrb\IdeaProjects\chat-module\chat-server-kotiln)
+2025-07-09 21:07:43.204 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:652] logStartupProfileInfo   No active profile set, falling back to 1 default profile: "default"
+2025-07-09 21:07:44.416 INFO  ---- [main      ] [RepositoryConfigurationDelegate:294] multipleStoresDetected   Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-09 21:07:44.424 INFO  ---- [main      ] [RepositoryConfigurationDelegate:145] registerRepositoriesIn   Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-09 21:07:44.523 INFO  ---- [main      ] [RepositoryConfigurationDelegate:213] registerRepositoriesIn   Finished Spring Data repository scanning in 53 ms. Found 0 Redis repository interfaces.
+2025-07-09 21:07:47.461 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/ws/echo] in 'handlerMapping'
+2025-07-09 21:07:48.122 INFO  ---- [main      ] [OptionalValidatorFactoryBean:48] afterPropertiesSet   Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-09 21:07:48.330 DEBUG ---- [main      ] [RequestMappingHandlerMapping:164] afterPropertiesSet   8 mappings in 'requestMappingHandlerMapping'
+2025-07-09 21:07:48.408 DEBUG ---- [main      ] [SimpleUrlHandlerMapping:170] logMappings   Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-07-09 21:07:48.735 DEBUG ---- [main      ] [ControllerMethodResolver:292] initControllerAdviceCaches   ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 @ExceptionHandler
+2025-07-09 21:07:49.976 INFO  ---- [main      ] [NettyWebServer:126] start   Netty started on port 8080 (http)
+2025-07-09 21:07:50.033 INFO  ---- [main      ] [ChatServerKotilnApplicationKt:59] logStarted   Started ChatServerKotilnApplicationKt in 7.893 seconds (process running for 8.608)
+2025-07-09 21:07:58.121 DEBUG ---- [http-nio-2] [SimpleUrlHandlerMapping:189] lambda$getHandler$1   [8df4eb6f-1] Mapped to com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler@6dbf24dd
+2025-07-09 21:07:58.185 DEBUG ---- [http-nio-2] [ReactorNettyWebSocketSession:83] <init>   [8df4eb6f-1] Session id "28d0c3fb" for http://localhost:8080/ws/echo
+2025-07-09 21:07:58.187 INFO  ---- [http-nio-2] [WebSocketSessionManager:55] addSession   WebSocket 연결: sessionId=28d0c3fb, ip=0:0:0:0:0:0:0:1, port=65264, userId=null
+2025-07-09 21:07:58.743 INFO  ---- [http-nio-2] [EchoWebSocketHandler:17] handle   🔌 Connected: 28d0c3fb
+2025-07-09 21:07:58.749 INFO  ---- [ntLoop-7-1] [WebSocketSessionManager:96] invoke   Redis 저장 성공 (anonymous): sessionId=28d0c3fb
