@@ -34,7 +34,7 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.7.3")  // WebFlux 코루틴 지원
 
-
+	implementation("io.projectreactor.kafka:reactor-kafka:1.3.20")
 	implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.5.0")
 	implementation("io.swagger.core.v3:swagger-annotations:2.2.21")  // 최신 버전 기준
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {

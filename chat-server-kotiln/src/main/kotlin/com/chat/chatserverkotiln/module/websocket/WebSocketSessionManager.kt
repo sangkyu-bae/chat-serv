@@ -103,7 +103,8 @@ class WebSocketSessionManager(
         localSessions.remove(session.id)
         
         val sessionKey = "$SESSION_KEY_PREFIX${session.id}"
-        
+        log.debug("Redis 삭제 - sessionKey={}", sessionKey)
+
         return if (userId != null) {
             val userKey = "$USER_SESSION_KEY_PREFIX$userId"
             val ip = session.handshakeInfo.remoteAddress?.address?.hostAddress ?: "unknown"
@@ -119,11 +120,19 @@ class WebSocketSessionManager(
 //                Mono.fromCallable { redisRepository.deleteHashByWebFlux(sessionKey) },
 //                Mono.fromCallable { redisRepository.deleteHashByWebFlux(userKey) },
 //                Mono.fromCallable { redisRepository.removeSetByWebflux(serverKey, userId) }
-            ).then()
+            ).doOnSuccess {
+                log.info("Redis 삭제 성공: sessionId={}, userId={}", session.id, userId)
+            }.doOnError { e ->
+                log.error("Redis 삭제 실패: sessionId={}, userId={}, error={}", session.id, userId, e.message)
+            }.
+            then()
         } else {
-            Mono.fromCallable { 
-                redisRepository.deleteHashByWebFlux(sessionKey)
-            }.then()
+            redisRepository.deleteHashByWebFlux(sessionKey)
+                .doOnSuccess {
+                    log.info("Redis 삭제 성공 (anonymous): sessionId={}", session.id)
+                }.doOnError { e ->
+                    log.error("Redis 삭제 실패 (anonymous): sessionId={}, error={}", session.id, e.message)
+                }.then()
         }
     }
 

@@ -30,6 +30,8 @@ kafka:
     chat : chat
   group :
     chat : chat.v1
+  key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  value-serializer: org.apache.kafka.common.serialization.StringSerializer
 eureka:
   instance:
     #    instance-id: ${spring.cloud.client.ip-address}:${random.value}

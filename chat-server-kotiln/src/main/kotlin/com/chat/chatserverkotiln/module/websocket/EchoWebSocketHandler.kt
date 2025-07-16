@@ -24,12 +24,19 @@ class EchoWebSocketHandler(
                     .map { s ->
                         s.send(Mono.just(s.textMessage("Broadcast: $msgText")))
                             .doOnSubscribe { log.info("🔈 Sending to ${s.id}") }
-                            .doOnSuccess { log.info("✅ Sent to ${s.id}") }
-                            .doOnError { e -> log.error("❌ Failed to send to ${s.id}", e) }
+                            .doOnSuccess {
+                                log.info("✅ Sent to ${s.id}")
+
+                            }
+                            .doOnError { e ->{
+                                sessionManager.removeSession(session)
+                                log.error("❌ Failed to send to ${s.id}", e)
+                            } }
                     }
                 Mono.`when`(sendMonos)
             }
             .doOnComplete {
+                sessionManager.removeSession(session).subscribe()
                 log.info(" Disconnected (complete): ${session.id}")
             }
             .doOnError { e ->
@@ -39,7 +46,7 @@ class EchoWebSocketHandler(
         return input
             .then()
             .doFinally {
-                sessionManager.removeSession(session)
+                sessionManager.removeSession(session).subscribe()
                 log.info("️ Session removed: ${session.id}")
             }
     }
