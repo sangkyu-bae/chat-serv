@@ -13,8 +13,8 @@ class KafkaConfig {
     fun kafkaSender(): KafkaSender<String, String> {
         val props = mapOf(
             ProducerConfig.BOOTSTRAP_SERVERS_CONFIG to "localhost:9092",
-            ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG to StringSerializer::class.java,
-            ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG to StringSerializer::class.java,
+            ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG to org.apache.kafka.common.serialization.StringSerializer::class.java,
+            ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG to org.apache.kafka.common.serialization.StringSerializer::class.java,
             ProducerConfig.ACKS_CONFIG to "1"
         )
 

@@ -2,6 +2,7 @@ package com.chat.chatserverkotiln.module.kafka
 
 import com.chat.chatserverkotiln.module.websocket.EchoWebSocketHandler
 import com.fasterxml.jackson.databind.ObjectMapper
+import kotlinx.coroutines.reactive.awaitSingle
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
@@ -18,7 +19,7 @@ class KafkaProducer (
     private val log = LoggerFactory.getLogger(KafkaProducer::class.java)
 
 
-    fun sendMessage(topic: String, key: String, sendMsg: Any): Mono<SenderResult<Void?>> {
+    suspend fun sendMessage(topic: String, key: String, sendMsg: Any): SenderResult<Void?> {
         val jsonMessage = objectMapper.writeValueAsString(sendMsg)
 
         val record = SenderRecord.create(topic, null, null, key, jsonMessage, null as Void?)
@@ -28,5 +29,6 @@ class KafkaProducer (
                 log.info("Kafka message sent: topic=${result.recordMetadata().topic()}, offset=${result.recordMetadata().offset()}")
             }
             .single()
+            .awaitSingle()  // 🔥 코루틴으로 await
     }
 }
