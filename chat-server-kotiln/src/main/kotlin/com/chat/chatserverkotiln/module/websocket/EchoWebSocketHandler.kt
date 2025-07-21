@@ -1,5 +1,7 @@
 package com.chat.chatserverkotiln.module.websocket
 
+import com.chat.chatserverkotiln.module.kafka.KafkaProducer
+import kotlinx.coroutines.reactor.mono
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.socket.WebSocketHandler
@@ -8,7 +10,8 @@ import reactor.core.publisher.Mono
 
 @Component
 class EchoWebSocketHandler(
-    private val sessionManager: WebSocketSessionManager
+    private val sessionManager: WebSocketSessionManager,
+    private val kafkaProducer: KafkaProducer
 ) : WebSocketHandler {
     private val log = LoggerFactory.getLogger(EchoWebSocketHandler::class.java)
 
@@ -20,20 +23,23 @@ class EchoWebSocketHandler(
             .flatMap { webSocketMessage ->
                 val msgText = webSocketMessage.payloadAsText
                 log.info(" Received from ${session.id}: $msgText")
-                val sendMonos: List<Mono<Void>> = sessionManager.getSessions()
-                    .map { s ->
-                        s.send(Mono.just(s.textMessage("Broadcast: $msgText")))
-                            .doOnSubscribe { log.info("🔈 Sending to ${s.id}") }
-                            .doOnSuccess {
-                                log.info("✅ Sent to ${s.id}")
-
-                            }
-                            .doOnError { e ->{
-                                sessionManager.removeSession(session)
-                                log.error("❌ Failed to send to ${s.id}", e)
-                            } }
-                    }
-                Mono.`when`(sendMonos)
+                val test : ChatMessage = ChatMessage("CHAT","1","testUser",msgText)
+                mono {
+                    kafkaProducer.sendMessage("chat", "1", test)  // suspend 함수 호출
+                }
+            //                val sendMonos: List<Mono<Void>> = sessionManager.getSessions()
+//                    .map { s ->
+//                        s.send(Mono.just(s.textMessage("Broadcast: $msgText")))
+//                            .doOnSubscribe { log.info("🔈 Sending to ${s.id}") }
+//                            .doOnSuccess {
+//                                log.info("✅ Sent to ${s.id}")
+//                            }
+//                            .doOnError { e ->{
+//                                sessionManager.removeSession(session)
+//                                log.error("❌ Failed to send to ${s.id}", e)
+//                            } }
+//                    }
+//                Mono.`when`(sendMonos)
             }
             .doOnComplete {
                 sessionManager.removeSession(session).subscribe()
@@ -51,6 +57,13 @@ class EchoWebSocketHandler(
             }
     }
 }
+data class ChatMessage(
+    val type: String, // "CHAT", "JOIN", "LEAVE", "SYSTEM"
+    val roomId: String,
+    val userId: String?,
+    val content: String,
+    val timestamp: Long = System.currentTimeMillis()
+)
 
 //package com.chat.chatserverkotiln.module.websocket
 //
