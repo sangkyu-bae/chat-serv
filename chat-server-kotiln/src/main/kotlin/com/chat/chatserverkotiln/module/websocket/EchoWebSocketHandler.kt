@@ -1,5 +1,11 @@
 package com.chat.chatserverkotiln.module.websocket
 
+import com.chat.chatserverkotiln.domain.chat.domain.ChatMessage
+import com.chat.chatserverkotiln.domain.chat.domain.MessageType
+import com.chat.chatserverkotiln.module.kafka.KafkaProducer
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
+import kotlinx.coroutines.reactor.mono
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.socket.WebSocketHandler
@@ -8,7 +14,9 @@ import reactor.core.publisher.Mono
 
 @Component
 class EchoWebSocketHandler(
-    private val sessionManager: WebSocketSessionManager
+    private val sessionManager: WebSocketSessionManager,
+    private val kafkaProducer: KafkaProducer,
+    private val objectMapper: ObjectMapper
 ) : WebSocketHandler {
     private val log = LoggerFactory.getLogger(EchoWebSocketHandler::class.java)
 
@@ -18,22 +26,13 @@ class EchoWebSocketHandler(
 
         val input = session.receive()
             .flatMap { webSocketMessage ->
-                val msgText = webSocketMessage.payloadAsText
-                log.info(" Received from ${session.id}: $msgText")
-                val sendMonos: List<Mono<Void>> = sessionManager.getSessions()
-                    .map { s ->
-                        s.send(Mono.just(s.textMessage("Broadcast: $msgText")))
-                            .doOnSubscribe { log.info("🔈 Sending to ${s.id}") }
-                            .doOnSuccess {
-                                log.info("✅ Sent to ${s.id}")
+                val msgText =  webSocketMessage.payloadAsText
+                log.info(" Received from ${session.id}: ${msgText.toString()}")
+                val chatMessage: ChatMessage = objectMapper.readValue(msgText)
 
-                            }
-                            .doOnError { e ->{
-                                sessionManager.removeSession(session)
-                                log.error("❌ Failed to send to ${s.id}", e)
-                            } }
-                    }
-                Mono.`when`(sendMonos)
+                mono {
+                    kafkaProducer.sendMessage("chat", "1", chatMessage)  // suspend 함수 호출
+                }
             }
             .doOnComplete {
                 sessionManager.removeSession(session).subscribe()
@@ -51,6 +50,21 @@ class EchoWebSocketHandler(
             }
     }
 }
+
+//                val sendMonos: List<Mono<Void>> = sessionManager.getSessions()
+//                    .map { s ->
+//                        s.send(Mono.just(s.textMessage("Broadcast: $msgText")))
+//                            .doOnSubscribe { log.info("🔈 Sending to ${s.id}") }
+//                            .doOnSuccess {
+//                                log.info("✅ Sent to ${s.id}")
+//                            }
+//                            .doOnError { e ->{
+//                                sessionManager.removeSession(session)
+//                                log.error("❌ Failed to send to ${s.id}", e)
+//                            } }
+//                    }
+//                Mono.when(sendMonos)
+
 
 //package com.chat.chatserverkotiln.module.websocket
 //
