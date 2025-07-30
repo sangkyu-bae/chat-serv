@@ -16,4 +16,9 @@ class KafkaProducer(
         val json = objectMapper.writeValueAsString(message)
         kafkaTemplate.send(topic, key, json)
     }
+
+    fun send(topic: String, message: Any) {
+        val json = objectMapper.writeValueAsString(message)
+        kafkaTemplate.send(topic, json)
+    }
 }

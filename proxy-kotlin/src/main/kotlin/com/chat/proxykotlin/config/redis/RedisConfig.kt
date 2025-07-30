@@ -18,6 +18,9 @@ class RedisConfig {
     @Value("\${redis.key.room}")
     lateinit var roomKey : String
 
+    @Value("\${redis.key.join-server}")
+    lateinit var joinServierKey : String
+
     @Bean
     fun redisURI(): RedisURI = RedisURI.create(redisHost)
 
@@ -29,5 +32,4 @@ class RedisConfig {
         return redisClient.connect(StringCodec.UTF8, redisURI)
     }
 
-    fun getRoomKey():String = roomKey
 }

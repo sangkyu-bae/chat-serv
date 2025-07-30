@@ -9,10 +9,14 @@ class RedisKeyManager (
         ){
 
     fun getChatRoomKey(roomId: String):String{
-        return "${redisConfig.getRoomKey()}$roomId"
+        return "${redisConfig.roomKey}$roomId"
+    }
+
+    fun getJoinServerKey(roomId: String) :String{
+        return "${redisConfig.joinServierKey}$roomId"
     }
 
     fun getChatRoomJoinMemberList(roomId: String):String{
-        return "${redisConfig.getRoomKey()}$roomId"
+        return "${redisConfig.roomKey}$roomId"
     }
 }
