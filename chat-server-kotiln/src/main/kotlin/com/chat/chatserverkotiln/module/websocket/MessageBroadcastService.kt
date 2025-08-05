@@ -114,10 +114,3 @@
 //    }
 //}
 //
-//data class ChatMessage(
-//    val type: String, // "CHAT", "JOIN", "LEAVE", "SYSTEM"
-//    val roomId: String,
-//    val userId: String?,
-//    val content: String,
-//    val timestamp: Long = System.currentTimeMillis()
-//)

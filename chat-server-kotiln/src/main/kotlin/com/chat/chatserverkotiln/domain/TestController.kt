@@ -1,5 +1,6 @@
 package com.chat.chatserverkotiln.domain
 
+import com.chat.chatserverkotiln.module.kafka.KafkaProducer
 import com.chat.chatserverkotiln.module.redis.RedisRepository
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
@@ -16,7 +17,8 @@ import reactor.core.publisher.Mono
 
 @RestController
 class TestController (
-    private val redisRepository: RedisRepository
+    private val redisRepository: RedisRepository,
+    private val kafkaProducer: KafkaProducer
         ){
 
     @GetMapping("/test")
@@ -60,5 +62,23 @@ class TestController (
     ): List<String> {
         return redisRepository.findWithSetTypeByAll(key)
     }
+
+    @GetMapping("/send/msg")
+    @Operation(summary = "kafka 메시지 전송 테스트", description = "kafka 메시지 전송 테스트")
+    @ApiResponses(
+        value = [
+            ApiResponse(responseCode = "200", description = "성공적으로 조회됨"),
+            ApiResponse(responseCode = "404", description = "해당 key가 존재하지 않음")
+        ]
+    )
+    suspend fun sendMsg(
+        @Parameter(description = "kafka 전송 테스트") @RequestParam key: String
+    ): List<String> {
+        val result =kafkaProducer.sendMessage("chat","3",key)
+
+        return listOf("메시지 전송 성공", "offset=${result.recordMetadata().offset()}")
+
+    }
+
 
 }
