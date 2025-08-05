@@ -3,4 +3,5 @@ rootProject.name = 'chat-module'
 include 'chat-proxy'
 include 'common'
 include 'eureka-service'
+//include 'user'
 
