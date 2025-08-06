@@ -1,0 +1,91 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: chat-api-gateway
+  cloud:
+    gateway:
+      default-filters:
+        - GlobalFilter
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: 'http://localhost:3000'
+            allow-credentials: true
+            allowedHeaders: '*'
+            allowedMethods:
+              - PATCH
+              - PUT
+              - GET
+              - POST
+              - DELETE
+              - OPTIONS
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+        - id: chat-service
+          uri: lb://chat-service
+          predicates:
+            - Path=/chat/**
+#          filters:
+#            - AuthorizationHeaderFilter
+        - id: chat-proxy-service
+          uri: lb://chat-proxy-service
+          predicates:
+            - Path=/chat/**
+#          filters:
+#            - AuthorizationHeaderFilter
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: gateway, routes
+
+
+
+
+logging:
+  charset:
+    console: UTF-8
+    file: UTF-8
+
+  file:
+    name: gateway
+    path: C:\logs\gateway\gateway.log
+    max-history: 30
+
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) ---- [%-10.10thread] %cyan([%logger{0}:%line] %M)  %marker %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level ---- [%-10.10thread] [%logger{0}:%line] %M  %marker %msg%n"
+  level:
+    root: INFO
+
+
+  #jwt:
+  #  secret: securtytest
+
+token:
+  access-expired-time: 3600000
+  refresh-expired-time: 604800000
+  secret: eyJhbGciOiJIUzI1NiJ9.aGVsbG8gd29ybGQ.-aGmFI1PnL6hrGpVCapG31O5FZKeo6K-w09wY-GIh8o
+  refresh-token-name: refresh-token
+  access-token-name: access-token
+
+## ??? ??
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  #    prefer-ip-address: true
+  client:
+    service-url:
+      #      defaultZone: http://123.0.0.1:8761/eureka
+      defaultZone: http://0.0.0.0:8761/eureka
+
+redis:
+  key:
+    black-list: 'blacklist:'
