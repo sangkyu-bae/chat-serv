@@ -3,9 +3,7 @@ package com.chat.user.module.loign;
 import com.chat.user.domain.account.dto.domain.Account;
 import com.chat.user.domain.account.dto.domain.TokenInfo;
 import com.chat.user.domain.account.dto.request.LoginRequest;
-import com.chat.user.domain.account.service.TokenService;
-import com.chat.user.infra.error.DataBaseException;
-import com.chat.user.infra.error.type.AuthBaseError;
+import com.chat.user.module.jwt.TokenManager;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -20,7 +18,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.ErrorResponse;
 
 import java.io.IOException;
 
@@ -29,7 +26,7 @@ import java.io.IOException;
 @Slf4j
 public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
-    private final TokenService tokenService;
+    private final TokenManager tokenService;
     private final AuthenticationManager authenticationManager;
 
     private final ObjectMapper objectMapper;

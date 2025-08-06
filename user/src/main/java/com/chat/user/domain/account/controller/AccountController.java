@@ -38,7 +38,7 @@ public class AccountController {
             @ApiResponse(responseCode = "404", description = "등록 실패")
     })
     @PostMapping("/")
-    public ChatApiResponse<?> registerUser(@Valid @RequestBody RegisterAccount registerAccount){
+    public ChatApiResponse<Account> registerUser(@Valid @RequestBody RegisterAccount registerAccount){
         Account account = accountService.registerAccount(registerAccount);
         return ChatApiResponse.ok(account);
     }

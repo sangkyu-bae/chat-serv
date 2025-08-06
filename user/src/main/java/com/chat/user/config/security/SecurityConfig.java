@@ -1,9 +1,7 @@
 package com.chat.user.config.security;
 
 //import com.chat.user.module.jwt.JwtAuthenticationFilter;
-import com.chat.user.domain.account.service.AccountService;
-import com.chat.user.domain.account.service.LoginService;
-import com.chat.user.domain.account.service.TokenService;
+import com.chat.user.module.jwt.TokenManager;
 import com.chat.user.module.loign.LoginFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +16,12 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-    private final TokenService tokenService;
+    private final TokenManager tokenService;
     private final AuthenticationConfiguration authenticationConfiguration;
 
     private final ObjectMapper objectMapper;

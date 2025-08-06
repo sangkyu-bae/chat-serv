@@ -1,0 +1,72 @@
+server:
+  #  port: 0
+  port: 8092
+spring:
+  redis:
+    port: 6379
+    host: localhost
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/chat_user
+    username: root
+    password: wnsvaf309
+    hikari:
+      maximum-pool-size: 20
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show-sql: true
+        format_sql: true
+        use_sql_comments: true
+    redis:
+      port: 6379
+      host: localhost
+logging:
+  charset:
+    console: UTF-8
+    file: UTF-8
+
+  pattern:
+    console: "[%X{transactionId}] : [%X{threadId}] %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) ---- [%-10.10thread] %cyan([%logger{0}:%line] %M)  %marker %msg%n"
+    file:  "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level ---- [%-10.10thread] [%logger{0}:%line] %M  %marker %msg%n"
+
+  level:
+    com.zaxxer.hikari.HikariConfig: WARN
+    com.zaxxer.hikari: WARN
+    org:
+      springframework:
+        security: DEBUG
+      org:
+        springframework:
+          web: DEBUG
+
+      hibernate:
+        SQL: debug
+        type:
+          descriptor:
+            sql: INFO
+    root: INFO
+jwt:
+  secret-key: ab12cd34ef56gh78ij90kl12mn34op56qr78st90uv12wx34yz56ab78cd90ef12
+  token-time: 60000
+  refresh:
+    token-time: 100000
+
+# SpringDoc OpenAPI 설정
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - url: /v3/api-docs
+        name: API Docs
