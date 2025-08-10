@@ -1,5 +1,6 @@
 package com.chat.proxykotlin.domain.room.controller
 import com.chat.proxykotlin.domain.room.RoomService
+import com.chat.proxykotlin.domain.room.domain.JoinUser
 import com.chat.proxykotlin.domain.room.domain.Room
 import com.chat.proxykotlin.domain.room.dto.RegisterRoom
 import lombok.extern.slf4j.Slf4j
@@ -23,7 +24,10 @@ class RoomController (
 
         val roomKey :String = UUID.randomUUID().toString() + ":" + userId
         val room : Room = Room(null,roomKey, LocalDateTime.now())
+        val joinUserList : List<JoinUser> = registerRoom.joinList.map{ joinUser ->
+            JoinUser(null,room, LocalDateTime.now(),joinUser)
+        }
 
-        return ResponseEntity.ok(roomService.insert(room))
+        return ResponseEntity.ok(roomService.insert(room,joinUserList))
     }
 }

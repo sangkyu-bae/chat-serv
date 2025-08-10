@@ -16,6 +16,13 @@ class RoomEntity(
     @Column(name = "create_at")
     val createAt: LocalDateTime,
 
-    @OneToMany(mappedBy = "roomEntity")
-    val joinUserEntities: List<JoinUserEntity> = mutableListOf()
-)
+    @OneToMany(mappedBy = "roomEntity", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var joinUserEntities: MutableList<JoinUserEntity> = mutableListOf()
+
+){
+    fun addJoinUser(joinUserEntity: JoinUserEntity) {
+        joinUserEntities.add(joinUserEntity)
+        joinUserEntity.roomEntity = this
+    }
+}
+

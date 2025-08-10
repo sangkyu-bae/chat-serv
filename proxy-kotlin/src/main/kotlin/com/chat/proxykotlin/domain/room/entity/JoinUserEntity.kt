@@ -12,8 +12,11 @@ class JoinUserEntity(
 
     @ManyToOne
     @JoinColumn(name = "room_id")
-    val roomEntity: RoomEntity,
+    var roomEntity: RoomEntity,
 
     @Column(name = "join_at")
-    val joinAt: LocalDateTime
+    val joinAt: LocalDateTime,
+
+    @Column(name = "userId", nullable = false)
+    val userId: String
 )
