@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service
 @Slf4j
 class RoomService (
     private val roomRepository: RoomRepository,
-    private val joinUserRepository: JoinUserRepository
         ){
     fun insert(room: Room, joinUsers: List<JoinUser>): Room {
 
@@ -32,6 +31,15 @@ class RoomService (
 
         val savedRoomEntity = roomRepository.save(roomEntity)
         return savedRoomEntity.toDomain()
+    }
 
+    fun joinUser(room:Room, joinUser: JoinUser) : JoinUser{
+        val roomEntity : RoomEntity= room.toEntity()
+        val joinUserEntity: JoinUserEntity = joinUser.toEntity()
+
+        roomEntity.addJoinUser(joinUserEntity)
+        val saveRoomEntity = roomRepository.save(roomEntity)
+
+        return saveRoomEntity.joinUserEntities.last().toDomain()
     }
 }
