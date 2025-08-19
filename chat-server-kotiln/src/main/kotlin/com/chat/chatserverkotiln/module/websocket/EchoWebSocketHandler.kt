@@ -2,52 +2,84 @@ package com.chat.chatserverkotiln.module.websocket
 
 import com.chat.chatserverkotiln.domain.chat.domain.ChatMessage
 import com.chat.chatserverkotiln.domain.chat.domain.MessageType
+import com.chat.chatserverkotiln.module.jwt.JwtTokenProvider
 import com.chat.chatserverkotiln.module.kafka.KafkaProducer
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import kotlinx.coroutines.reactor.mono
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
+import org.springframework.web.reactive.socket.CloseStatus
 import org.springframework.web.reactive.socket.WebSocketHandler
 import org.springframework.web.reactive.socket.WebSocketSession
+import org.springframework.web.util.UriComponentsBuilder
 import reactor.core.publisher.Mono
+import java.net.URI
 
 @Component
 class EchoWebSocketHandler(
     private val sessionManager: WebSocketSessionManager,
     private val kafkaProducer: KafkaProducer,
-    private val objectMapper: ObjectMapper
+    private val objectMapper: ObjectMapper,
+    private val jwtTokenProvider: JwtTokenProvider
 ) : WebSocketHandler {
     private val log = LoggerFactory.getLogger(EchoWebSocketHandler::class.java)
 
     override fun handle(session: WebSocketSession): Mono<Void> {
-        sessionManager.addSession(session).subscribe()
+        // 1) 헤더에서만 토큰 추출
+        val token = extractBearerTokenFromHeader(session)
+        if (token == null) {
+            log.warn("❌ Missing or invalid Authorization header, session=${session.id}")
+            return session.close(CloseStatus.POLICY_VIOLATION) // 1008
+        }
+        if (!jwtTokenProvider.validateJwtToken(token)) {
+            log.warn("❌ JWT validation failed, session=${session.id}")
+            return session.close(CloseStatus.POLICY_VIOLATION)
+        }
+
+        // 2) 인증 통과 → 클레임 필요 시 사용
+        val claims = jwtTokenProvider.getClaimsFromJwtToken(token)
+        val userId = claims?.subject ?: "anonymous"
+        log.info("🔐 Authenticated userId=$userId, session=${session.id}")
+
+        // 3) 세션 등록 및 메시지 처리
+        sessionManager.addSession(session,userId).subscribe()
         log.info("🔌 Connected: ${session.id}")
 
         val input = session.receive()
             .flatMap { webSocketMessage ->
-                val msgText =  webSocketMessage.payloadAsText
-                log.info(" Received from ${session.id}: ${msgText.toString()}")
+                val msgText = webSocketMessage.payloadAsText
+                log.info("📩 Received from ${session.id}: $msgText")
                 val chatMessage: ChatMessage = objectMapper.readValue(msgText)
 
                 mono {
-                    kafkaProducer.sendMessage("chat", "1", chatMessage)  // suspend 함수 호출
+                    // 필요 시 파티션 키/메시지에 userId 반영
+                    kafkaProducer.sendMessage("chat", userId, chatMessage)
                 }
             }
             .doOnComplete {
                 sessionManager.removeSession(session).subscribe()
-                log.info(" Disconnected (complete): ${session.id}")
+                log.info("🔌 Disconnected (complete): ${session.id}")
             }
             .doOnError { e ->
-                log.error(" Error in session ${session.id}", e)
+                log.error("⚠️ Error in session ${session.id}", e)
             }
 
-        return input
-            .then()
+        return input.then()
             .doFinally {
                 sessionManager.removeSession(session).subscribe()
-                log.info("️ Session removed: ${session.id}")
+                log.info("♻️ Session removed: ${session.id}")
             }
+    }
+
+    private fun extractBearerTokenFromHeader(session: WebSocketSession): String? {
+        val raw = session.handshakeInfo.headers.getFirst("Authorization")?.trim() ?: return null
+        val prefix = "Bearer "
+        return if (raw.length > prefix.length && raw.startsWith(prefix, ignoreCase = true)) {
+            raw.substring(prefix.length).trim()
+        } else {
+            null
+        }
     }
 }
 
