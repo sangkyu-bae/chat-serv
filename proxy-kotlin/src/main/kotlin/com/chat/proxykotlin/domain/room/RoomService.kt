@@ -8,14 +8,42 @@ import com.chat.proxykotlin.domain.room.mapper.toDomain
 import com.chat.proxykotlin.domain.room.mapper.toEntity
 import com.chat.proxykotlin.domain.room.repository.JoinUserRepository
 import com.chat.proxykotlin.domain.room.repository.RoomRepository
+import com.chat.proxykotlin.module.redis.RedisKeyManager
+import com.chat.proxykotlin.module.redis.RedisRepository
 import lombok.extern.slf4j.Slf4j
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 @Slf4j
+@Transactional
 class RoomService (
     private val roomRepository: RoomRepository,
+    private val redisRepository: RedisRepository,
+    private val redisKeyManager: RedisKeyManager
         ){
+
+    suspend fun joinUser(room:Room, joinUser: JoinUser) : JoinUser{
+        val roomEntity : RoomEntity= room.toEntity()
+        val joinUserEntity: JoinUserEntity = joinUser.toEntity()
+
+        roomEntity.addJoinUser(joinUserEntity)
+        val saveRoomEntity = roomRepository.save(roomEntity)
+
+        val userKey = redisKeyManager.getUserInfoKey(joinUser.userId)
+        val joinServer = requireNotNull(
+            redisRepository.getHashByFiled(userKey, "server")
+        ) { "userId=${joinUser.userId} 의 server 해시 필드가 없음" }
+
+
+        val joinServerKey = redisKeyManager.getJoinServerKey(room.name)
+        redisRepository.addSet(joinServerKey,joinServer)
+
+
+        return saveRoomEntity.joinUserEntities.last().toDomain()
+    }
+
+
     fun insert(room: Room, joinUsers: List<JoinUser>): Room {
 
         val roomEntity = room.toEntity()
@@ -31,15 +59,5 @@ class RoomService (
 
         val savedRoomEntity = roomRepository.save(roomEntity)
         return savedRoomEntity.toDomain()
-    }
-
-    fun joinUser(room:Room, joinUser: JoinUser) : JoinUser{
-        val roomEntity : RoomEntity= room.toEntity()
-        val joinUserEntity: JoinUserEntity = joinUser.toEntity()
-
-        roomEntity.addJoinUser(joinUserEntity)
-        val saveRoomEntity = roomRepository.save(roomEntity)
-
-        return saveRoomEntity.joinUserEntities.last().toDomain()
     }
 }

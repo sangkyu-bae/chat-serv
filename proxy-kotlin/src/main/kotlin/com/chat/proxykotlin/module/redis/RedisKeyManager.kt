@@ -19,4 +19,8 @@ class RedisKeyManager (
     fun getChatRoomJoinMemberList(roomId: String):String{
         return "${redisConfig.roomKey}$roomId"
     }
+
+    fun getUserInfoKey(userId:String) : String{
+        return "${redisConfig.userInfoKey}$userId"
+    }
 }

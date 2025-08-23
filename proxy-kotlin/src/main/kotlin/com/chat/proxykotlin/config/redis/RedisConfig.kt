@@ -21,6 +21,9 @@ class RedisConfig {
     @Value("\${redis.key.join-server}")
     lateinit var joinServierKey : String
 
+    @Value("\${redis.key.user}")
+    lateinit var userInfoKey : String
+
     @Bean
     fun redisURI(): RedisURI = RedisURI.create(redisHost)
 
