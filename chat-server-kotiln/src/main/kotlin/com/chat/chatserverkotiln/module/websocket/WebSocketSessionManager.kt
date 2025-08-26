@@ -29,6 +29,7 @@ import org.springframework.stereotype.Component
 import org.springframework.web.reactive.socket.WebSocketSession
 import reactor.core.publisher.Mono
 import java.util.concurrent.ConcurrentHashMap
+import org.springframework.beans.factory.annotation.Value
 
 @Component
 class WebSocketSessionManager(
@@ -43,8 +44,9 @@ class WebSocketSessionManager(
     }
 
     fun getSessions(): Collection<WebSocketSession> = localSessions.values
-    fun addSession(session: WebSocketSession, userId: String? = null): Mono<Void> {
-        localSessions[session.id] = session
+    fun addSession(session: WebSocketSession, userId: String): Mono<Void> {
+//        localSessions[session.id] = session//snik 방식으로 변경 필요
+        localSessions[userId] = session//snik 방식으로 변경 필요
 
         val ip = session.handshakeInfo.remoteAddress?.address?.hostAddress ?: "unknown"
         val port = session.handshakeInfo.remoteAddress?.port ?: 0
@@ -153,4 +155,15 @@ class WebSocketSessionManager(
         // Redis에서 세션 키 개수 조회 (RedisRepository에 메서드 추가 필요)
         return  redisRepository.countKeysByWebflux("$SESSION_KEY_PREFIX*")
     }
+
+    /** 외부에서 호출: 특정 유저에게 텍스트 전송 (논블로킹) */
+    fun sendToUser(userId: String, text: String): Mono<Void> =
+        Mono.defer {
+            val session = localSessions[userId]
+                ?: return@defer Mono.error(IllegalStateException("No session for $userId"))
+
+            // 한 번의 send로 반환된 Mono를 그대로 리턴 (구독은 호출자/프레임워크가 함)
+            session.send(Mono.just(session.textMessage(text)))
+        }
+
 }

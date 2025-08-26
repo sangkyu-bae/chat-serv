@@ -73,13 +73,24 @@ class EchoWebSocketHandler(
     }
 
     private fun extractBearerTokenFromHeader(session: WebSocketSession): String? {
-        val raw = session.handshakeInfo.headers.getFirst("Authorization")?.trim() ?: return null
-        val prefix = "Bearer "
-        return if (raw.length > prefix.length && raw.startsWith(prefix, ignoreCase = true)) {
-            raw.substring(prefix.length).trim()
-        } else {
-            null
+        session.handshakeInfo.headers.getFirst("Authorization")?.trim()?.let { raw ->
+            val p = "Bearer "
+            if (raw.startsWith(p, true) && raw.length > p.length) {
+                return raw.substring(p.length).trim()
+            }
         }
+        // 2) 쿼리에서 token 또는 Authorization 키 허용
+        val query = session.handshakeInfo.uri.query.orEmpty()
+        log.info("🔌 query: ${query}")
+        if (query.isNotBlank()) {
+            val map = query.split("&").mapNotNull {
+                val i = it.indexOf('=')
+                if (i <= 0) null else it.substring(0, i) to it.substring(i + 1)
+            }.toMap()
+            map["token"]?.let { return it }
+            map["Authorization"]?.let { return it.removePrefix("Bearer ").trim() }
+        }
+        return null
     }
 }
 

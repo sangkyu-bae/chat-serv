@@ -21,7 +21,7 @@ class ChatListener(
     suspend fun chatConsume(message: String){
         log.info(message)
         val chatMessage = objectMapper.readValue(message,ChatMessage::class.java)
-//        chatService.test(chatMessage)
+
     }
 
 

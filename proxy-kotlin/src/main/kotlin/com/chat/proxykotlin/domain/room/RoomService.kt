@@ -48,7 +48,6 @@ class RoomService (
 
         val roomEntity = room.toEntity()
 
-
         val joinUserEntities = joinUsers.map { joinUser ->
             val entity = joinUser.toEntity()
             entity.roomEntity = roomEntity

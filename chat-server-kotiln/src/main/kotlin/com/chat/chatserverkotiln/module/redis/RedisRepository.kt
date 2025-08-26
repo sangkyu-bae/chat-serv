@@ -21,6 +21,10 @@ class RedisRepository(
     fun setTypeSaveByWebFlux(key: String, value: String): Mono<Long> {
         return reactiveRedisTemplate.opsForSet().add(key, value)
     }
+
+    fun getAllSetMembers(key: String): Flux<String> {
+        return reactiveRedisTemplate.opsForSet().members(key)
+    }
     suspend fun findWithSetTypeByAll(key: String): List<String> {
         return setOps.members(key)
             .collectList()

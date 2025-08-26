@@ -31,6 +31,9 @@ class RedisRepository (
         return asyncCommands.smembers(key).await()
     }
 
+    suspend fun addSet(key: String, value: String): Long {
+        return asyncCommands.sadd(key, value).await()
+    }
     suspend fun isSetExist(key: String, value: String): Boolean {
         return asyncCommands.sismember(key, value).await()
     }
