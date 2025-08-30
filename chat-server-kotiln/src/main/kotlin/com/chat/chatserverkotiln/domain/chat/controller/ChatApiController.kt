@@ -1,14 +1,12 @@
 //package com.chat.chatserverkotiln.domain.chat.controller
 //
-//import com.chat.chatserverkotiln.module.websocket.MessageBroadcastService
-//import com.chat.chatserverkotiln.module.websocket.ChatMessage
 //import org.springframework.web.bind.annotation.*
 //import reactor.core.publisher.Mono
 //
 //@RestController
-//@RequestMapping("/api/chat")
+//@RequestMapping("/api/chat-server")
 //class ChatApiController(
-//    private val messageBroadcastService: MessageBroadcastService
+//
 //) {
 //
 //    /**

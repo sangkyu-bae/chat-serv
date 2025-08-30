@@ -51,7 +51,6 @@ class EchoWebSocketHandler(
                 val msgText = webSocketMessage.payloadAsText
                 log.info("📩 Received from ${session.id}: $msgText")
                 val chatMessage: ChatMessage = objectMapper.readValue(msgText)
-
                 mono {
                     // 필요 시 파티션 키/메시지에 userId 반영
                     kafkaProducer.sendMessage("chat", userId, chatMessage)

@@ -17,10 +17,11 @@ class ChatListener(
     private val log = LoggerFactory.getLogger(ChatListener::class.java)
 
 
-    @KafkaListener(topics = ["\${spring.kafka.topic.chat}"], groupId = "1")
+    @KafkaListener(topics = ["\${spring.kafka.topic.chat}"])
     suspend fun chatConsume(message: String){
         log.info(message)
         val chatMessage = objectMapper.readValue(message,ChatMessage::class.java)
+        chatService.sendMsg(chatMessage);
 
     }
 

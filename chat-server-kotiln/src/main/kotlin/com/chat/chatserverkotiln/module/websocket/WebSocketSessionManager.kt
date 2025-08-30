@@ -43,6 +43,7 @@ class WebSocketSessionManager(
         private const val SERVER_KEY_PREFIX = "server:user:"
     }
 
+//    fun getSessions(): Collection<WebSocketSession> = localSessions.values
     fun getSessions(): Collection<WebSocketSession> = localSessions.values
     fun addSession(session: WebSocketSession, userId: String): Mono<Void> {
 //        localSessions[session.id] = session//snik 방식으로 변경 필요
@@ -76,9 +77,9 @@ class WebSocketSessionManager(
             log.debug("Redis 저장 - serverKey={}, value={}", serverKey, userId)
 
             Mono.`when`(
-                redisRepository.saveWithHashByWebFlux(sessionKey, saveSession),
-                redisRepository.saveWithHashByWebFlux(userKey, saveUser),
-                redisRepository.setTypeSaveByWebFlux(serverKey, userId)
+//                redisRepository.saveWithHashByWebFlux(sessionKey, saveSession),
+//                redisRepository.saveWithHashByWebFlux(userKey, saveUser),
+//                redisRepository.setTypeSaveByWebFlux(serverKey, userId)
             ).doOnSuccess {
                 log.info("Redis 저장 성공: sessionId={}, userId={}", session.id, userId)
             }.doOnError { e ->
@@ -116,9 +117,11 @@ class WebSocketSessionManager(
             
             Mono.`when`(
                 // Redis에서 데이터 삭제 (RedisRepository에 delete 메서드 추가 필요)
-                redisRepository.deleteHashByWebFlux(sessionKey),
-                redisRepository.deleteHashByWebFlux(userKey),
-                redisRepository.removeSetByWebflux(serverKey, userId)
+//                redisRepository.deleteHashByWebFlux(sessionKey),
+//                redisRepository.deleteHashByWebFlux(userKey),
+//                redisRepository.removeSetByWebflux(serverKey, userId)
+
+
 //                Mono.fromCallable { redisRepository.deleteHashByWebFlux(sessionKey) },
 //                Mono.fromCallable { redisRepository.deleteHashByWebFlux(userKey) },
 //                Mono.fromCallable { redisRepository.removeSetByWebflux(serverKey, userId) }
@@ -159,6 +162,8 @@ class WebSocketSessionManager(
     /** 외부에서 호출: 특정 유저에게 텍스트 전송 (논블로킹) */
     fun sendToUser(userId: String, text: String): Mono<Void> =
         Mono.defer {
+            val d =getSessions()
+            log.info("active ws sessions={}", d.size)
             val session = localSessions[userId]
                 ?: return@defer Mono.error(IllegalStateException("No session for $userId"))
 

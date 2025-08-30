@@ -16,7 +16,7 @@ class ChatMessageService(
 ) {
 
     companion object {
-        private const val ROOM_KEY_PREFIX = "chat:room:join-server"
+        private const val ROOM_KEY_PREFIX = "chat:room:join-user"
         private const val SERVER_SEND_CONCURRENCY = 8
     }
 
@@ -30,9 +30,10 @@ class ChatMessageService(
             .onBackpressureBuffer(10_000)
             .flatMap({ msg ->
                 val key = "$ROOM_KEY_PREFIX:${msg.roomId}"
-
+                log.info("key : {}",key);
                 redisRepository.getAllSetMembers(key)      // Flux<String>
                     .flatMap({ userId ->
+
                         webSocketSessionManager.sendToUser(userId, msg.content) // Mono<Void>
                     }, 32)
                     .then() // Mono<Void>

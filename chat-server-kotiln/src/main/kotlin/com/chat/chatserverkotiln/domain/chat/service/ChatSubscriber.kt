@@ -24,10 +24,14 @@ class ChatSubscriber (
     private val mapper = jacksonObjectMapper()
     private val log = LoggerFactory.getLogger(javaClass)
     fun subscribe(): Flux<ChatMessage>{
-        val topic = ChannelTopic("chat:server:$serverId")
+//        val topic = ChannelTopic("chat:server:$serverId")
+        val topic = ChannelTopic("chat:server:1")
 
-        return container.receive(topic)                 // Flux<Message<String, String>>
-            .map { it.message }                         // JSON 문자열
+        return container.receive(topic)
+            // ⬇️ 원시 Redis 이벤트 로그 (채널/페이로드)
+            .doOnSubscribe { log.info("SUBSCRIBE start channel='{}'", topic.topic) }
+            .doOnNext { raw -> log.info("RECV raw ch='{}' msg='{}'", raw.channel, raw.message) }
+            .map { it.message }
             .flatMap { json ->
                 Mono.fromCallable { mapper.readValue<ChatMessage>(json) }
                     .onErrorResume { e ->
@@ -35,22 +39,18 @@ class ChatSubscriber (
                         Mono.empty()
                     }
             }
-            // 순간 폭주 방어(용량/정책은 상황 맞게 조정)
             .onBackpressureBuffer(
                 10_000,
                 { dropped -> log.warn("백프레셔로 드롭: $dropped") },
                 BufferOverflowStrategy.DROP_OLDEST
             )
-            // 연결/네트워크 오류로 끊겨도 자동 재시도
             .retryWhen(
                 Retry.backoff(Long.MAX_VALUE, Duration.ofSeconds(1))
                     .maxBackoff(Duration.ofSeconds(30))
                     .transientErrors(true)
             )
-            // 여러 소비자가 붙어도 하나의 구독만 유지(옵션)
             .publish()
             .refCount(1)
-
     }
 
 }
