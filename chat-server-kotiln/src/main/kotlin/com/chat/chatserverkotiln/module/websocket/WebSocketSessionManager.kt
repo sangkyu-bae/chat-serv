@@ -23,7 +23,10 @@
 
 package com.chat.chatserverkotiln.module.websocket
 
+import com.chat.chatserverkotiln.domain.room.JoinServerUser
+import com.chat.chatserverkotiln.module.kafka.KafkaProducer
 import com.chat.chatserverkotiln.module.redis.RedisRepository
+import kotlinx.coroutines.reactor.mono
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.socket.WebSocketSession
@@ -34,6 +37,7 @@ import org.springframework.beans.factory.annotation.Value
 @Component
 class WebSocketSessionManager(
     private val redisRepository: RedisRepository,
+    private val kafkaProducer: KafkaProducer,
     @Value("\${chat.server-id}") private val serverId : String
 ) {
     private val localSessions = ConcurrentHashMap<String, WebSocketSession>()
@@ -73,6 +77,9 @@ class WebSocketSessionManager(
                 "server" to server
             )
 
+            mono {
+                kafkaProducer.sendMessage("join-server","test",JoinServerUser(userId,serverId))
+            }
             log.debug("Redis 저장 - sessionKey={}, data={}", sessionKey, saveSession)
             log.debug("Redis 저장 - userKey={}, data={}", userKey, saveUser)
             log.debug("Redis 저장 - serverKey={}, value={}", serverKey, userId)
@@ -81,6 +88,8 @@ class WebSocketSessionManager(
 //                redisRepository.saveWithHashByWebFlux(sessionKey, saveSession),
 //                redisRepository.saveWithHashByWebFlux(userKey, saveUser),
 //                redisRepository.setTypeSaveByWebFlux(serverKey, userId)
+
+//
                 redisRepository.setTypeSaveByWebFlux(serverKey,userId)
             ).doOnSuccess {
                 log.info("Redis 저장 성공: sessionId={}, userId={}", session.id, userId)
