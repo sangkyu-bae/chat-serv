@@ -33,7 +33,8 @@ import org.springframework.beans.factory.annotation.Value
 
 @Component
 class WebSocketSessionManager(
-    private val redisRepository: RedisRepository
+    private val redisRepository: RedisRepository,
+    @Value("\${chat.server-id}") private val serverId : String
 ) {
     private val localSessions = ConcurrentHashMap<String, WebSocketSession>()
     private val log = LoggerFactory.getLogger(WebSocketSessionManager::class.java)
@@ -80,6 +81,7 @@ class WebSocketSessionManager(
 //                redisRepository.saveWithHashByWebFlux(sessionKey, saveSession),
 //                redisRepository.saveWithHashByWebFlux(userKey, saveUser),
 //                redisRepository.setTypeSaveByWebFlux(serverKey, userId)
+                redisRepository.setTypeSaveByWebFlux(serverKey,userId)
             ).doOnSuccess {
                 log.info("Redis 저장 성공: sessionId={}, userId={}", session.id, userId)
             }.doOnError { e ->

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import kotlinx.coroutines.reactor.mono
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.socket.CloseStatus
 import org.springframework.web.reactive.socket.WebSocketHandler
@@ -21,7 +22,7 @@ class EchoWebSocketHandler(
     private val sessionManager: WebSocketSessionManager,
     private val kafkaProducer: KafkaProducer,
     private val objectMapper: ObjectMapper,
-    private val jwtTokenProvider: JwtTokenProvider
+    private val jwtTokenProvider: JwtTokenProvider,
 ) : WebSocketHandler {
     private val log = LoggerFactory.getLogger(EchoWebSocketHandler::class.java)
 

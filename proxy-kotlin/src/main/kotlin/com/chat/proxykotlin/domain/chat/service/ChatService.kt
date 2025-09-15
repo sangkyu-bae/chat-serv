@@ -28,8 +28,6 @@ class ChatService (
         log.info("serverList : {}",serverList)
         log.info("joinServerKet : {}",joinServerKey)
         val sendMsg = mapper.writeValueAsString(chatMessage)
-
-        redisRepository.publishSuspend("chat:server:1",sendMsg)
         for (server in serverList) {
             redisRepository.publishSuspend(server, sendMsg)
         }

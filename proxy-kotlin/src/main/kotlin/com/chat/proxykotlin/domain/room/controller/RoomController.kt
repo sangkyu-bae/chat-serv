@@ -1,5 +1,5 @@
 package com.chat.proxykotlin.domain.room.controller
-import com.chat.proxykotlin.domain.room.RoomService
+import com.chat.proxykotlin.domain.room.service.RoomService
 import com.chat.proxykotlin.domain.room.domain.JoinUser
 import com.chat.proxykotlin.domain.room.domain.Room
 import com.chat.proxykotlin.domain.room.dto.JoinRoom
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController
 import java.time.LocalDateTime
 import java.util.UUID
 import io.swagger.v3.oas.annotations.Operation
-import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 

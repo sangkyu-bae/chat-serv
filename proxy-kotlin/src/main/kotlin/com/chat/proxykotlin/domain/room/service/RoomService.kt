@@ -1,7 +1,8 @@
-package com.chat.proxykotlin.domain.room
+package com.chat.proxykotlin.domain.room.service
 
 import com.chat.proxykotlin.domain.room.domain.JoinUser
 import com.chat.proxykotlin.domain.room.domain.Room
+import com.chat.proxykotlin.domain.room.dto.JoinServerUser
 import com.chat.proxykotlin.domain.room.entity.JoinUserEntity
 import com.chat.proxykotlin.domain.room.entity.RoomEntity
 import com.chat.proxykotlin.domain.room.mapper.toDomain
@@ -20,7 +21,8 @@ import org.springframework.transaction.annotation.Transactional
 class RoomService (
     private val roomRepository: RoomRepository,
     private val redisRepository: RedisRepository,
-    private val redisKeyManager: RedisKeyManager
+    private val redisKeyManager: RedisKeyManager,
+    private val joinUserRepository: JoinUserRepository
         ){
 
     suspend fun joinUser(room:Room, joinUser: JoinUser) : JoinUser{
@@ -58,5 +60,16 @@ class RoomService (
 
         val savedRoomEntity = roomRepository.save(roomEntity)
         return savedRoomEntity.toDomain()
+    }
+
+    suspend fun insertJoinUserServer(joinServerUser: JoinServerUser){
+        val joinUser :List<JoinUserEntity> = joinUserRepository.findByUserId(joinServerUser.userId)
+
+
+        for(user in joinUser){
+            val roomId = user.roomEntity.name
+            val roomKey = redisKeyManager.getJoinServerKey(roomId)
+            redisRepository.addSet(roomKey,joinServerUser.serverId)
+        }
     }
 }

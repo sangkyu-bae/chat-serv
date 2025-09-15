@@ -54,6 +54,9 @@ class RedisRepository (
         return asyncCommands.rpush(key, value).await()
     }
 
+    suspend fun publishSuspend(channel: String, payload: String): Long {
+        return asyncCommands.publish(channel, payload).await()
+    }
 
 
 }
