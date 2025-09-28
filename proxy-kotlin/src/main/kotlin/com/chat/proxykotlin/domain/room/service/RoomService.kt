@@ -1,7 +1,12 @@
 package com.chat.proxykotlin.domain.room.service
 
+import aj.org.objectweb.asm.TypeReference
+import com.chat.proxykotlin.common.converter.ClassConverter
+import com.chat.proxykotlin.common.converter.ClassConverter.readList
+import com.chat.proxykotlin.domain.chat.domain.ChatRoomMessage
 import com.chat.proxykotlin.domain.room.domain.JoinUser
 import com.chat.proxykotlin.domain.room.domain.Room
+import com.chat.proxykotlin.domain.room.domain.RoomChat
 import com.chat.proxykotlin.domain.room.dto.JoinServerUser
 import com.chat.proxykotlin.domain.room.entity.JoinUserEntity
 import com.chat.proxykotlin.domain.room.entity.RoomEntity
@@ -11,6 +16,7 @@ import com.chat.proxykotlin.domain.room.repository.JoinUserRepository
 import com.chat.proxykotlin.domain.room.repository.RoomRepository
 import com.chat.proxykotlin.module.redis.RedisKeyManager
 import com.chat.proxykotlin.module.redis.RedisRepository
+import com.fasterxml.jackson.databind.ObjectMapper
 import lombok.extern.slf4j.Slf4j
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -22,7 +28,8 @@ class RoomService (
     private val roomRepository: RoomRepository,
     private val redisRepository: RedisRepository,
     private val redisKeyManager: RedisKeyManager,
-    private val joinUserRepository: JoinUserRepository
+    private val joinUserRepository: JoinUserRepository,
+    private val objectMapper: ObjectMapper
         ){
 
     suspend fun joinUser(room:Room, joinUser: JoinUser) : JoinUser{
@@ -71,5 +78,21 @@ class RoomService (
             val roomKey = redisKeyManager.getJoinServerKey(roomId)
             redisRepository.addSet(roomKey,joinServerUser.serverId)
         }
+    }
+
+    suspend fun readRoomByUser(userId: String) : List<RoomChat>{
+        val joinUser : List<JoinUserEntity> = joinUserRepository.findByUserId(userId)
+        val roomChatList: MutableList<RoomChat> = mutableListOf()
+        for(user in joinUser){
+            val roomId = user.roomEntity.name
+            val charRoomKey = redisKeyManager.getChatRoomKey(roomId)
+
+            val chat : List<String> = redisRepository.getRecentValues(charRoomKey)
+            val chats: List<ChatRoomMessage> = objectMapper.readList(chat)
+
+            roomChatList.add(RoomChat(roomId,chats))
+        }
+
+        return roomChatList
     }
 }

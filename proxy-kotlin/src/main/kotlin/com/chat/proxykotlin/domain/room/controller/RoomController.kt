@@ -2,6 +2,7 @@ package com.chat.proxykotlin.domain.room.controller
 import com.chat.proxykotlin.domain.room.service.RoomService
 import com.chat.proxykotlin.domain.room.domain.JoinUser
 import com.chat.proxykotlin.domain.room.domain.Room
+import com.chat.proxykotlin.domain.room.domain.RoomChat
 import com.chat.proxykotlin.domain.room.dto.JoinRoom
 import com.chat.proxykotlin.domain.room.dto.RegisterRoom
 import lombok.extern.slf4j.Slf4j
@@ -15,6 +16,7 @@ import java.util.UUID
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
+import org.springframework.web.bind.annotation.GetMapping
 
 @RestController("/api/chat-proxy/room")
 @Slf4j
@@ -54,4 +56,18 @@ class RoomController (
                   @RequestHeader("userId") userId: String){
 
     }
+
+    @GetMapping("/")
+    @Operation(summary = "채팅방 조회", description = "유저별 채팅방을 조회합니다." )
+    @ApiResponses(
+        value = [
+            ApiResponse(responseCode = "200", description = "성공적으로 조회됨"),
+            ApiResponse(responseCode = "500", description = "서버 오류")
+        ]
+    )
+    suspend fun getRooms(@RequestHeader("userId") userId: String) : ResponseEntity<List<RoomChat>>{
+        return ResponseEntity.ok(roomService.readRoomByUser(userId))
+    }
+
+
 }

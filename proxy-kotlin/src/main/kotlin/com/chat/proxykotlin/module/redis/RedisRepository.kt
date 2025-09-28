@@ -1,12 +1,14 @@
 package com.chat.proxykotlin.module.redis
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import io.lettuce.core.api.StatefulRedisConnection
 import kotlinx.coroutines.future.await
 import org.springframework.stereotype.Repository
 
 @Repository
 class RedisRepository (
-    private val connection: StatefulRedisConnection<String, String>
+    private val connection: StatefulRedisConnection<String, String>,
+    private val objectMapper: ObjectMapper
         ){
 
     private val asyncCommands = connection.async()
@@ -57,6 +59,8 @@ class RedisRepository (
     suspend fun publishSuspend(channel: String, payload: String): Long {
         return asyncCommands.publish(channel, payload).await()
     }
-
+    suspend fun getRecentValues(key: String, limit: Long = 50): List<String> {
+        return asyncCommands.zrevrange(key, 0, limit - 1).await() ?: emptyList()
+    }
 
 }
