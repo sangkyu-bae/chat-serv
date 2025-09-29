@@ -63,4 +63,11 @@ class RedisRepository (
         return asyncCommands.zrevrange(key, 0, limit - 1).await() ?: emptyList()
     }
 
+    suspend fun addValueWithTrim(key: String, value: String, maxSize: Long = 50) {
+        val score = System.currentTimeMillis().toDouble()
+        asyncCommands.zadd(key, score, value).await()
+        // 오래된 것 정리 (뒤에서부터 maxSize 이후는 삭제)
+        asyncCommands.zremrangebyrank(key, 0, -maxSize-1).await()
+    }
+
 }

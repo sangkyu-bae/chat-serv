@@ -1,5 +1,7 @@
 package com.chat.chatserverkotiln.module.redis
 
+import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory
@@ -9,10 +11,15 @@ import org.springframework.data.redis.listener.ReactiveRedisMessageListenerConta
 import org.springframework.data.redis.serializer.RedisSerializationContext
 
 @Configuration
-class RedisConfig {
+class RedisConfig (
+    @Value("\${redis.host}")
+    private val redisHost: String,
+    ){
+    private val log = LoggerFactory.getLogger(RedisConfig::class.java)
     @Bean
     fun reactiveRedisConnectionFactory() : LettuceConnectionFactory{
-        return LettuceConnectionFactory("localhost",6379)
+        log.error("Redis host property resolved: {}", redisHost)
+        return LettuceConnectionFactory(redisHost,6379)
     }
 
     @Bean
