@@ -37,13 +37,14 @@ jobs:
       working-directory: ./proxy-kotlin
       run: ./gradlew buildDockerImageCustoms
       
-    - name: Build and push Module1 Docker image to Amazon ECR
+    - name: Build and push proxy-kotlin Docker image to Amazon ECR
+      working-directory: ./proxy-kotlin
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         REPOSITORY: chat-server-service
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg JAR_FILE=$module/build/libs/*.jar .
-        docker tag $REGISTRY/$REPOSITORY:$IMAGE_TAG $REGISTRY/$REPOSITORY:$module-0.0.1
-        docker push $REGISTRY/$REPOSITORY:$module-0.0.1
+        docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
+          --build-arg JAR_FILE=build/libs/*.jar .
+        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
