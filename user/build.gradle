@@ -4,10 +4,15 @@ plugins {
 //    id 'org.spring.dependency-management' version '1.1.5'
     id 'org.springframework.boot' version '3.5.4'
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'com.bmuschko.docker-spring-boot-application' version '9.4.0'
 }
 
+jar.enabled = true
+tasks.named('bootJar') { enabled = true }
+tasks.named('jar')     { enabled = false }
+
 group = 'com.chat'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
     toolchain {
@@ -55,6 +60,11 @@ dependencies {
     implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
     implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5' // jackson 처리용
 
+    // WebSocket
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+    // JSON 직렬화/역직렬화
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
 }
 
 dependencyManagement {
@@ -65,4 +75,47 @@ dependencyManagement {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+
+def bootJarTask = tasks.named('bootJar')
+def jarNameProvider = bootJarTask.flatMap { it.archiveFileName }
+
+// 컨텍스트 디렉터리를 Provider로 정의
+def ctxDir = layout.buildDirectory.dir('docker')
+
+tasks.register('prepareDockerContext', Sync) {
+    dependsOn bootJarTask
+    into ctxDir
+
+    // 루트의 Dockerfile만 복사 (정확한 파일명: Dockerfile)
+    from(rootProject.layout.projectDirectory) {
+        include 'Dockerfile'
+    }
+
+    // 이미지에 필요한 산출물만 복사
+    from(project.layout.buildDirectory) {
+        include 'libs/**'
+    }
+}
+
+tasks.register('buildDockerImageCustoms', com.bmuschko.gradle.docker.tasks.image.DockerBuildImage) {
+    group = 'docker'
+    description = 'Build image with root Dockerfile and clean context'
+
+    // 반드시 컨텍스트 준비 이후 실행
+    dependsOn 'prepareDockerContext'
+
+    // 입력을 "Provider"로 연결 (존재 여부를 실행시에 평가)
+    inputDir.set(ctxDir)
+    dockerFile.set(ctxDir.map { it.file('Dockerfile') })  // ← 핵심 수정
+
+    images.add("${project.name}:${project.version}")
+    buildArgs.put("JAR_FILE", jarNameProvider.map { "libs/${it}" })
+
+    doFirst {
+        println "Using Dockerfile=" + dockerFile.get().asFile.absolutePath
+        println "Using Context   =" + inputDir.get().asFile.absolutePath
+        println "Using JAR_FILE=build/libs/${jarNameProvider.get()}"
+    }
 }

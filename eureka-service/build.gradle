@@ -2,18 +2,22 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.4.5'
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'com.bmuschko.docker-spring-boot-application' version '9.4.0'
 }
 
-bootJar.enabled = false
+//bootJar.enabled = false
 
 jar.enabled = true
+tasks.named('bootJar') { enabled = true }
+tasks.named('jar')     { enabled = false }
+
 
 group 'org.example'
 version 'unspecified'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(23)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -44,4 +48,28 @@ dependencyManagement {
 
 test {
     useJUnitPlatform()
+}
+
+version = '0.0.1'
+
+def bootJarTask = tasks.named('bootJar')
+def jarNameProvider = bootJarTask.flatMap { it.archiveFileName }
+
+tasks.register('buildDockerImageCustoms', com.bmuschko.gradle.docker.tasks.image.DockerBuildImage) {
+    group = 'docker'
+    description = 'Build image using project Dockerfile (temurin 21)'
+
+    dependsOn bootJarTask
+    inputDir.set(project.projectDir)
+    dockerFile.set(file('Dockerfile'))
+    images.add("${project.name}:${project.version}")
+
+    // 설정 단계에서 Provider로 build-arg 지정
+    buildArgs.put("JAR_FILE", jarNameProvider.map { "build/libs/${it}" })
+
+    doFirst {
+        println "Using JAR_FILE=build/libs/${jarNameProvider.get()}"
+        println "Using DOCKERFILE=" + dockerFile.get().asFile.absolutePath
+        println "Using CONTEXT   =" + inputDir.get().asFile.absolutePath
+    }
 }

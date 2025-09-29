@@ -1,39 +1,75 @@
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.4.5'
-    id 'io.spring.dependency-management' version '1.1.7'
-}
-bootJar.enabled = false
-repositories {
-    mavenCentral()
+    // 코어 플러그인(java)은 여기 적지 마세요 (apply false 금지)
+    id 'org.springframework.boot' version '3.4.5' apply false
+    id 'io.spring.dependency-management' version '1.1.7' apply false
 }
 
-subprojects { // 모든 하위 모듈들에 이 설정을 적용합니다.
-    group 'com.example'
-    version '0.0.1-SNAPSHOT'
-    sourceCompatibility = '23'
+allprojects {
+    repositories { mavenCentral() }
+}
 
-    apply plugin: 'java'
-    apply plugin: 'java-library'
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management'
+subprojects {
+    group = 'com.example'
+    version = '0.0.1-SNAPSHOT'
 
-    configurations {
-        compileOnly {
-            extendsFrom annotationProcessor
-        }
-    }
-
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies { // 모든 하위 모듈에 추가 될 의존성 목록입니다.
-        implementation 'org.springframework.boot:spring-boot-starter'
-        testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    }
-
-    test {
+    // 공통 테스트 설정
+    tasks.withType(Test).configureEach {
         useJUnitPlatform()
     }
+
+    // 자바 모듈만 공통 toolchain 적용
+    plugins.withId('java') {
+        java {
+            toolchain {
+                languageVersion = JavaLanguageVersion.of(23)
+            }
+        }
+    }
+    // ⚠ 루트에서 bootJar 조작하지 말 것
 }
+//plugins {
+//    id 'java' apply false
+//    id 'org.springframework.boot' version '3.4.5' apply false
+//    id 'io.spring.dependency-management' version '1.1.7' apply false
+//}
+//
+//bootJar.enabled = false
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//subprojects {
+//    group = 'com.example'
+//    version = '0.0.1-SNAPSHOT'
+//
+//    repositories { mavenCentral() }
+//
+//    // ✅ 공통 테스트 설정
+//    tasks.withType(Test).configureEach {
+//        useJUnitPlatform()
+//    }
+//
+//    // ✅ 공통 Java Toolchain (전 모듈을 JDK 23으로 빌드)
+//    plugins.withId('java') {
+//        java {
+//            toolchain {
+//                languageVersion = JavaLanguageVersion.of(23)
+//            }
+//        }
+//    }
+//
+//    // ❌ 아래 코드는 제거하세요 (annotationProcessor가 없는 모듈에서 터짐)
+//    // configurations {
+//    //     compileOnly {
+//    //         extendsFrom annotationProcessor
+//    //     }
+//    // }
+//
+//    // 공통 의존성은 정말 모든 모듈에 필요한 최소한만
+//    // (spring-boot-starter를 모든 모듈에 강제하지 않는 게 보통은 더 안전)
+//    // dependencies {
+//    //     implementation 'org.springframework.boot:spring-boot-starter'
+//    //     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    // }
+//}
