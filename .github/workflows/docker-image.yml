@@ -30,8 +30,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v2
 
     - name: Build Docker image for proxy-kotlin
-      working-directory: ./proxy-kotlin
-      run: ../../gradlew buildDockerImageCustoms
+      run: ./gradlew :proxy-kotlin:buildDockerImageCustoms
       
     - name: Build and push Module1 Docker image to Amazon ECR
       env:
