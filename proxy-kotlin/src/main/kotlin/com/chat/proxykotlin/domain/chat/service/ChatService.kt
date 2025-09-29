@@ -6,6 +6,9 @@ import com.chat.proxykotlin.module.kafka.KafkaProducer
 import com.chat.proxykotlin.module.redis.RedisKeyManager
 import com.chat.proxykotlin.module.redis.RedisRepository
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
@@ -24,12 +27,21 @@ class ChatService (
     suspend fun sendMsg(chatMessage: ChatMessage)  {
         val joinServerKey = redisKeyManager.getJoinServerKey(chatMessage.roomId)
         val serverList = redisRepository.getSetAll(joinServerKey)
+        val chatRoomKey = redisKeyManager.getChatRoomKey(chatMessage.roomId)
 
         log.info("serverList : {}",serverList)
         log.info("joinServerKet : {}",joinServerKey)
         val sendMsg = mapper.writeValueAsString(chatMessage)
+        redisRepository.addValueWithTrim(chatRoomKey,sendMsg)
         for (server in serverList) {
             redisRepository.publishSuspend(server, sendMsg)
+        }
+        coroutineScope {
+            serverList.map { server ->
+                async {
+                    redisRepository.publishSuspend(server, sendMsg)
+                }
+            }.awaitAll()
         }
     }
 }
