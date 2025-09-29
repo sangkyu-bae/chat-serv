@@ -66,7 +66,8 @@ bin/
 # Gradle specific
 .gradle/
 gradle-app.setting
-!gradle-wrapper.jar
+- !gradle-wrapper.jar
++ !gradle/wrapper/gradle-wrapper.jar
 
 # Maven specific
 .mvn/
