@@ -7,11 +7,33 @@ on:
     branches: [ "master" ]
 
 jobs:
-
-  build:
-
+  # 1. 변경된 서비스 감지
+  detect-changes:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v3
 
+      - id: detect
+        run: |
+          echo ">>> Detecting changed directories..."
+          # 직전 커밋 ~ 현재 커밋 비교
+          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | cut -d/ -f1 | sort -u)
+          echo "Changed dirs: $CHANGED"
+          echo "changed=$CHANGED" >> $GITHUB_OUTPUT
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [ proxy-kotlin, eureka-service] 
+        include:
+          - service: proxy-kotlin
+            repository: chat-server-service
+          - service: eureka-service
+            repository: eureka-service
+   # detect 결과에 matrix.service가 포함된 경우에만 실행
+    if: contains(needs.detect-changes.outputs.changed, matrix.service)
     steps:
     - uses: actions/checkout@v3
     
@@ -30,18 +52,18 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v2
       
     - name: Make gradlew executable 
-      working-directory: ./proxy-kotlin
+      working-directory: ./${{ matrix.service }}
       run: chmod +x ./gradlew
 
     - name: Build Docker image for proxy-kotlin
-      working-directory: ./proxy-kotlin
+      working-directory: ./${{ matrix.service }}
       run: ./gradlew buildDockerImageCustoms
       
     - name: Build and push proxy-kotlin Docker image to Amazon ECR
-      working-directory: ./proxy-kotlin
+      working-directory: ./${{ matrix.service }}
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: chat-server-service
+        REPOSITORY: ${{ matrix.repository }}
         IMAGE_TAG: ${{ github.sha }}
       run: |
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
