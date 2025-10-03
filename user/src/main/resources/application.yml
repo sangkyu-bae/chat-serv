@@ -1,5 +1,5 @@
 server:
-  #  port: 0
+#  port: 0
   port: 8092
 spring:
   redis:
@@ -24,9 +24,6 @@ spring:
         show-sql: true
         format_sql: true
         use_sql_comments: true
-    redis:
-      port: 6379
-      host: localhost
 logging:
   charset:
     console: UTF-8
@@ -70,3 +67,12 @@ springdoc:
     urls:
       - url: /v3/api-docs
         name: API Docs
+
+eureka:
+  instance:
+#    instance-id: ${spring.cloud.client.ip-address}:${random.value}
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
