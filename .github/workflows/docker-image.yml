@@ -14,6 +14,9 @@ jobs:
       changed: ${{ steps.detect.outputs.changed }}
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0   # 👈 전체 히스토리 가져오기
+  
       - id: detect
         run: |
           echo ">>> Detecting changed directories..."
@@ -21,6 +24,7 @@ jobs:
             | cut -d/ -f1 | sort -u | jq -R -s -c 'split("\n")[:-1]')
           echo "Changed dirs: $CHANGED"
           echo "changed=$CHANGED" >> $GITHUB_OUTPUT
+
 
   # 2. 서비스별 빌드 & 배포
   build:
