@@ -17,7 +17,7 @@ logging:
     file: UTF-8
 
   file:
-    name: eureka
+    name: eurekas
     path: C:\logs\eureka\eureka.log
     max-history: 30
 
