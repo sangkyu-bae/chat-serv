@@ -7,66 +7,60 @@ on:
     branches: [ "master" ]
 
 jobs:
-  # 1. 변경된 서비스 감지
   detect-changes:
     runs-on: ubuntu-latest
     outputs:
       changed: ${{ steps.detect.outputs.changed }}
     steps:
       - uses: actions/checkout@v3
-
       - id: detect
         run: |
           echo ">>> Detecting changed directories..."
-          # 직전 커밋 ~ 현재 커밋 비교
           CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | cut -d/ -f1 | sort -u)
           echo "Changed dirs: $CHANGED"
           echo "changed=$CHANGED" >> $GITHUB_OUTPUT
+
   build:
+    needs: detect-changes   # ← 의존성 추가
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [ proxy-kotlin, eureka-service] 
+        service: [ proxy-kotlin, eureka-service ]
         include:
           - service: proxy-kotlin
             repository: chat-server-service
           - service: eureka-service
             repository: eureka-service
-   # detect 결과에 matrix.service가 포함된 경우에만 실행
-    if: contains(needs.detect-changes.outputs.changed, matrix.service)
+
+    # matrix 값과 detect 결과 비교 시에는 아래처럼 github.expression 문법으로 감싸야 함
+    if: ${{ contains(needs.detect-changes.outputs.changed, matrix.service) }}
+
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Make gradlew executable
-      run: chmod +x ./gradlew
-
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4 # More information on this action can be found below in the 'AWS Credentials' section
-      with:
-        aws-access-key-id: ${{secrets.ACCESS_KEY_ID}}
-        aws-secret-access-key: ${{secrets.ACCESS_SECRET_KEY}}
-        aws-region: ap-northeast-2
-        
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v2
-      
-    - name: Make gradlew executable 
-      working-directory: ./${{ matrix.service }}
-      run: chmod +x ./gradlew
-
-    - name: Build Docker image for proxy-kotlin
-      working-directory: ./${{ matrix.service }}
-      run: ./gradlew buildDockerImageCustoms
-      
-    - name: Build and push proxy-kotlin Docker image to Amazon ECR
-      working-directory: ./${{ matrix.service }}
-      env:
-        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: ${{ matrix.repository }}
-        IMAGE_TAG: ${{ github.sha }}
-      run: |
-        docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
-          --build-arg JAR_FILE=build/libs/*.jar .
-        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
-
+      - uses: actions/checkout@v3
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{secrets.ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.ACCESS_SECRET_KEY}}
+          aws-region: ap-northeast-2
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      - name: Make gradlew executable
+        working-directory: ./${{ matrix.service }}
+        run: chmod +x ./gradlew
+      - name: Build Docker image
+        working-directory: ./${{ matrix.service }}
+        run: ./gradlew buildDockerImageCustoms
+      - name: Build and push Docker image to Amazon ECR
+        working-directory: ./${{ matrix.service }}
+        env:
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          REPOSITORY: ${{ matrix.repository }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
+            --build-arg JAR_FILE=build/libs/*.jar .
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
