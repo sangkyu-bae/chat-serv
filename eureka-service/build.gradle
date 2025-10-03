@@ -61,7 +61,7 @@ tasks.register('buildDockerImageCustoms', com.bmuschko.gradle.docker.tasks.image
 
     dependsOn bootJarTask
     inputDir.set(project.projectDir)
-    dockerFile.set(file('DockerFile'))
+    dockerFile.set(file('Dockerfile'))
     images.add("${project.name}:${project.version}")
 
     // 설정 단계에서 Provider로 build-arg 지정
