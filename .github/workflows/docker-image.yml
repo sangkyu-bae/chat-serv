@@ -14,14 +14,13 @@ jobs:
       changed: ${{ steps.detect.outputs.changed }}
     steps:
       - uses: actions/checkout@v3
-
       - id: detect
         run: |
           echo ">>> Detecting changed directories..."
-          # 직전 커밋 ~ 현재 커밋 비교
-          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | cut -d/ -f1 | sort -u)
+          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | cut -d/ -f1 | sort -u | jq -R -s -c 'split("\n")[:-1]')
           echo "Changed dirs: $CHANGED"
           echo "changed=$CHANGED" >> $GITHUB_OUTPUT
+
 
   # 2. 서비스별 빌드 & 배포
   build:
@@ -40,7 +39,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Make gradlew executable
-        if: ${{ contains(needs.detect-changes.outputs.changed, matrix.service) }}
+        if: ${{ contains(fromJSON(needs.detect-changes.outputs.changed), matrix.service) }}
         run: chmod +x ./gradlew
 
       - name: Configure AWS credentials
