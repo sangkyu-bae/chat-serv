@@ -87,5 +87,5 @@ jobs:
           repository: sangkyu-bae/chat-helm-chart
           path: helm-chart
           ref: main
-          ssh-key: ${{CHAT_HELM_CHARTS_REPO_KEY}}
+          ssh-key: ${{ secrets.CHAT_HELM_CHARTS_REPO_KEY }}
           
