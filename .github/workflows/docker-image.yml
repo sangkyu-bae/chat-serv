@@ -81,11 +81,22 @@ jobs:
             --build-arg JAR_FILE=build/libs/*.jar .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
           
+     # SSH 키 정상 연결 테스트 (디버깅용)
+      - name: Verify SSH connection
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.CHAT_HELM_CHARTS_REPO_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          echo "Testing SSH connection..."
+          ssh -T git@github.com || true
+
+      #  Helm Repository Checkout
       - name: Checkout Helm Repository
         uses: actions/checkout@v3
         with: 
           repository: sangkyu-bae/chat-helm-chart
-          path: helm-chart
           ref: main
+          path: helm-chart
           ssh-key: ${{ secrets.CHAT_HELM_CHARTS_REPO_KEY }}
-          
+          persist-credentials: false 
