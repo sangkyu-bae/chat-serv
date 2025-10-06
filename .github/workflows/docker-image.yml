@@ -80,3 +80,11 @@ jobs:
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
             --build-arg JAR_FILE=build/libs/*.jar .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          
+      - name: Checkout Helm Repository
+        uses: actions/checkout@v3
+        with: 
+          repository: sangkyu-bae/chat-helm-chart
+          path: helm-chart
+          ref: main
+          
