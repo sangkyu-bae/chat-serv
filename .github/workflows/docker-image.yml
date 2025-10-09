@@ -3,7 +3,7 @@ name: Chat Service CI/CD
 env:
   BUILD_ID: ${{ github.sha }}
   HELM_VALUE: chat-service-chart/values-dev.yaml
-  HELM_BRANCH: master
+  HELM_BRANCH: dev
 on:
   push:
     branches: [ "master" ]
