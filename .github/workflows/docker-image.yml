@@ -3,7 +3,7 @@ name: Chat Service CI/CD
 env:
   BUILD_ID: ${{ github.sha }}
   HELM_VALUE: chat-service-chart/values-dev.yaml
-  HELM_BRANCH: master
+  HELM_BRANCH: dev
 on:
   push:
     branches: [ "master" ]
@@ -90,7 +90,7 @@ jobs:
           ref: master
           path: helm-chart
           ssh-key: ${{ secrets.CHAT_HELM_CHARTS_REPO_KEY }}
-          persist-credentials: false 
+          persist-credentials: true 
           
       - name: Change Image Tag of the Helm value
         uses: mikefarah/yq@v4.34.1
